@@ -9,6 +9,7 @@
 \usepackage{graphicx}
 \usepackage{cite}
 \usepackage{booktabs}
+\usepackage{xcolor}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true, linkcolor=blue!50!black, citecolor=blue!50!black}
 
@@ -30,23 +31,7 @@
 
 \input{introduction.tex}
 
-\section{Related Work}
-\label{sec:related}
-
-\paragraph{Placeholder.}
-A full survey of load-aware routing, backpressure, multipath
-schemes, and learning-based routers will be added in the next
-revision. The taxonomy distinguishes our contribution from prior
-work along the dimension of \emph{per-packet state}: classical
-load-aware routers (LASP, ECMP, MPTCP) decide routes based on
-network state alone; reinforcement-learning routers
-\cite{boyan1994packet,valadarsky2017learning} learn richer
-policies but the resulting decisions remain stateless at packet
-granularity; backpressure schemes
-\cite{tassiulas1992stability,ji2013delay} exploit per-queue
-gradients but not per-packet history. Mass-aware routing extends
-all of the above with a per-packet scalar, which is---to our
-knowledge---a novel commitment.
+\input{section2_related.tex}
 
 \input{section3_model.tex}
 
@@ -99,7 +84,9 @@ times on a commodity CPU.
 
 \input{sections5_6.tex}
 
-% Placeholder bibliography for the paragraph references.
+\input{section7_discussion.tex}
+
+% Bibliography.
 \begin{thebibliography}{9}
 \bibitem{tassiulas1992stability}
 L.~Tassiulas and A.~Ephremides, ``Stability properties of constrained
@@ -130,6 +117,49 @@ route,'' in \emph{HotNets}, 2017.
 J.~W.~Pratt, ``Remarks on zeros and ties in the Wilcoxon signed
 rank procedures,'' \emph{Journal of the American Statistical
 Association}, vol.~54, no.~287, pp.~655--667, 1959.
+
+\bibitem{thaler2000ecmp}
+D.~Thaler and C.~Hopps, ``Multipath issues in unicast and
+multicast next-hop selection,'' RFC 2991, 2000.
+
+\bibitem{ford2013mptcp}
+A.~Ford, C.~Raiciu, M.~Handley, and O.~Bonaventure, ``TCP extensions
+for multipath operation with multiple addresses,'' RFC 6824, 2013.
+
+\bibitem{stolyar2005maximizing}
+A.~L.~Stolyar, ``Maximizing queueing network utility subject to
+stability: greedy primal-dual algorithm,'' \emph{Queueing Systems},
+vol.~50, no.~4, pp.~401--457, 2005.
+
+\bibitem{xiao2020survey}
+Y.~Xiao, J.~Liu, J.~Wu, and N.~Ansari, ``Leveraging deep reinforcement
+learning for traffic engineering: a survey,'' \emph{IEEE
+Communications Surveys \& Tutorials}, vol.~23, no.~4,
+pp.~2064--2097, 2021.
+
+\bibitem{ramakrishnan2001ecn}
+K.~Ramakrishnan, S.~Floyd, and D.~Black, ``The addition of explicit
+congestion notification (ECN) to IP,'' RFC 3168, 2001.
+
+\bibitem{alizadeh2010dctcp}
+M.~Alizadeh \emph{et al.}, ``Data center TCP (DCTCP),'' in
+\emph{ACM SIGCOMM}, 2010.
+
+\bibitem{briscoe2014conex}
+B.~Briscoe \emph{et al.}, ``Concepts, abstract mechanism, and
+requirements for congestion exposure (ConEx),'' RFC 7713, 2015.
+
+\bibitem{jain2013b4}
+S.~Jain \emph{et al.}, ``B4: experience with a globally-deployed
+software defined WAN,'' in \emph{ACM SIGCOMM}, 2013.
+
+\bibitem{hong2013swan}
+C.-Y.~Hong \emph{et al.}, ``Achieving high utilization with
+software-driven WAN,'' in \emph{ACM SIGCOMM}, 2013.
+
+\bibitem{filsfils2018srv6}
+C.~Filsfils \emph{et al.}, ``Segment routing for IPv6 (SRv6) network
+programming,'' RFC 8986, 2021.
 \end{thebibliography}
 
 \end{document}
