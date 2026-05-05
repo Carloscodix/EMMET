@@ -21,7 +21,7 @@ participates in the routing decision}.
 
 The classical line of load-aware routing weights each edge by a
 function of its instantaneous utilization and runs a shortest-path
-algorithm on the resulting graph. LASP~\cite{cohen2014lasp}
+algorithm on the resulting graph. The load-aware shortest-path family (LASP)
 multiplies edge latency by $1+\rho(u,v)$, producing a Dijkstra
 that prefers under-utilized links. Equal-Cost Multi-Path
 (ECMP)~\cite{thaler2000ecmp} hashes flows uniformly across
@@ -52,10 +52,11 @@ same routing recommendation under all three.
 Backpressure scheduling~\cite{tassiulas1992stability} and its
 delay-aware refinements~\cite{ji2013delay} route packets along
 gradients of per-queue backlog, achieving throughput-optimal
-behavior under stationary arrivals. Distance-aware
-variants~\cite{stolyar2005maximizing} blend backpressure with
-shortest-path bias to mitigate the well-known last-mile
-inefficiency of pure backpressure.
+behavior under stationary arrivals. A well-known limitation of
+pure backpressure is the so-called last-mile inefficiency, in
+which packets accumulate near the destination before being
+forwarded; subsequent variants combine backpressure with
+shortest-path bias to mitigate this effect.
 
 Backpressure is centrally about \emph{network-level state}: the
 gradient field is a property of the queues, not of the packets
