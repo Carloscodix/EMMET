@@ -1,3 +1,94 @@
+# Session Notes (May 5, 2026 — iPhone session, recovered to roadmap)
+
+## Pending technical work to close the paper
+
+- **C1** — Formal Big-O complexity analysis as a dedicated subsection
+  in §4 (currently only a paragraph). DP cost is O(|V| · H · B · deg)
+  with H = ⌈α_budget · sp_hops⌉, deg = mean degree, B = mass buckets.
+- **C2** — Complete bibliography with DOIs (currently the bibliography
+  has 13 entries but several lack DOI fields). Needed for arXiv and
+  for any subsequent revista submission.
+- **C3** — Final Codex audit round (round 6) over the complete
+  16-page paper.
+- **C4** — arXiv upload. After upload create tag `v1.0-preprint` and
+  update README + CITATION.cff with the arXiv ID and DOI.
+
+## Order of operations after C1-C4
+
+1. arXiv submit — wait 24-48h for indexing and canonical URL
+2. Once arXiv ID is assigned, in the same afternoon:
+   - LinkedIn post with the arXiv URL
+   - Update README.md to include arXiv ID
+   - Update CITATION.cff with version `v1.0-preprint` and DOI
+   - Tag `v1.0-preprint` on HEAD
+3. Watch the response for 2-3 weeks before deciding next moves
+
+## Strategic decisions taken in this session
+
+### Publication path
+
+- Target revista: **Computer Networks (Elsevier)**, Tier 2 solid,
+  realistic timeline, peer-reviewed legitimacy.
+- Backup if rejected: IEEE TNSM (controller-level routing angle from
+  §7.2 fits well there).
+- **No conferences.** Bobby Fischer mode: arXiv + revista + silence.
+- Sole author always.
+
+### What "no conferences" buys us
+
+- Protects sole-author status (conferences breed multi-author papers
+  with diluted attribution)
+- Avoids the academic-political overhead
+- arXiv + GitHub + LinkedIn are sufficient for the audience that
+  matters (TR/Pinecone-tier research engineers)
+
+### Career movements (not decided yet, sequenced for later)
+
+- **Movement A** — recolocación TR/Pinecone via direct LinkedIn
+  outreach to research engineers (not recruiters). Trigger:
+  immediately after LinkedIn post lands.
+- **Movement B** — second paper, EMMET as a generalized framework
+  for trajectory-aware planning. Trigger: only if first paper gets
+  meaningful traction.
+- **Movement C** — consultancy / advisory. Trigger: only if
+  someone reaches out with a specific need.
+
+### Second paper scope
+
+- **Recommended domain: logistics** (last-mile delivery, supply
+  chain). Public datasets abundant (NYC Taxi, Amazon last-mile
+  benchmark). Industrial connectability strong.
+- Second choice: swarm robotics. More academically prestigious but
+  more experimental cost.
+- **Discarded**: epidemiology (no medical credentials → reviewer
+  hostility), finance (real alpha is hidden behind proprietary code).
+- Structure: three case studies in a single paper, framing EMMET as
+  a "trajectory-aware planning under medium-induced cost dynamics"
+  framework.
+- Not started yet. First paper's reception is the trigger.
+
+### Why this is the right shape of move
+
+Carlos doesn't want to maintain EMMET as a product or live off open
+source. The paper is portfolio, not product. Once submitted to arXiv:
+- The idea belongs to the world
+- The timestamp protects priority
+- The Sunday-afternoon physical intuition (§3.1) is the human
+  signature that makes the work hard to imitate by LLM iteration
+- Carlos's commitment to EMMET ends when the paper is published
+
+## Background context (so this file is self-contained)
+
+- Carlos works on EVA under NDA, cannot publish that work
+- No formal academic credential
+- Terrassa, ADHD
+- EMMET is the demonstrable portfolio piece for a research engineer
+  role at TR/Pinecone tier
+- EVA pays the bills; EMMET is positioning
+- Do not mix the two in any public communication
+
+---
+
 # EMMET — Pre-Submission Roadmap
 
 Plan consolidado tras auditoría de 7 modelos externos (Codex GPT, Kimi,

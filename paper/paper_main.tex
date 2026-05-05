@@ -71,16 +71,7 @@ remains near $m{=}1$ throughout.}
 \label{fig:concept}
 \end{figure}
 
-\paragraph{Complexity.}
-For each source--destination pair, Algorithm~\ref{alg:massaware-dp}
-runs a dynamic program over the state space
-$\{0,\dots,H\}\times V \times \{0,\dots,B-1\}$. Each transition
-considers $\deg(v)\cdot B$ predecessors, giving overall time
-$\mathcal{O}(H\cdot |E|\cdot B)$ per route and space
-$\mathcal{O}(H\cdot |V|\cdot B)$. Path reconstruction is
-$\mathcal{O}(H)$. With $H \le 2|V|$, $B = 32$ and $|E| \le 1000$
-in our experiments, this corresponds to single-millisecond decision
-times on a commodity CPU.
+\input{section4_complexity.tex}
 
 \input{sections5_6.tex}
 

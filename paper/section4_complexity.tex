@@ -1,0 +1,117 @@
+% =====================================================================
+% Section 4.X: Complexity analysis (formal)
+%
+% Replaces the brief "Complexity" paragraph in paper_main.tex with a
+% dedicated subsection that:
+%   - tabulates per-operation cost
+%   - derives the closed-form total cost
+%   - gives concrete operation counts for GEANT
+%   - compares against the Dijkstra baselines
+% =====================================================================
+
+\subsection{Complexity}
+\label{subsec:complexity}
+
+We analyze the time and space complexity of
+Algorithm~\ref{alg:massaware-dp} per routing decision (one
+source--destination pair). Let $n = |V|$, $e = |E|$, $\bar{d} =
+2e/n$ the mean degree, $H = \lceil \alpha_{\text{budget}}
+\cdot h_{\text{sp}}\rceil$ the hop budget (with $h_{\text{sp}}$
+the shortest-path hop count from $s$ to $t$), and $B$ the number
+of mass buckets. Recall that
+$\alpha_{\text{budget}} = 1.25$ and $B = 32$ throughout this paper.
+
+\paragraph{Per-operation cost.}
+Table~\ref{tab:complexity} enumerates the four operations the DP
+performs and the cost of each.
+
+\begin{table}[h]
+\centering
+\caption{Per-operation cost of Algorithm~\ref{alg:massaware-dp}.
+The dominant term is the relaxation step, which is repeated
+$H \cdot n \cdot \bar{d} \cdot B$ times.}
+\label{tab:complexity}
+\small
+\begin{tabular}{lll}
+\toprule
+Operation & Frequency & Cost per call \\
+\midrule
+\textsc{EdgePotential}($u,v$) & $H \cdot n \cdot \bar{d}$ & $\mathcal{O}(1)$ \\
+Mass update + bucketize       & $H \cdot n \cdot \bar{d} \cdot B$ & $\mathcal{O}(1)$ \\
+Relaxation $f[h][v][b]$ update & $H \cdot n \cdot \bar{d} \cdot B$ & $\mathcal{O}(1)$ \\
+Path reconstruction           & $H$ & $\mathcal{O}(1)$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Total time complexity.}
+Summing the dominant terms in Table~\ref{tab:complexity}, the
+per-decision time complexity is
+\begin{equation}
+T(n, e, B, H) = \mathcal{O}\!\left(H \cdot n \cdot \bar{d} \cdot B\right)
+              = \mathcal{O}\!\left(H \cdot e \cdot B\right),
+\label{eq:time-complexity}
+\end{equation}
+since $n \cdot \bar{d} = 2e$. Substituting
+$H \le \alpha_{\text{budget}} \cdot \mathrm{diam}(G) \le
+\alpha_{\text{budget}} \cdot n$ in the worst case yields the
+loose upper bound $\mathcal{O}(n \cdot e \cdot B)$. In practice
+$H$ scales with the diameter of $G$, which for the topologies in
+our evaluation satisfies $\mathrm{diam}(G) = \mathcal{O}(\log n)$
+for Erd\H{o}s--R\'enyi and Barab\'asi--Albert graphs and
+$\mathrm{diam}(G) = \mathcal{O}(\sqrt{n})$ for the regular
+lattice; the realized cost is correspondingly lower.
+
+\paragraph{Space complexity.}
+The DP stores $f$ and $\pi$ tables of dimensions
+$(H+1) \times n \times B$, giving
+\begin{equation}
+S(n, B, H) = \mathcal{O}(H \cdot n \cdot B).
+\label{eq:space-complexity}
+\end{equation}
+For $n = 40$ (GÉANT), $B = 32$, $H = 18$, this is approximately
+$2.3 \cdot 10^4$ floating-point entries per table, or roughly
+$370\,$KB across both tables in double precision. The memory
+footprint is negligible for a controller-class deployment.
+
+\paragraph{Concrete operation counts on GÉANT.}
+For the headline scenario ($n = 40$, $e = 61$, $\bar{d} = 3.05$,
+$H \approx 18$ for typical s--t pairs, $B = 32$):
+\[
+H \cdot e \cdot B \;\approx\; 18 \cdot 61 \cdot 32
+                          \;=\; 35{,}136 \;\text{relaxations per
+route}.
+\]
+With each relaxation costing on the order of 100\,ns on a
+commodity CPU, this puts the per-route decision time at
+approximately $3.5$\,ms, consistent with what we measure in
+practice ($\sim$$3$--$8$\,ms median per route).
+
+\paragraph{Comparison against baselines.}
+The Dijkstra-based baselines (SP, LASP, LASP-aug) compute a
+shortest-path tree at cost
+$\mathcal{O}((n + e)\log n) \approx 700$ operations on GÉANT, or
+roughly $50\times$ cheaper than EMMET-DP per decision. The
+$50\times$ overhead is the price of carrying per-packet state
+through a constrained dynamic program rather than a stateless
+shortest-path computation. For controller-plane routing at
+admission time (the deployment regime described in
+\S\ref{subsec:protocol-implications}), this overhead is
+absorbable: a $3$--$8$\,ms decision per flow is below the
+inter-arrival time of new flows in any realistic backbone.
+For data-plane routing at line rate, the overhead is
+prohibitive without hardware acceleration, motivating the
+acceleration directions discussed in \S\ref{subsec:future-work}.
+
+\paragraph{Sensitivity to $B$.}
+The bucket count $B$ enters linearly in
+Equations~\ref{eq:time-complexity}--\ref{eq:space-complexity}.
+Reducing $B$ from $32$ to $8$ (the legacy value retained as the
+module default) reduces both time and memory by a factor of $4$,
+at the cost of coarser mass discretization. Our hostile-audit
+suspicion \#6 (\S\ref{sec:experiments}, \texttt{docs/AUDIT\_LOG.md})
+verified that the headline GÉANT loss reduction is stable across
+$B \in \{8, 16, 32, 64\}$ to within $0.20$ losses, indicating
+that $B = 32$ is comfortable but not knife-edge. Practitioners
+deploying EMMET-DP under tighter compute budgets can safely use
+$B = 16$ with negligible quality loss.
