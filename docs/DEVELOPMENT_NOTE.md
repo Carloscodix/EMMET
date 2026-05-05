@@ -2,8 +2,8 @@
 
 The visible commit history of this repository is intentionally
 condensed. The work was developed iteratively over several weeks,
-with a substantially larger number of intermediate commits than the
-five visible on the public branch. To keep the history focused on
+with a substantially larger number of intermediate commits than
+are visible on the public branch. To keep the history focused on
 the algorithm and its validation, the development was squashed into
 thematic commits when the repository was prepared for public
 release.

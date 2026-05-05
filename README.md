@@ -23,8 +23,8 @@ On the **GÉANT** topology (real European backbone, 40 nodes,
 Paired t-test: t = 5.21, p ≪ 0.001.
 Wilcoxon signed-rank: W = 4137.5, p = 1.1×10⁻⁸.
 
-The improvement generalizes across **22 scenarios in 5 topology
-families**: Erdős–Rényi (14 configs), real backbones (GÉANT, Abilene),
+The improvement generalizes across **26 scenarios in 5 topology
+families**: Erdős–Rényi (18 configs), real backbones (GÉANT, Abilene),
 2D regular lattice, scale-free Barabási–Albert, and small-world
 Watts–Strogatz.
 
@@ -55,8 +55,15 @@ emmet/
 │   ├── figure1_concept.tex (+ .pdf)
 │   ├── paper_main.tex               Assembles the above into preview
 │   └── archive/         Earlier paper versions
-├── ROADMAP.md            Project history and remaining work
+├── docs/
+│   ├── AUDIT_LOG.md      Internal hostile-suspicion checks and external code-audit history
+│   ├── DEVELOPMENT_NOTE.md   Note on the condensed commit history
+│   └── internal/         Working notes (not part of the public claim surface)
 ├── requirements.txt
+├── LICENSE
+├── CITATION.cff
+├── REPRODUCIBILITY.md
+├── RESULTS_MANIFEST.md
 └── README.md
 ```
 

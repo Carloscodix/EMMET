@@ -106,6 +106,6 @@ quick summary.
 | Claim | Script | Output | Paper |
 |---|---|---|---|
 | GÉANT −60.2 % | `momentum_clean_full.py` | `momentum_clean_full_summary.json` | §6.1, Table 1 |
-| 22-scenario generalization | `momentum_clean_full.py` + `topology_extended_battery.py` | `*_summary.json` | §6.2, Table 2, Figure 4 |
+| 26-scenario generalization | `momentum_clean_full.py` + `topology_extended_battery.py` | `*_summary.json` | §6.2, Table 2, Figure 4 |
 | κ=1.0 Pareto-optimal | `momentum_clean_kappa_sweep.py` | `momentum_clean_kappa_sweep_summary.json` | §6.3, Table 3, Figure 5 |
 | t = 5.21, Wilcoxon p = 1.1×10⁻⁸ | `hostile_audit_momentum_v2.py` | stdout | §5.6, §6.1 |

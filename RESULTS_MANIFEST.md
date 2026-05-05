@@ -49,11 +49,11 @@ assert 60.0 < (la - mom) / la * 100 < 60.5, "Headline number drift"
 
 ## Generalization claims
 
-### 22-scenario battery, 5 topology families
+### 26-scenario battery, 5 topology families
 
 | Component | Path |
 |---|---|
-| ER + Real (16 + 2 scenarios) | `experiments/momentum_clean_full.py` → `data/momentum_clean_full_*.json` |
+| ER + Real (18 + 2 scenarios) | `experiments/momentum_clean_full.py` → `data/momentum_clean_full_*.json` |
 | Grid + BA + WS (1 + 2 + 3 scenarios) | `experiments/topology_extended_battery.py` → `data/topology_extended_*.json` |
 | Topology builders | `experiments/topology_builders.py` |
 | Paper section | §6.2 — Table 2, Figure 4 |
