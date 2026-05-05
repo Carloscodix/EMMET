@@ -9,7 +9,7 @@
 Modern adaptive routing algorithms react to network congestion through
 edge-state information shared across all packets, but they lack
 \emph{per-packet history}: two packets sharing the same source and
-destination at the same instant always traverse the same path,
+destination at the same instant traverse the same path under existing stateless load-aware routers (ECMP-style hashing aside),
 contributing identically to congestion. We introduce
 \emph{mass-aware routing}, a stateful extension to gradient-based
 adaptive routing where each packet carries an internal scalar---its
@@ -19,7 +19,7 @@ the cost of candidate edges, naturally biasing more-traveled
 packets toward less-congested paths. We instantiate this idea as a
 constrained dynamic-programming router (\emph{Mass-Aware DP}) that
 computes, for each packet, the path of minimal mass-weighted
-cumulative potential within a hop budget, guaranteeing delivery
+cumulative potential within a hop budget, guaranteeing a route
 whenever a feasible path exists. On the GÉANT topology, Mass-Aware DP
 reduces congestion losses by 60.2\% relative to a Dijkstra baseline
 that uses the same edge potential and equivalent warmup conditions
@@ -29,6 +29,9 @@ generalizes across 26 scenarios spanning Erd\H{o}s--R\'enyi, scale-free,
 small-world, regular lattice, and real network topologies, and
 vanishes precisely in uncongested regimes---confirming that the
 mass dynamics extracts information unavailable to stateless routers.
+The routing decision is taken once per packet at admission, with the mass
+scalar evolved internally during the dynamic-programming search over
+candidate paths; packets do not reroute mid-flight in the evaluated configuration.
 \end{abstract}
 
 % Keywords (Elsevier requires 4-6 keywords below abstract):

@@ -6,8 +6,13 @@
 \label{sec:experiments}
 
 We evaluate EMMET-DP against three baselines on a battery of $26$
-network scenarios drawn from five topology families, with $100$
-randomized traffic seeds per scenario. This section details the
+network scenarios drawn from five topology families. We use
+$100$ paired seeds per scenario for the real backbones, the
+small ($n=20$) and medium ($n=50$) Erd\H{o}s--R\'enyi instances,
+the regular lattice, and the Barab\'asi--Albert and Watts--Strogatz
+configurations; the four largest Erd\H{o}s--R\'enyi instances
+($n=100$) use $50$ paired seeds each due to higher per-run
+runtime. This section details the
 experimental protocol, statistical analysis, and the steps taken to
 ensure that the comparison between algorithms is fair and the
 reported improvements are not artifacts of methodology.
@@ -77,7 +82,7 @@ Each event is a random source--destination pair drawn uniformly from
 $V\times V$, with $s\ne t$. The same seed is used for both the
 LASP-aug and EMMET-DP runs in each pairing, so per-seed differences
 isolate the algorithmic effect; means and statistical tests are
-computed across the $100$ seeds.
+computed across the seeds for each scenario (100 in most cases, 50 for $n=100$ ER instances; see above).
 
 \subsection{Warmup protocol}
 \label{subsec:warmup}
@@ -117,8 +122,7 @@ the topology (relevant for sparse Erd\H{o}s--R\'enyi instances).
 packets. Captures the routing detour overhead conditioned on success.
 \item \emph{Cap. per routed attempt}: average hop count over
 $\textsc{Delivered}+\textsc{Losses}$, i.e., over packets the network
-\emph{attempted} to route. This metric, requested by Codex (round 4),
-exposes capacity wasted en route to a drop event and prevents
+\emph{attempted} to route. This metric exposes capacity wasted en route to a drop event and prevents
 unrouteable packets from artificially deflating average path length.
 \item \emph{Capacity wasted on losses}: total hop budget consumed by
 packets that were eventually dropped. EMMET-DP loses $3.57$ hops
@@ -130,7 +134,7 @@ long doomed trajectory.
 \subsection{Statistical protocol}
 \label{subsec:statistics}
 
-For each scenario we report the mean across $100$ paired seeds
+For each scenario we report the mean across the paired seeds
 (LASP-aug and EMMET-DP run on the same seed). On the headline
 GÉANT scenario we additionally report two paired tests:
 

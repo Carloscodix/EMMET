@@ -49,10 +49,14 @@ intelligently.
 \subsection{Implications for protocol design}
 \label{subsec:protocol-implications}
 
-EMMET-DP is a controller-level routing algorithm. It assumes
-access to global topology and to per-edge state, makes a single
-routing decision per packet at admission, and emits a fixed
-forwarding path. This places it in the same architectural family
+EMMET-DP is an admission-time, controller-level routing
+algorithm. It assumes access to global topology and to per-edge
+state, makes a single routing decision per packet \emph{at the
+moment the packet is admitted to the network}, and emits a fixed
+forwarding path. The mass scalar evolves internally during the
+dynamic-programming search over candidate paths; once the path
+is selected, packets do not reroute mid-flight under the
+evaluation in this paper. This places it in the same architectural family
 as software-defined networking control planes such as B4 and
 SWAN~\cite{jain2013b4,hong2013swan}, and unlike data-plane schemes
 such as ECMP that distribute routing decisions per-flow at line
