@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this code or refer to the EMMET algorithm, please cite as below."
+title: "EMMET: Effective-Mass Memory Edge Transport"
+abstract: >-
+  A stateful extension to gradient-based adaptive routing in which each
+  packet carries an internal scalar (its mass) that grows multiplicatively
+  with the congestion of edges traversed. The mass scales the cost of
+  candidate edges at every routing decision, producing emergent load
+  balancing without central coordination. Reduces congestion losses on
+  the GÉANT topology by 60.2 % vs. a Dijkstra baseline using the same
+  edge potential.
+authors:
+  - family-names: López
+    given-names: Carlos
+type: software
+repository-code: "https://github.com/Carloscodix/EMMET"
+license: MIT
+version: "0.1.0-preprint"
+date-released: "2026-05-05"
+keywords:
+  - adaptive routing
+  - load-aware routing
+  - stateful packet processing
+  - network simulation
+  - congestion control
