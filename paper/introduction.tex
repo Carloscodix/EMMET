@@ -1,0 +1,130 @@
+% =====================================================================
+% Introduction for EMMET-momentum-DP paper.
+% Length: ~1.5 pages in two-column Elsevier format.
+% Five subsections in prose (not numbered): problem, gap, contribution,
+% results, organization.
+% =====================================================================
+
+\section{Introduction}
+\label{sec:introduction}
+
+Loss-sensitive workloads---real-time video, financial trading,
+telesurgery, autonomous-vehicle telemetry---place strict requirements
+on the tail behavior of network paths. A single dropped packet
+can stall a TCP flow, jitter a video frame, or invalidate a
+deterministic-latency contract. As traffic patterns become
+increasingly bursty and topologies host an ever-greater density of
+flows, the central problem of adaptive routing remains
+unsolved at the algorithmic level: \emph{given a transient view of
+edge utilization, choose paths that not only avoid current
+congestion but also avoid \textbf{contributing} to future congestion}.
+
+Existing adaptive routers respond to this challenge with edge-level
+state. Backpressure routing~\cite{tassiulas1992stability,
+ji2013delay} uses queue gradients to drive packet
+forward-progress decisions. LASP~\cite{cohen2014lasp} weights
+shortest-path costs by edge load, biasing routes away from
+busy links. Reinforcement-learning routers~\cite{boyan1994packet,
+valadarsky2017learning} learn policies that incorporate richer
+features but ultimately collapse to per-edge decisions
+indistinguishable across packets. All of these approaches share a
+structural property: at any instant, two packets identical in
+source, destination and arrival time observe the same network
+state, and therefore receive the same routing decision. There is no
+mechanism by which one packet's traversal informs the routing of a
+sibling packet that has already been issued. Per-packet
+\emph{history}---the trajectory each packet has experienced and
+the work it has done against the network---is invisible to the
+router.
+
+We argue that this missing dimension matters. When a network is
+congested, two packets headed for the same destination should not
+both follow the same hot path; the router should distribute them
+across alternatives even when the global state alone offers no
+basis for the distinction. Achieving this without a centralized
+controller, without out-of-band coordination, and without violating
+delivery guarantees is the question we address.
+
+\paragraph{Contribution.}
+We propose \emph{mass-aware routing}, a load-aware routing scheme in
+which each packet carries an internal scalar state---its
+\emph{mass}---that evolves with the packet's trajectory. The mass
+starts at unity and grows multiplicatively whenever the packet
+traverses a congested edge:
+\begin{equation}
+m_{\text{out}} \;=\; \min\!\Big(m_{\text{in}}\cdot
+                       \big(1 + \kappa\,\rho(u,v)\big),\; m_{\max}\Big),
+\label{eq:mass-update-intro}
+\end{equation}
+where $\rho(u,v)$ is the local congestion of edge $(u,v)$ and
+$\kappa$ is a growth coefficient. At every routing decision, the
+mass scales the cost of candidate edges:
+\(\delta(u,v) \;=\; m \cdot \Phi(u,v)\), where $\Phi$ is an integrated
+edge potential combining latency, congestion, and a thermal-memory
+term tracking past loss events. A packet that has accumulated
+mass through a congested neighborhood is, by construction, more
+expensive to route through any further congested edges, and
+therefore the router---given the same destination---steers it
+toward less-loaded alternatives.
+
+We instantiate this principle as a constrained dynamic-programming
+router (\emph{Mass-Aware DP}) over the joint state space
+$\{\text{node}\}\times\{\text{hops}\}\times\{\text{mass-bucket}\}$,
+with hop budget $H = \lceil\alpha_b\cdot h_{\text{sp}}\rceil$
+relative to the unweighted shortest path. The DP guarantees that
+a feasible path within budget is always found when one exists,
+eliminating the dead-end failure modes of greedy adaptive routers.
+The complete algorithm is given in
+Algorithm~\ref{alg:massaware-dp}.
+
+\paragraph{Why per-packet state matters.}
+Two structural properties distinguish mass-aware routing from
+prior load-aware schemes. First, two packets identical in
+$(s,t,\text{arrival time})$ but differing in trajectory thus far
+receive \emph{different} routing recommendations: the heavier
+packet is steered toward cooler regions of the graph, the lighter
+packet may take the more direct route. This produces emergent load
+balancing without any central coordinator. Second, because the
+mass is a property of the packet itself rather than the network,
+the mechanism degrades gracefully under workloads that conventional
+load-aware routers handle poorly: when a sequence of packets shares
+the same source and destination, mass-aware routing spreads them
+across paths in proportion to instantaneous network state, whereas
+LASP-class algorithms send them all down the same locally-optimal
+edge.
+
+\paragraph{Results.}
+On the GÉANT topology with $100$ random traffic seeds, mass-aware
+DP reduces congestion losses by $60.2\%$ relative to LASP-aug, a
+Dijkstra baseline using the same integrated potential function
+(paired $t = 5.21$, Wilcoxon $p = 1.1\times 10^{-8}$). The
+improvement holds with negligible additional capacity consumption
+per delivered packet ($+0.04$ hops on average) and across $22$
+scenarios spanning five topology families: Erd\H{o}s--R\'enyi
+($14$ configurations), scale-free Barab\'asi--Albert,
+small-world Watts--Strogatz, $7\times 7$ regular lattice, and the
+real GÉANT and Abilene backbones. Crucially, the improvement
+\emph{vanishes} in uncongested regimes---when the network has no
+congestion to disambiguate, mass-aware routing reduces to the
+underlying shortest-path baseline and gains nothing. This
+selective effectiveness, rather than a uniform improvement, is
+the signature of a mechanism that extracts genuinely new
+information from per-packet state.
+
+Mass-aware DP is approximately $8.8\times$ slower than LASP-aug
+per routing decision, situating it firmly in the controller-plane
+or traffic-engineering regime rather than per-packet forwarding.
+We discuss the implications of this trade-off, and possible
+hardware-accelerated variants, in Section~\ref{sec:discussion}.
+
+\paragraph{Organization.}
+Section~\ref{sec:related} surveys load-aware and stateful routing
+literature.  Section~\ref{sec:model} formalizes the network model,
+the integrated edge potential, and the mass-update dynamics.
+Section~\ref{sec:algorithm} presents the Mass-Aware DP algorithm
+and analyzes its complexity. Section~\ref{sec:experiments} details
+the evaluation methodology, including baselines, topologies and
+statistical protocol. Section~\ref{sec:results} reports per-scenario
+results and ablations. Section~\ref{sec:discussion} discusses
+limitations, deployment regimes, and connections to prior work.
+Section~\ref{sec:conclusion} concludes.

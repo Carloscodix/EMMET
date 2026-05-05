@@ -1,0 +1,41 @@
+% =====================================================================
+% Abstract for EMMET-momentum-DP paper.
+% Target venue: Computer Networks (Elsevier), IEEE TNSM, or JCN.
+% Length: 200 words (within 150-250 word range).
+% Tone: stateful routing contribution, not "physics-inspired".
+% =====================================================================
+
+\begin{abstract}
+Modern adaptive routing algorithms react to network congestion through
+edge-state information shared across all packets, but they lack
+\emph{per-packet history}: two packets sharing the same source and
+destination at the same instant always traverse the same path,
+contributing identically to congestion. We introduce
+\emph{mass-aware routing}, a stateful extension to gradient-based
+adaptive routing where each packet carries an internal scalar---its
+\emph{mass}---that grows monotonically with the congestion of edges it
+has traversed. At every routing decision, the packet's mass scales
+the cost of candidate edges, naturally biasing more-traveled
+packets toward less-congested paths. We instantiate this idea as a
+constrained dynamic-programming router (\emph{Mass-Aware DP}) that
+computes, for each packet, the path of minimal mass-weighted
+cumulative potential within a hop budget, guaranteeing delivery
+whenever a feasible path exists. On the GÉANT topology, Mass-Aware DP
+reduces congestion losses by 60.2\% relative to a Dijkstra baseline
+that uses the same edge potential and equivalent warmup conditions
+($t = 5.21$, Wilcoxon $p = 1.1\times 10^{-8}$), with negligible
+overhead in capacity consumed per delivered packet. The improvement
+generalizes across 22 scenarios spanning Erd\H{o}s--R\'enyi, scale-free,
+small-world, regular lattice, and real network topologies, and
+vanishes precisely in uncongested regimes---confirming that the
+mass dynamics extracts information unavailable to stateless routers.
+\end{abstract}
+
+% Keywords (Elsevier requires 4-6 keywords below abstract):
+\begin{keyword}
+adaptive routing \sep
+load-aware routing \sep
+congestion control \sep
+stateful packet processing \sep
+network simulation
+\end{keyword}

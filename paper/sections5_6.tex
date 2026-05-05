@@ -1,0 +1,308 @@
+% =====================================================================
+% Section 5: Experimental Methodology
+% =====================================================================
+
+\section{Experimental Methodology}
+\label{sec:experiments}
+
+We evaluate EMMET-DP against three baselines on a battery of $26$
+network scenarios drawn from five topology families, with $100$
+randomized traffic seeds per scenario. This section details the
+experimental protocol, statistical analysis, and the steps taken to
+ensure that the comparison between algorithms is fair and the
+reported improvements are not artifacts of methodology.
+
+\subsection{Baselines}
+\label{subsec:baselines}
+
+We compare EMMET-DP against three increasingly strong baselines, each
+representing a class of routing strategies in current literature:
+
+\begin{itemize}
+\item \textbf{SP} (shortest path): Dijkstra with edge weight equal to
+the static latency $\ell(u,v)$. The classical baseline.
+\item \textbf{LASP}: Dijkstra with edge weight
+$\ell(u,v)\cdot(1 + \lambda(u,v)/c(u,v))$, the load-aware
+shortest-path baseline of Cohen and Raz~\cite{cohen2014lasp}.
+\item \textbf{LASP-aug}: Dijkstra with edge weight equal to the
+\emph{full integrated potential} $\Phi(u,v)$ defined in
+Equation~\ref{eq:edge-potential}, including the loss-snapshot term.
+This is the strongest stateless baseline: it uses identical
+network-state information as EMMET-DP, so any improvement of
+EMMET-DP over LASP-aug is attributable to the per-packet mass
+mechanism alone, not to a richer cost function.
+\end{itemize}
+
+The comparison against LASP-aug is the primary headline of this work.
+SP and LASP are reported in supplementary material to verify that
+LASP-aug already captures most of the gain available from
+``smarter weights'' on a stateless Dijkstra, isolating the
+contribution of per-packet state.
+
+\subsection{Topologies and scenarios}
+\label{subsec:topologies}
+
+The evaluation covers five topology families, $26$ scenarios in
+total:
+
+\begin{itemize}
+\item \textbf{Real backbones} ($2$ scenarios): GÉANT (the European
+academic backbone, $22$ nodes, $36$ edges) and Abilene (the
+US Internet2 research backbone, $11$ nodes, $14$ edges), both
+loaded from \texttt{.graphml} sources.
+\item \textbf{Erd\H{o}s--R\'enyi} ($16$ scenarios): random
+graphs with $n\in\{20, 50, 100\}$ and connection probability
+$p$ varying over a representative range from sparse (and
+typically disconnected) to dense.
+\item \textbf{2D regular lattice} ($1$ scenario): $7\times 7$ grid
+($49$ nodes, $84$ edges).
+\item \textbf{Barab\'asi--Albert} ($2$ scenarios): scale-free
+graphs with $n=50$ and preferential-attachment parameter $m\in\{2, 3\}$.
+\item \textbf{Watts--Strogatz} ($3$ scenarios): small-world graphs
+with $n=50$, ring degree $k=4$, and rewire probability
+$p\in\{0.05, 0.10, 0.30\}$.
+\end{itemize}
+
+For each synthetic family the topology itself is regenerated with a
+new seed for every run, so scenarios labelled e.g.\ ``ER\_n50\_p0.10''
+report mean behavior over $100$ independently drawn graphs of that
+configuration. Edge attributes (latency, capacity) are sampled
+uniformly: $\ell(u,v)\sim U(1,5)$, $c(u,v)\sim U\{3,4,5,6\}$.
+
+\subsection{Workload}
+\label{subsec:workload}
+
+For each $(scenario, seed)$ pair we generate $200$ traffic events.
+Each event is a random source--destination pair drawn uniformly from
+$V\times V$, with $s\ne t$. The same seed is used for both the
+LASP-aug and EMMET-DP runs in each pairing, so per-seed differences
+isolate the algorithmic effect; means and statistical tests are
+computed across the $100$ seeds.
+
+\subsection{Warmup protocol}
+\label{subsec:warmup}
+
+Both algorithms operate on a network whose state $\theta$ (the loss
+snapshot) reflects past behavior. To avoid cold-start artifacts and to
+give each algorithm a fair operating point, we precede every
+measurement run with a \emph{warmup} of $\max(20, 5n)$ traffic events
+in which only that algorithm routes traffic. Each algorithm thus
+observes the consequences of its own routing decisions during warmup.
+
+This protocol is critical: an early version of our experiments
+reused a single warmup snapshot built by EMMET-DP for both
+algorithms, which inadvertently gave LASP-aug a slightly worse
+initial state than its own preferred warmup would produce. After
+correcting this by giving each algorithm its own warmup, the
+EMMET-DP improvement on GÉANT was reduced from $-66.4\%$ to
+$-60.2\%$. We report the corrected number as the headline
+throughout this paper.
+
+\subsection{Metrics}
+\label{subsec:metrics}
+
+Each $(scenario, seed)$ run reports the following per-algorithm
+quantities:
+
+\begin{itemize}
+\item \emph{Delivered}: number of packets that reached their
+destination without dropping.
+\item \emph{Losses}: number of packets dropped because an edge they
+attempted to traverse was at or above capacity.
+\item \emph{Nopath}: number of packets for which no path exists in
+the topology (relevant for sparse Erd\H{o}s--R\'enyi instances).
+\item \emph{Delivery rate}: \(\textsc{Delivered} / (\textsc{Delivered} +
+\textsc{Losses} + \textsc{Nopath})\).
+\item \emph{Cap. per delivery}: average hop count of delivered
+packets. Captures the routing detour overhead conditioned on success.
+\item \emph{Cap. per routed attempt}: average hop count over
+$\textsc{Delivered}+\textsc{Losses}$, i.e., over packets the network
+\emph{attempted} to route. This metric, requested by Codex (round 4),
+exposes capacity wasted en route to a drop event and prevents
+unrouteable packets from artificially deflating average path length.
+\item \emph{Capacity wasted on losses}: total hop budget consumed by
+packets that were eventually dropped. EMMET-DP loses $3.57$ hops
+on average vs.\ LASP-aug's $9.26$ on GÉANT, indicating that when
+EMMET-DP loses a packet, it loses it earlier rather than after a
+long doomed trajectory.
+\end{itemize}
+
+\subsection{Statistical protocol}
+\label{subsec:statistics}
+
+For each scenario we report the mean across $100$ paired seeds
+(LASP-aug and EMMET-DP run on the same seed). On the headline
+GÉANT scenario we additionally report two paired tests:
+
+\begin{itemize}
+\item \emph{Paired $t$-test} on the per-seed difference in losses.
+With $n=100$, $t=5.21$ corresponds to $p\ll 0.001$.
+\item \emph{Wilcoxon signed-rank test} (zero-method
+\texttt{zsplit}~\cite{pratt1959zero}) on the same paired
+differences, robust to the discrete and zero-inflated nature of
+loss counts. We obtain $W=4137.5$ with $p=1.1\times10^{-8}$.
+The sign distribution is $\{52^+, 38^0, 10^-\}$ across the $100$
+seeds, indicating that EMMET-DP wins or ties on $90\%$ of seeds
+and underperforms on $10\%$.
+\end{itemize}
+
+% =====================================================================
+% Section 6: Results
+% =====================================================================
+
+\section{Results}
+\label{sec:results}
+
+This section presents the headline results
+(\S\ref{subsec:headline}), the generalization across the
+$26$-scenario battery (\S\ref{subsec:generalization}), the
+hyperparameter sweep that justifies our choice of $\kappa = 1$
+(\S\ref{subsec:kappa-sweep}), and the regimes in which the mass
+mechanism produces no improvement
+(\S\ref{subsec:vanishing}).
+
+\subsection{Headline: GÉANT}
+\label{subsec:headline}
+
+Table~\ref{tab:headline} summarizes EMMET-DP's performance against
+LASP-aug on the GÉANT topology, the most congested real-network
+scenario in our evaluation.
+
+\begin{table}[t]
+\centering
+\caption{Headline metrics on GÉANT, $100$ seeds. EMMET-DP reduces
+congestion losses by $60.2\%$ relative to LASP-aug while consuming
+essentially identical network capacity per delivered or routed
+packet.}
+\label{tab:headline}
+\input{table1_headline.tex}
+\end{table}
+
+The improvement is statistically robust: paired $t = 5.21$, Wilcoxon
+$p = 1.1\times 10^{-8}$, with EMMET-DP winning or tying on
+$90\%$ of paired seeds. Crucially, the capacity per routed attempt
+differs by only $+0.04$ hops, ruling out the trivial
+counterhypothesis that EMMET-DP buys its loss reduction by routing
+packets through systematically longer paths.
+
+A complementary observation: EMMET-DP wastes on average $3.57$ hops
+per dropped packet, versus $9.26$ for LASP-aug. When EMMET-DP does
+lose a packet, it loses it earlier on the path. We interpret this as
+evidence that the mass-aware DP correctly identifies high-risk
+trajectories early and either reroutes the packet to safety or
+fails fast.
+
+\subsection{Generalization across topology families}
+\label{subsec:generalization}
+
+Table~\ref{tab:battery} reports loss reduction across the full
+$26$-scenario battery, and Figure~\ref{fig:battery} visualizes the
+relative improvements for the $17$ scenarios with non-zero baseline
+losses.
+
+\begin{table}[t]
+\centering
+\caption{Battery results across $5$ topology families. ``$\Delta$
+losses'' is the relative reduction in mean congestion losses
+(LASP-aug $\to$ EMMET-DP); negative values indicate EMMET-DP wins.
+``--'' marks scenarios with zero LASP-aug losses (uncongested
+regime; see \S\ref{subsec:vanishing}).}
+\label{tab:battery}
+\scriptsize
+\input{table2_battery.tex}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\columnwidth]{figure4_battery}
+\caption{Loss reduction (\%) of EMMET-DP relative to LASP-aug
+across all scenarios with non-zero baseline losses. Color encodes
+topology family. Real backbones (GÉANT) achieve the largest
+absolute reduction; the regular $7\times 7$ grid achieves the
+largest relative reduction ($-85\%$). The mechanism never
+underperforms LASP-aug in any congested scenario.}
+\label{fig:battery}
+\end{figure}
+
+The pattern is striking: EMMET-DP wins or ties in every scenario
+with non-zero baseline losses, with reductions ranging from
+$-3.0\%$ (ER\_n20\_p0.10, an effectively disconnected regime) to
+$-85.4\%$ (Grid\_7x7, a regular lattice with abundant alternative
+paths). The largest relative improvement on a real-world topology
+is GÉANT at $-60.2\%$.
+
+\subsection{Hyperparameter sweep: $\kappa$}
+\label{subsec:kappa-sweep}
+
+Table~\ref{tab:kappa-sweep} and Figure~\ref{fig:kappa-sweep} report
+loss reduction across $\kappa\in\{0, 0.1, 0.3, 0.5, 1.0, 1.5\}$ for
+five representative scenarios.
+
+\begin{table}[t]
+\centering
+\caption{Loss reduction vs.\ LASP-aug as $\kappa$ varies. $\kappa=0$
+disables the mass mechanism (EMMET-DP reduces to budget-DP, which
+is sometimes \emph{worse} than LASP-aug). $\kappa=1.0$ is
+Pareto-optimal across scenarios; $\kappa=1.5$ marginally improves on
+some sparse regimes but degrades GÉANT.}
+\label{tab:kappa-sweep}
+\input{table3_kappa_sweep.tex}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\columnwidth]{figure5_kappa_sweep}
+\caption{Loss reduction (\%) as a function of $\kappa$ for five
+representative scenarios. The vertical dashed line marks the chosen
+value $\kappa=1.0$, which is Pareto-optimal across scenarios:
+no other $\kappa$ value strictly dominates it.}
+\label{fig:kappa-sweep}
+\end{figure}
+
+Two observations stand out:
+
+\textbf{(1) The mass mechanism is the dominant contribution.} At
+$\kappa=0$, the algorithm reduces to a budgeted dynamic-programming
+router using the same potential as LASP-aug. In this configuration,
+EMMET-DP is \emph{worse} than LASP-aug on three of five scenarios
+(GÉANT $-5.6\%$, ER\_n20\_p0.20 $-3.7\%$, ER\_n50\_p0.10 $-10\%$).
+The improvements documented in this paper are thus not attributable
+to the budget structure or the choice of edge potential; they are
+attributable to the per-packet mass dynamics specifically.
+
+\textbf{(2) The optimum is robust.} On GÉANT, loss reduction grows
+monotonically from $\kappa=0$ ($-5.6\%$) to $\kappa=1.0$
+($+60.2\%$), then plateaus or slightly degrades at $\kappa=1.5$
+($+58.3\%$). On the other scenarios the curve is similar, with
+$\kappa\in[0.5, 1.5]$ producing comparable performance. We
+chose $\kappa=1.0$ for the headline because it is Pareto-optimal,
+but the algorithm is not knife-edge sensitive to this choice.
+
+\subsection{Where the mechanism vanishes}
+\label{subsec:vanishing}
+
+Of the $26$ scenarios in our battery, $9$ show zero or near-zero
+LASP-aug losses and correspondingly zero improvement from
+EMMET-DP. These are the dense Erd\H{o}s--R\'enyi regimes
+($p \ge 0.15$ for $n=50$ or $n=100$), the densest BA configuration
+($m=3$), and the higher-density ER\_n20 instances. We interpret
+this not as a failure but as a confirmation:
+
+\textit{EMMET-DP improves routing only in regimes where there is
+congestion to disambiguate.} When the network has abundant
+unloaded capacity, the per-packet mass mechanism has nothing to
+extract beyond what LASP-aug already extracts from the
+network-level state, and EMMET-DP correctly reduces to its
+stateless counterpart. Conversely, in regimes with active
+congestion---real backbones, sparse-but-connected ER, regular
+lattices under load---the mass mechanism extracts genuine
+information unavailable to LASP-aug, and the loss reduction
+becomes substantial.
+
+This selective effectiveness, rather than a uniform improvement,
+is the empirical signature we expect from a mechanism rooted in
+per-packet trajectory information: the more congestion a packet
+encounters, the more its accumulated mass differentiates its
+routing recommendations from those a stateless router would
+issue. Where there is no congestion, there is no trajectory
+history worth carrying.
