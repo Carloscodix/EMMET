@@ -170,5 +170,5 @@ meantime, please contact the authors before citing.
 
 ---
 
-*EMMET started as a Sunday-afternoon question — what if a packet
+*EMMET started as a Sunday-afternoon question — what if a ping packet
 were a physical particle? — and one thing led to another.*
