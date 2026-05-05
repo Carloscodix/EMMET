@@ -145,12 +145,12 @@ Defaults used throughout the paper:
 | d_λ | 0.9 | Per-step load decay |
 | d_θ | 0.999 | Per-step loss-snapshot decay |
 
-## Status and audits
+## Status
 
-This work has survived four rounds of external code audit (Codex/GPT)
-and one internal hostile-audit round. The repository's commit history
-documents each round in detail. Outstanding items for the
-peer-reviewable version are tracked in [`ROADMAP.md`](ROADMAP.md).
+This is a preprint draft. The algorithm and its validation are
+considered stable; the paper draft is feature-complete through the
+Results section, with Discussion and full Related Work pending. See
+[`docs/AUDIT_LOG.md`](docs/AUDIT_LOG.md) for the audit history.
 
 ## License
 
@@ -160,3 +160,8 @@ MIT License -- see [`LICENSE`](LICENSE) for details.
 
 A preprint will be uploaded once the paper draft is complete. In the
 meantime, please contact the authors before citing.
+
+---
+
+*EMMET started as a Sunday-afternoon question — what if a packet
+were a physical particle? — and one thing led to another.*
