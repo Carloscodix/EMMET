@@ -18,3 +18,4 @@ logs/
 *.synctex.gz
 paper/*_preview.*
 paper/paper_main.pdf
+docs/internal/

@@ -41,6 +41,23 @@ mass. The improvement of EMMET-DP over LASP-aug is therefore
 attributable specifically to the per-packet state, not to a
 richer cost function.
 
+A separate line of work addresses load balancing in the
+data-plane fabric of large datacenters and WANs. CONGA and
+HULA~\cite{alizadeh2014conga,katta2016hula} make per-flowlet
+load-balancing decisions inside the switching fabric using
+in-network congestion signals; centralized traffic-engineering
+systems such as B4 and SWAN~\cite{jain2013b4,hong2013swan}
+plan multipath splits at the controller. These approaches are
+complementary rather than competing: they balance load across
+flows or flowlets, whereas EMMET-DP modulates the routing
+decision for an individual packet based on its trajectory. We
+do not include them as experimental baselines because they
+operate at a different granularity (flowlet/flow) and on a
+different deployment regime (distributed fabric or centralized
+TE) than the per-packet admission-time setting we evaluate;
+combining EMMET-DP with flowlet-level fabrics is a natural
+direction for future work.
+
 None of LASP, ECMP, or MPTCP carries per-packet trajectory
 information into subsequent routing decisions. Two packets
 arriving at the same node from different histories receive the

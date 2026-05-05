@@ -17,10 +17,10 @@ adaptive routing where each packet carries an internal scalar---its
 has traversed. At every routing decision, the packet's mass scales
 the cost of candidate edges, naturally biasing more-traveled
 packets toward less-congested paths. We instantiate this idea as a
-constrained dynamic-programming router (\emph{Mass-Aware DP}) that
+constrained dynamic-programming router (\emph{EMMET-DP}) that
 computes, for each packet, the path of minimal mass-weighted
 cumulative potential within a hop budget, guaranteeing a route
-whenever a feasible path exists. On the GÉANT topology, Mass-Aware DP
+whenever a feasible path exists. On the GÉANT topology, EMMET-DP
 reduces congestion losses by 60.2\% relative to a Dijkstra baseline
 that uses the same edge potential and equivalent warmup conditions
 ($t = 5.21$, Wilcoxon $p = 1.1\times 10^{-8}$), with negligible

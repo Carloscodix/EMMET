@@ -68,7 +68,7 @@ therefore the router---given the same destination---steers it
 toward less-loaded alternatives.
 
 We instantiate this principle as a constrained dynamic-programming
-router (\emph{Mass-Aware DP}) over the joint state space
+router (\emph{EMMET-DP}) over the joint state space
 $\{\text{node}\}\times\{\text{hops}\}\times\{\text{mass-bucket}\}$,
 with hop budget $H = \lceil\alpha_b\cdot h_{\text{sp}}\rceil$
 relative to the unweighted shortest path. The DP guarantees that
@@ -121,7 +121,7 @@ hardware-accelerated variants, in Section~\ref{sec:discussion}.
 Section~\ref{sec:related} surveys load-aware and stateful routing
 literature.  Section~\ref{sec:model} formalizes the network model,
 the integrated edge potential, and the mass-update dynamics.
-Section~\ref{sec:algorithm} presents the Mass-Aware DP algorithm
+Section~\ref{sec:algorithm} presents the EMMET-DP algorithm
 and analyzes its complexity. Section~\ref{sec:experiments} details
 the evaluation methodology, including baselines, topologies and
 statistical protocol. Section~\ref{sec:results} reports per-scenario
