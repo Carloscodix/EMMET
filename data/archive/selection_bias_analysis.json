@@ -1,0 +1,80 @@
+[
+  {
+    "scenario": "ER_n20_p0.05",
+    "n_seeds": 50,
+    "sp_lat_orig": 5.9697110893043766,
+    "sp_lat_cond": 5.6463297645250865,
+    "la_lat_orig": 6.0000242775623995,
+    "la_lat_cond": 5.649262688466325,
+    "em_lat_orig": 6.123320590223582,
+    "em_lat_cond": 5.754934954540794,
+    "sp_losses": 14.3,
+    "la_losses": 13.54,
+    "em_losses": 6.88
+  },
+  {
+    "scenario": "ER_n20_p0.10",
+    "n_seeds": 50,
+    "sp_lat_orig": 7.705593584098098,
+    "sp_lat_cond": 7.120529387932855,
+    "la_lat_orig": 7.894359345115453,
+    "la_lat_cond": 7.14794502257575,
+    "em_lat_orig": 8.925172797417483,
+    "em_lat_cond": 8.051490660082068,
+    "sp_losses": 38.02,
+    "la_losses": 31.92,
+    "em_losses": 13.52
+  },
+  {
+    "scenario": "ER_n20_p0.15",
+    "n_seeds": 50,
+    "sp_lat_orig": 6.854597490699103,
+    "sp_lat_cond": 6.729817585822464,
+    "la_lat_orig": 7.0208292881438,
+    "la_lat_cond": 6.781081638803306,
+    "em_lat_orig": 8.190114046771246,
+    "em_lat_cond": 7.977126784793219,
+    "sp_losses": 16.58,
+    "la_losses": 9.62,
+    "em_losses": 6.4
+  },
+  {
+    "scenario": "ER_n20_p0.20",
+    "n_seeds": 50,
+    "sp_lat_orig": 5.787456449795298,
+    "sp_lat_cond": 5.7539079129965325,
+    "la_lat_orig": 5.889274329272088,
+    "la_lat_cond": 5.806529974503495,
+    "em_lat_orig": 7.084906941297855,
+    "em_lat_cond": 6.983251050947315,
+    "sp_losses": 9.26,
+    "la_losses": 3.84,
+    "em_losses": 1.98
+  },
+  {
+    "scenario": "ER_n20_p0.25",
+    "n_seeds": 50,
+    "sp_lat_orig": 4.990620977414898,
+    "sp_lat_cond": 4.981347849718309,
+    "la_lat_orig": 5.051296874025705,
+    "la_lat_cond": 5.0218033551791725,
+    "em_lat_orig": 6.122403679977294,
+    "em_lat_cond": 6.085405784395265,
+    "sp_losses": 4.6,
+    "la_losses": 1.3,
+    "em_losses": 0.36
+  },
+  {
+    "scenario": "ER_n20_p0.30",
+    "n_seeds": 50,
+    "sp_lat_orig": 4.467831296285235,
+    "sp_lat_cond": 4.464777960843045,
+    "la_lat_orig": 4.514528839194473,
+    "la_lat_cond": 4.502024563716572,
+    "em_lat_orig": 5.509654431768532,
+    "em_lat_cond": 5.497645764135812,
+    "sp_losses": 2.44,
+    "la_losses": 0.48,
+    "em_losses": 0.12
+  }
+]

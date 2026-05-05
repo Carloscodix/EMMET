@@ -1,0 +1,362 @@
+[
+  {
+    "scenario": "Abilene",
+    "variant": "(128, 3)",
+    "losses": 30.29,
+    "delivered": 128.33,
+    "dead": 23.28,
+    "ttl": 0,
+    "aborted_pct": 12.798240791643762
+  },
+  {
+    "scenario": "Abilene",
+    "variant": "(192, 3)",
+    "losses": 30.29,
+    "delivered": 128.33,
+    "dead": 23.28,
+    "ttl": 0,
+    "aborted_pct": 12.798240791643762
+  },
+  {
+    "scenario": "Abilene",
+    "variant": "(256, 3)",
+    "losses": 30.29,
+    "delivered": 128.33,
+    "dead": 23.28,
+    "ttl": 0,
+    "aborted_pct": 12.798240791643762
+  },
+  {
+    "scenario": "Abilene",
+    "variant": "(32, 2)",
+    "losses": 28.67,
+    "delivered": 126.68,
+    "dead": 26.55,
+    "ttl": 0,
+    "aborted_pct": 14.595931830676193
+  },
+  {
+    "scenario": "Abilene",
+    "variant": "(512, 4)",
+    "losses": 30.29,
+    "delivered": 128.33,
+    "dead": 23.28,
+    "ttl": 0,
+    "aborted_pct": 12.798240791643762
+  },
+  {
+    "scenario": "Abilene",
+    "variant": "(64, 2)",
+    "losses": 30.29,
+    "delivered": 128.33,
+    "dead": 23.28,
+    "ttl": 0,
+    "aborted_pct": 12.798240791643762
+  },
+  {
+    "scenario": "Abilene",
+    "variant": "(96, 3)",
+    "losses": 30.29,
+    "delivered": 128.33,
+    "dead": 23.28,
+    "ttl": 0,
+    "aborted_pct": 12.798240791643762
+  },
+  {
+    "scenario": "Abilene",
+    "variant": "set",
+    "losses": 30.29,
+    "delivered": 128.33,
+    "dead": 23.28,
+    "ttl": 0,
+    "aborted_pct": 12.798240791643762
+  },
+  {
+    "scenario": "ER_n20_p0.10",
+    "variant": "(128, 3)",
+    "losses": 7.91,
+    "delivered": 77.11,
+    "dead": 104.37,
+    "ttl": 0,
+    "aborted_pct": 55.10850625693015
+  },
+  {
+    "scenario": "ER_n20_p0.10",
+    "variant": "(192, 3)",
+    "losses": 8.01,
+    "delivered": 77.06,
+    "dead": 104.32,
+    "ttl": 0,
+    "aborted_pct": 55.082105707798725
+  },
+  {
+    "scenario": "ER_n20_p0.10",
+    "variant": "(256, 3)",
+    "losses": 8.01,
+    "delivered": 77.06,
+    "dead": 104.32,
+    "ttl": 0,
+    "aborted_pct": 55.082105707798725
+  },
+  {
+    "scenario": "ER_n20_p0.10",
+    "variant": "(32, 2)",
+    "losses": 7.01,
+    "delivered": 75.1,
+    "dead": 107.28,
+    "ttl": 0,
+    "aborted_pct": 56.64501821637891
+  },
+  {
+    "scenario": "ER_n20_p0.10",
+    "variant": "(512, 4)",
+    "losses": 8.01,
+    "delivered": 77.06,
+    "dead": 104.32,
+    "ttl": 0,
+    "aborted_pct": 55.082105707798725
+  },
+  {
+    "scenario": "ER_n20_p0.10",
+    "variant": "(64, 2)",
+    "losses": 7.8,
+    "delivered": 75.97,
+    "dead": 105.62,
+    "ttl": 0,
+    "aborted_pct": 55.768519985215704
+  },
+  {
+    "scenario": "ER_n20_p0.10",
+    "variant": "(96, 3)",
+    "losses": 8.03,
+    "delivered": 76.92,
+    "dead": 104.44,
+    "ttl": 0,
+    "aborted_pct": 55.14546702571413
+  },
+  {
+    "scenario": "ER_n20_p0.10",
+    "variant": "set",
+    "losses": 8.01,
+    "delivered": 77.06,
+    "dead": 104.32,
+    "ttl": 0,
+    "aborted_pct": 55.082105707798725
+  },
+  {
+    "scenario": "ER_n50_p0.05",
+    "variant": "(128, 3)",
+    "losses": 3.29,
+    "delivered": 119.11,
+    "dead": 73.57,
+    "ttl": 0,
+    "aborted_pct": 37.54146042761647
+  },
+  {
+    "scenario": "ER_n50_p0.05",
+    "variant": "(192, 3)",
+    "losses": 3.36,
+    "delivered": 120.01,
+    "dead": 72.6,
+    "ttl": 0,
+    "aborted_pct": 37.04648670714905
+  },
+  {
+    "scenario": "ER_n50_p0.05",
+    "variant": "(256, 3)",
+    "losses": 3.32,
+    "delivered": 119.83,
+    "dead": 72.82,
+    "ttl": 0,
+    "aborted_pct": 37.15874878807981
+  },
+  {
+    "scenario": "ER_n50_p0.05",
+    "variant": "(32, 2)",
+    "losses": 2.16,
+    "delivered": 106.94,
+    "dead": 86.87,
+    "ttl": 0,
+    "aborted_pct": 44.328213502066646
+  },
+  {
+    "scenario": "ER_n50_p0.05",
+    "variant": "(512, 4)",
+    "losses": 3.4,
+    "delivered": 120.14,
+    "dead": 72.43,
+    "ttl": 0,
+    "aborted_pct": 36.959738735520745
+  },
+  {
+    "scenario": "ER_n50_p0.05",
+    "variant": "(64, 2)",
+    "losses": 2.79,
+    "delivered": 115.66,
+    "dead": 77.52,
+    "ttl": 0,
+    "aborted_pct": 39.55707506250957
+  },
+  {
+    "scenario": "ER_n50_p0.05",
+    "variant": "(96, 3)",
+    "losses": 2.82,
+    "delivered": 120.07,
+    "dead": 73.08,
+    "ttl": 0,
+    "aborted_pct": 37.291422156452526
+  },
+  {
+    "scenario": "ER_n50_p0.05",
+    "variant": "set",
+    "losses": 3.44,
+    "delivered": 120.02,
+    "dead": 72.51,
+    "ttl": 0,
+    "aborted_pct": 37.000561310404656
+  },
+  {
+    "scenario": "ER_n50_p0.10",
+    "variant": "(128, 3)",
+    "losses": 0.07,
+    "delivered": 191.65,
+    "dead": 4.25,
+    "ttl": 0,
+    "aborted_pct": 2.168699290707761
+  },
+  {
+    "scenario": "ER_n50_p0.10",
+    "variant": "(192, 3)",
+    "losses": 0.1,
+    "delivered": 192.21,
+    "dead": 3.66,
+    "ttl": 0,
+    "aborted_pct": 1.8676328009389194
+  },
+  {
+    "scenario": "ER_n50_p0.10",
+    "variant": "(256, 3)",
+    "losses": 0.08,
+    "delivered": 192.15,
+    "dead": 3.74,
+    "ttl": 0,
+    "aborted_pct": 1.90845537582283
+  },
+  {
+    "scenario": "ER_n50_p0.10",
+    "variant": "(32, 2)",
+    "losses": 0.13,
+    "delivered": 183.12,
+    "dead": 12.72,
+    "ttl": 0,
+    "aborted_pct": 6.4907894065418175
+  },
+  {
+    "scenario": "ER_n50_p0.10",
+    "variant": "(512, 4)",
+    "losses": 0.09,
+    "delivered": 192.25,
+    "dead": 3.63,
+    "ttl": 0,
+    "aborted_pct": 1.8523243353574526
+  },
+  {
+    "scenario": "ER_n50_p0.10",
+    "variant": "(64, 2)",
+    "losses": 0.2,
+    "delivered": 189.73,
+    "dead": 6.04,
+    "ttl": 0,
+    "aborted_pct": 3.0821044037352663
+  },
+  {
+    "scenario": "ER_n50_p0.10",
+    "variant": "(96, 3)",
+    "losses": 0.12,
+    "delivered": 191.85,
+    "dead": 4,
+    "ttl": 0,
+    "aborted_pct": 2.0411287441955404
+  },
+  {
+    "scenario": "ER_n50_p0.10",
+    "variant": "set",
+    "losses": 0.09,
+    "delivered": 192.26,
+    "dead": 3.62,
+    "ttl": 0,
+    "aborted_pct": 1.847221513496964
+  },
+  {
+    "scenario": "GEANT",
+    "variant": "(128, 3)",
+    "losses": 3.06,
+    "delivered": 168.96,
+    "dead": 22.57,
+    "ttl": 0,
+    "aborted_pct": 11.598746081504702
+  },
+  {
+    "scenario": "GEANT",
+    "variant": "(192, 3)",
+    "losses": 2.95,
+    "delivered": 171.64,
+    "dead": 20,
+    "ttl": 0,
+    "aborted_pct": 10.278020453260703
+  },
+  {
+    "scenario": "GEANT",
+    "variant": "(256, 3)",
+    "losses": 2.99,
+    "delivered": 171.65,
+    "dead": 19.95,
+    "ttl": 0,
+    "aborted_pct": 10.25232540212755
+  },
+  {
+    "scenario": "GEANT",
+    "variant": "(32, 2)",
+    "losses": 2.36,
+    "delivered": 155.61,
+    "dead": 36.62,
+    "ttl": 0,
+    "aborted_pct": 18.81905544992034
+  },
+  {
+    "scenario": "GEANT",
+    "variant": "(512, 4)",
+    "losses": 2.99,
+    "delivered": 171.65,
+    "dead": 19.95,
+    "ttl": 0,
+    "aborted_pct": 10.25232540212755
+  },
+  {
+    "scenario": "GEANT",
+    "variant": "(64, 2)",
+    "losses": 2.84,
+    "delivered": 164.46,
+    "dead": 27.29,
+    "ttl": 0,
+    "aborted_pct": 14.024358908474227
+  },
+  {
+    "scenario": "GEANT",
+    "variant": "(96, 3)",
+    "losses": 3.1,
+    "delivered": 170.74,
+    "dead": 20.75,
+    "ttl": 0,
+    "aborted_pct": 10.66344622025798
+  },
+  {
+    "scenario": "GEANT",
+    "variant": "set",
+    "losses": 2.99,
+    "delivered": 171.65,
+    "dead": 19.95,
+    "ttl": 0,
+    "aborted_pct": 10.25232540212755
+  }
+]
