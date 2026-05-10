@@ -31,7 +31,11 @@ because we believe the analogy retains explanatory value beyond its
 historical role. We emphasize that the algorithm's correctness and
 empirical performance, established in
 Sections~\ref{sec:algorithm}--\ref{sec:results}, do not rely on the
-analogy: the physical motivation is heuristic, not foundational.
+analogy: the physical motivation is heuristic, not foundational. In
+particular, the scalar we call \emph{mass} below is closer in spirit
+to the \emph{effective mass} of solid-state physics---a quantity that
+varies with the medium a particle traverses---than to the invariant
+inertial mass of classical mechanics or to any thermodynamic quantity.
 
 Consider a single packet traversing a sequence of network links.
 Treating the packet as a particle moving through a medium suggests
@@ -53,9 +57,11 @@ will experience loss. This thermal trace---the per-edge loss
 history---we encode as the snapshot $\theta(u,v)$, decayed
 exponentially over time.
 
-\item \emph{Effective mass.} A particle that has been buffeted
-through a turbulent region accumulates inertia: it becomes
-``costlier to push.'' Translating this to routing: a packet
+\item \emph{Effective mass.} A particle whose trajectory has crossed turbulent regions
+accumulates an effective resistance to further perturbation; in
+our analogy we encode this as a growing ``effective mass'' that
+makes the packet costlier to push through additional congestion.
+Translating this to routing: a packet
 that has already traversed congested edges has, in some sense,
 done more work against the network, and any further passage
 through congested regions should be discouraged. We encode this
