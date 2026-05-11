@@ -165,8 +165,22 @@ MIT License -- see [`LICENSE`](LICENSE) for details.
 
 ## Citation
 
-A preprint will be uploaded once the paper draft is complete. In the
-meantime, please contact the authors before citing.
+If you use this work, please cite the Zenodo release:
+
+```bibtex
+@software{lopez2026emmet,
+  author       = {Lopez, Carlos},
+  title        = {EMMET: Effective-Mass Memory Edge Transport},
+  year         = 2026,
+  publisher    = {Zenodo},
+  version      = {v1.0-preprint},
+  doi          = {10.5281/zenodo.TBD},
+  url          = {https://github.com/Carloscodix/EMMET}
+}
+```
+
+An arXiv preprint with extended discussion is in preparation; this
+README will be updated with the arXiv identifier when available.
 
 ---
 
