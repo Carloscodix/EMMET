@@ -1,0 +1,33 @@
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+.DS_Store
+*.egg-info/
+.venv/
+venv/
+logs/
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+paper/*_preview.*
+paper/paper_main.pdf
+docs/internal/
+
+# v2 work artifacts that should not be tracked
+*.v1bak
+data/scalability_phaseA_checkpoint.json
+data/scalability_v2_checkpoint.json
+
+# local working material - never public
+.local/
+notes/
+README.md.*
+logs/
+*.bak
