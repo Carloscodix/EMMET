@@ -1,5 +1,8 @@
 # EMMET: Effective-Mass Memory Edge Transport
 
+[![DOI](https://zenodo.org/badge/1227928743.svg)](https://doi.org/10.5281/zenodo.20128310)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 > *Mass-aware routing with a hat-tip to Dr. Emmett Brown.*
 
 A stateful extension to gradient-based adaptive network routing where
@@ -174,7 +177,7 @@ If you use this work, please cite the Zenodo release:
   year         = 2026,
   publisher    = {Zenodo},
   version      = {v1.0-preprint},
-  doi          = {10.5281/zenodo.TBD},
+  doi          = {10.5281/zenodo.20128309},
   url          = {https://github.com/Carloscodix/EMMET}
 }
 ```

@@ -12,8 +12,8 @@ version: "1.0.0"
 date-released: "2026-05-11"
 identifiers:
   - type: doi
-    value: "10.5281/zenodo.TBD"
-    description: "Zenodo DOI for v1.0-preprint release (to be assigned)"
+    value: "10.5281/zenodo.20128309"
+    description: "Zenodo DOI for v1.0-preprint release (version DOI, immutable)"
 keywords:
   - "adaptive routing"
   - "load-aware routing"
