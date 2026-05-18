@@ -1,0 +1,1202 @@
+[
+  {
+    "DELAY_def": 57,
+    "RIPPLE_def": 47,
+    "DELAY_opt": 55,
+    "RIPPLE_opt": 52,
+    "topo": "GEANT",
+    "seed": 0
+  },
+  {
+    "DELAY_def": 69,
+    "RIPPLE_def": 67,
+    "DELAY_opt": 64,
+    "RIPPLE_opt": 64,
+    "topo": "GEANT",
+    "seed": 1
+  },
+  {
+    "DELAY_def": 86,
+    "RIPPLE_def": 63,
+    "DELAY_opt": 84,
+    "RIPPLE_opt": 62,
+    "topo": "GEANT",
+    "seed": 2
+  },
+  {
+    "DELAY_def": 86,
+    "RIPPLE_def": 76,
+    "DELAY_opt": 76,
+    "RIPPLE_opt": 73,
+    "topo": "GEANT",
+    "seed": 3
+  },
+  {
+    "DELAY_def": 23,
+    "RIPPLE_def": 24,
+    "DELAY_opt": 23,
+    "RIPPLE_opt": 24,
+    "topo": "GEANT",
+    "seed": 4
+  },
+  {
+    "DELAY_def": 53,
+    "RIPPLE_def": 50,
+    "DELAY_opt": 52,
+    "RIPPLE_opt": 49,
+    "topo": "GEANT",
+    "seed": 5
+  },
+  {
+    "DELAY_def": 58,
+    "RIPPLE_def": 56,
+    "DELAY_opt": 58,
+    "RIPPLE_opt": 56,
+    "topo": "GEANT",
+    "seed": 6
+  },
+  {
+    "DELAY_def": 37,
+    "RIPPLE_def": 32,
+    "DELAY_opt": 32,
+    "RIPPLE_opt": 33,
+    "topo": "GEANT",
+    "seed": 7
+  },
+  {
+    "DELAY_def": 66,
+    "RIPPLE_def": 65,
+    "DELAY_opt": 65,
+    "RIPPLE_opt": 60,
+    "topo": "GEANT",
+    "seed": 8
+  },
+  {
+    "DELAY_def": 53,
+    "RIPPLE_def": 54,
+    "DELAY_opt": 49,
+    "RIPPLE_opt": 52,
+    "topo": "GEANT",
+    "seed": 9
+  },
+  {
+    "DELAY_def": 69,
+    "RIPPLE_def": 67,
+    "DELAY_opt": 67,
+    "RIPPLE_opt": 67,
+    "topo": "GEANT",
+    "seed": 10
+  },
+  {
+    "DELAY_def": 54,
+    "RIPPLE_def": 52,
+    "DELAY_opt": 51,
+    "RIPPLE_opt": 48,
+    "topo": "GEANT",
+    "seed": 11
+  },
+  {
+    "DELAY_def": 66,
+    "RIPPLE_def": 63,
+    "DELAY_opt": 56,
+    "RIPPLE_opt": 58,
+    "topo": "GEANT",
+    "seed": 12
+  },
+  {
+    "DELAY_def": 72,
+    "RIPPLE_def": 74,
+    "DELAY_opt": 73,
+    "RIPPLE_opt": 72,
+    "topo": "GEANT",
+    "seed": 13
+  },
+  {
+    "DELAY_def": 67,
+    "RIPPLE_def": 58,
+    "DELAY_opt": 57,
+    "RIPPLE_opt": 53,
+    "topo": "GEANT",
+    "seed": 14
+  },
+  {
+    "DELAY_def": 65,
+    "RIPPLE_def": 64,
+    "DELAY_opt": 64,
+    "RIPPLE_opt": 64,
+    "topo": "GEANT",
+    "seed": 15
+  },
+  {
+    "DELAY_def": 61,
+    "RIPPLE_def": 55,
+    "DELAY_opt": 56,
+    "RIPPLE_opt": 48,
+    "topo": "GEANT",
+    "seed": 16
+  },
+  {
+    "DELAY_def": 69,
+    "RIPPLE_def": 50,
+    "DELAY_opt": 64,
+    "RIPPLE_opt": 47,
+    "topo": "GEANT",
+    "seed": 17
+  },
+  {
+    "DELAY_def": 51,
+    "RIPPLE_def": 51,
+    "DELAY_opt": 48,
+    "RIPPLE_opt": 46,
+    "topo": "GEANT",
+    "seed": 18
+  },
+  {
+    "DELAY_def": 39,
+    "RIPPLE_def": 35,
+    "DELAY_opt": 33,
+    "RIPPLE_opt": 34,
+    "topo": "GEANT",
+    "seed": 19
+  },
+  {
+    "DELAY_def": 84,
+    "RIPPLE_def": 76,
+    "DELAY_opt": 80,
+    "RIPPLE_opt": 76,
+    "topo": "GEANT",
+    "seed": 20
+  },
+  {
+    "DELAY_def": 32,
+    "RIPPLE_def": 33,
+    "DELAY_opt": 30,
+    "RIPPLE_opt": 27,
+    "topo": "GEANT",
+    "seed": 21
+  },
+  {
+    "DELAY_def": 45,
+    "RIPPLE_def": 35,
+    "DELAY_opt": 39,
+    "RIPPLE_opt": 35,
+    "topo": "GEANT",
+    "seed": 22
+  },
+  {
+    "DELAY_def": 60,
+    "RIPPLE_def": 60,
+    "DELAY_opt": 62,
+    "RIPPLE_opt": 53,
+    "topo": "GEANT",
+    "seed": 23
+  },
+  {
+    "DELAY_def": 37,
+    "RIPPLE_def": 32,
+    "DELAY_opt": 37,
+    "RIPPLE_opt": 34,
+    "topo": "GEANT",
+    "seed": 24
+  },
+  {
+    "DELAY_def": 48,
+    "RIPPLE_def": 48,
+    "DELAY_opt": 50,
+    "RIPPLE_opt": 47,
+    "topo": "GEANT",
+    "seed": 25
+  },
+  {
+    "DELAY_def": 65,
+    "RIPPLE_def": 55,
+    "DELAY_opt": 55,
+    "RIPPLE_opt": 52,
+    "topo": "GEANT",
+    "seed": 26
+  },
+  {
+    "DELAY_def": 64,
+    "RIPPLE_def": 60,
+    "DELAY_opt": 62,
+    "RIPPLE_opt": 57,
+    "topo": "GEANT",
+    "seed": 27
+  },
+  {
+    "DELAY_def": 59,
+    "RIPPLE_def": 56,
+    "DELAY_opt": 61,
+    "RIPPLE_opt": 56,
+    "topo": "GEANT",
+    "seed": 28
+  },
+  {
+    "DELAY_def": 84,
+    "RIPPLE_def": 76,
+    "DELAY_opt": 81,
+    "RIPPLE_opt": 74,
+    "topo": "GEANT",
+    "seed": 29
+  },
+  {
+    "DELAY_def": 68,
+    "RIPPLE_def": 62,
+    "DELAY_opt": 68,
+    "RIPPLE_opt": 60,
+    "topo": "Abilene",
+    "seed": 0
+  },
+  {
+    "DELAY_def": 72,
+    "RIPPLE_def": 65,
+    "DELAY_opt": 63,
+    "RIPPLE_opt": 59,
+    "topo": "Abilene",
+    "seed": 1
+  },
+  {
+    "DELAY_def": 67,
+    "RIPPLE_def": 61,
+    "DELAY_opt": 57,
+    "RIPPLE_opt": 63,
+    "topo": "Abilene",
+    "seed": 2
+  },
+  {
+    "DELAY_def": 80,
+    "RIPPLE_def": 71,
+    "DELAY_opt": 68,
+    "RIPPLE_opt": 71,
+    "topo": "Abilene",
+    "seed": 3
+  },
+  {
+    "DELAY_def": 62,
+    "RIPPLE_def": 65,
+    "DELAY_opt": 64,
+    "RIPPLE_opt": 62,
+    "topo": "Abilene",
+    "seed": 4
+  },
+  {
+    "DELAY_def": 53,
+    "RIPPLE_def": 43,
+    "DELAY_opt": 39,
+    "RIPPLE_opt": 40,
+    "topo": "Abilene",
+    "seed": 5
+  },
+  {
+    "DELAY_def": 39,
+    "RIPPLE_def": 36,
+    "DELAY_opt": 38,
+    "RIPPLE_opt": 37,
+    "topo": "Abilene",
+    "seed": 6
+  },
+  {
+    "DELAY_def": 64,
+    "RIPPLE_def": 56,
+    "DELAY_opt": 57,
+    "RIPPLE_opt": 55,
+    "topo": "Abilene",
+    "seed": 7
+  },
+  {
+    "DELAY_def": 52,
+    "RIPPLE_def": 54,
+    "DELAY_opt": 48,
+    "RIPPLE_opt": 52,
+    "topo": "Abilene",
+    "seed": 8
+  },
+  {
+    "DELAY_def": 90,
+    "RIPPLE_def": 89,
+    "DELAY_opt": 92,
+    "RIPPLE_opt": 87,
+    "topo": "Abilene",
+    "seed": 9
+  },
+  {
+    "DELAY_def": 62,
+    "RIPPLE_def": 54,
+    "DELAY_opt": 60,
+    "RIPPLE_opt": 54,
+    "topo": "Abilene",
+    "seed": 10
+  },
+  {
+    "DELAY_def": 47,
+    "RIPPLE_def": 47,
+    "DELAY_opt": 46,
+    "RIPPLE_opt": 46,
+    "topo": "Abilene",
+    "seed": 11
+  },
+  {
+    "DELAY_def": 99,
+    "RIPPLE_def": 93,
+    "DELAY_opt": 95,
+    "RIPPLE_opt": 89,
+    "topo": "Abilene",
+    "seed": 12
+  },
+  {
+    "DELAY_def": 84,
+    "RIPPLE_def": 83,
+    "DELAY_opt": 80,
+    "RIPPLE_opt": 79,
+    "topo": "Abilene",
+    "seed": 13
+  },
+  {
+    "DELAY_def": 69,
+    "RIPPLE_def": 54,
+    "DELAY_opt": 62,
+    "RIPPLE_opt": 56,
+    "topo": "Abilene",
+    "seed": 14
+  },
+  {
+    "DELAY_def": 37,
+    "RIPPLE_def": 37,
+    "DELAY_opt": 40,
+    "RIPPLE_opt": 38,
+    "topo": "Abilene",
+    "seed": 15
+  },
+  {
+    "DELAY_def": 37,
+    "RIPPLE_def": 34,
+    "DELAY_opt": 36,
+    "RIPPLE_opt": 34,
+    "topo": "Abilene",
+    "seed": 16
+  },
+  {
+    "DELAY_def": 129,
+    "RIPPLE_def": 126,
+    "DELAY_opt": 119,
+    "RIPPLE_opt": 121,
+    "topo": "Abilene",
+    "seed": 17
+  },
+  {
+    "DELAY_def": 80,
+    "RIPPLE_def": 71,
+    "DELAY_opt": 75,
+    "RIPPLE_opt": 74,
+    "topo": "Abilene",
+    "seed": 18
+  },
+  {
+    "DELAY_def": 48,
+    "RIPPLE_def": 46,
+    "DELAY_opt": 47,
+    "RIPPLE_opt": 45,
+    "topo": "Abilene",
+    "seed": 19
+  },
+  {
+    "DELAY_def": 67,
+    "RIPPLE_def": 63,
+    "DELAY_opt": 65,
+    "RIPPLE_opt": 61,
+    "topo": "Abilene",
+    "seed": 20
+  },
+  {
+    "DELAY_def": 82,
+    "RIPPLE_def": 81,
+    "DELAY_opt": 80,
+    "RIPPLE_opt": 82,
+    "topo": "Abilene",
+    "seed": 21
+  },
+  {
+    "DELAY_def": 67,
+    "RIPPLE_def": 63,
+    "DELAY_opt": 64,
+    "RIPPLE_opt": 63,
+    "topo": "Abilene",
+    "seed": 22
+  },
+  {
+    "DELAY_def": 52,
+    "RIPPLE_def": 50,
+    "DELAY_opt": 47,
+    "RIPPLE_opt": 50,
+    "topo": "Abilene",
+    "seed": 23
+  },
+  {
+    "DELAY_def": 47,
+    "RIPPLE_def": 46,
+    "DELAY_opt": 51,
+    "RIPPLE_opt": 48,
+    "topo": "Abilene",
+    "seed": 24
+  },
+  {
+    "DELAY_def": 78,
+    "RIPPLE_def": 72,
+    "DELAY_opt": 74,
+    "RIPPLE_opt": 69,
+    "topo": "Abilene",
+    "seed": 25
+  },
+  {
+    "DELAY_def": 89,
+    "RIPPLE_def": 94,
+    "DELAY_opt": 89,
+    "RIPPLE_opt": 94,
+    "topo": "Abilene",
+    "seed": 26
+  },
+  {
+    "DELAY_def": 46,
+    "RIPPLE_def": 43,
+    "DELAY_opt": 45,
+    "RIPPLE_opt": 40,
+    "topo": "Abilene",
+    "seed": 27
+  },
+  {
+    "DELAY_def": 40,
+    "RIPPLE_def": 34,
+    "DELAY_opt": 34,
+    "RIPPLE_opt": 30,
+    "topo": "Abilene",
+    "seed": 28
+  },
+  {
+    "DELAY_def": 104,
+    "RIPPLE_def": 100,
+    "DELAY_opt": 103,
+    "RIPPLE_opt": 100,
+    "topo": "Abilene",
+    "seed": 29
+  },
+  {
+    "DELAY_def": 53,
+    "RIPPLE_def": 42,
+    "DELAY_opt": 53,
+    "RIPPLE_opt": 37,
+    "topo": "Grid7x7",
+    "seed": 0
+  },
+  {
+    "DELAY_def": 23,
+    "RIPPLE_def": 17,
+    "DELAY_opt": 22,
+    "RIPPLE_opt": 15,
+    "topo": "Grid7x7",
+    "seed": 1
+  },
+  {
+    "DELAY_def": 57,
+    "RIPPLE_def": 55,
+    "DELAY_opt": 59,
+    "RIPPLE_opt": 53,
+    "topo": "Grid7x7",
+    "seed": 2
+  },
+  {
+    "DELAY_def": 28,
+    "RIPPLE_def": 24,
+    "DELAY_opt": 28,
+    "RIPPLE_opt": 25,
+    "topo": "Grid7x7",
+    "seed": 3
+  },
+  {
+    "DELAY_def": 4,
+    "RIPPLE_def": 5,
+    "DELAY_opt": 4,
+    "RIPPLE_opt": 4,
+    "topo": "Grid7x7",
+    "seed": 4
+  },
+  {
+    "DELAY_def": 34,
+    "RIPPLE_def": 16,
+    "DELAY_opt": 32,
+    "RIPPLE_opt": 20,
+    "topo": "Grid7x7",
+    "seed": 5
+  },
+  {
+    "DELAY_def": 27,
+    "RIPPLE_def": 25,
+    "DELAY_opt": 28,
+    "RIPPLE_opt": 26,
+    "topo": "Grid7x7",
+    "seed": 6
+  },
+  {
+    "DELAY_def": 25,
+    "RIPPLE_def": 17,
+    "DELAY_opt": 23,
+    "RIPPLE_opt": 18,
+    "topo": "Grid7x7",
+    "seed": 7
+  },
+  {
+    "DELAY_def": 40,
+    "RIPPLE_def": 39,
+    "DELAY_opt": 38,
+    "RIPPLE_opt": 39,
+    "topo": "Grid7x7",
+    "seed": 8
+  },
+  {
+    "DELAY_def": 38,
+    "RIPPLE_def": 43,
+    "DELAY_opt": 40,
+    "RIPPLE_opt": 42,
+    "topo": "Grid7x7",
+    "seed": 9
+  },
+  {
+    "DELAY_def": 34,
+    "RIPPLE_def": 27,
+    "DELAY_opt": 29,
+    "RIPPLE_opt": 25,
+    "topo": "Grid7x7",
+    "seed": 10
+  },
+  {
+    "DELAY_def": 22,
+    "RIPPLE_def": 22,
+    "DELAY_opt": 26,
+    "RIPPLE_opt": 22,
+    "topo": "Grid7x7",
+    "seed": 11
+  },
+  {
+    "DELAY_def": 61,
+    "RIPPLE_def": 46,
+    "DELAY_opt": 52,
+    "RIPPLE_opt": 40,
+    "topo": "Grid7x7",
+    "seed": 12
+  },
+  {
+    "DELAY_def": 41,
+    "RIPPLE_def": 27,
+    "DELAY_opt": 23,
+    "RIPPLE_opt": 23,
+    "topo": "Grid7x7",
+    "seed": 13
+  },
+  {
+    "DELAY_def": 37,
+    "RIPPLE_def": 32,
+    "DELAY_opt": 41,
+    "RIPPLE_opt": 37,
+    "topo": "Grid7x7",
+    "seed": 14
+  },
+  {
+    "DELAY_def": 19,
+    "RIPPLE_def": 14,
+    "DELAY_opt": 19,
+    "RIPPLE_opt": 15,
+    "topo": "Grid7x7",
+    "seed": 15
+  },
+  {
+    "DELAY_def": 23,
+    "RIPPLE_def": 25,
+    "DELAY_opt": 19,
+    "RIPPLE_opt": 24,
+    "topo": "Grid7x7",
+    "seed": 16
+  },
+  {
+    "DELAY_def": 44,
+    "RIPPLE_def": 40,
+    "DELAY_opt": 43,
+    "RIPPLE_opt": 40,
+    "topo": "Grid7x7",
+    "seed": 17
+  },
+  {
+    "DELAY_def": 59,
+    "RIPPLE_def": 48,
+    "DELAY_opt": 62,
+    "RIPPLE_opt": 50,
+    "topo": "Grid7x7",
+    "seed": 18
+  },
+  {
+    "DELAY_def": 24,
+    "RIPPLE_def": 17,
+    "DELAY_opt": 28,
+    "RIPPLE_opt": 21,
+    "topo": "Grid7x7",
+    "seed": 19
+  },
+  {
+    "DELAY_def": 53,
+    "RIPPLE_def": 48,
+    "DELAY_opt": 57,
+    "RIPPLE_opt": 52,
+    "topo": "Grid7x7",
+    "seed": 20
+  },
+  {
+    "DELAY_def": 45,
+    "RIPPLE_def": 46,
+    "DELAY_opt": 45,
+    "RIPPLE_opt": 44,
+    "topo": "Grid7x7",
+    "seed": 21
+  },
+  {
+    "DELAY_def": 9,
+    "RIPPLE_def": 8,
+    "DELAY_opt": 12,
+    "RIPPLE_opt": 9,
+    "topo": "Grid7x7",
+    "seed": 22
+  },
+  {
+    "DELAY_def": 54,
+    "RIPPLE_def": 45,
+    "DELAY_opt": 49,
+    "RIPPLE_opt": 42,
+    "topo": "Grid7x7",
+    "seed": 23
+  },
+  {
+    "DELAY_def": 43,
+    "RIPPLE_def": 39,
+    "DELAY_opt": 38,
+    "RIPPLE_opt": 35,
+    "topo": "Grid7x7",
+    "seed": 24
+  },
+  {
+    "DELAY_def": 31,
+    "RIPPLE_def": 27,
+    "DELAY_opt": 23,
+    "RIPPLE_opt": 20,
+    "topo": "Grid7x7",
+    "seed": 25
+  },
+  {
+    "DELAY_def": 28,
+    "RIPPLE_def": 25,
+    "DELAY_opt": 27,
+    "RIPPLE_opt": 21,
+    "topo": "Grid7x7",
+    "seed": 26
+  },
+  {
+    "DELAY_def": 14,
+    "RIPPLE_def": 11,
+    "DELAY_opt": 14,
+    "RIPPLE_opt": 9,
+    "topo": "Grid7x7",
+    "seed": 27
+  },
+  {
+    "DELAY_def": 22,
+    "RIPPLE_def": 18,
+    "DELAY_opt": 18,
+    "RIPPLE_opt": 14,
+    "topo": "Grid7x7",
+    "seed": 28
+  },
+  {
+    "DELAY_def": 23,
+    "RIPPLE_def": 26,
+    "DELAY_opt": 25,
+    "RIPPLE_opt": 22,
+    "topo": "Grid7x7",
+    "seed": 29
+  },
+  {
+    "DELAY_def": 47,
+    "RIPPLE_def": 43,
+    "DELAY_opt": 53,
+    "RIPPLE_opt": 46,
+    "topo": "WS_n50",
+    "seed": 0
+  },
+  {
+    "DELAY_def": 40,
+    "RIPPLE_def": 31,
+    "DELAY_opt": 35,
+    "RIPPLE_opt": 33,
+    "topo": "WS_n50",
+    "seed": 1
+  },
+  {
+    "DELAY_def": 45,
+    "RIPPLE_def": 42,
+    "DELAY_opt": 37,
+    "RIPPLE_opt": 36,
+    "topo": "WS_n50",
+    "seed": 2
+  },
+  {
+    "DELAY_def": 33,
+    "RIPPLE_def": 30,
+    "DELAY_opt": 34,
+    "RIPPLE_opt": 29,
+    "topo": "WS_n50",
+    "seed": 3
+  },
+  {
+    "DELAY_def": 15,
+    "RIPPLE_def": 7,
+    "DELAY_opt": 7,
+    "RIPPLE_opt": 6,
+    "topo": "WS_n50",
+    "seed": 4
+  },
+  {
+    "DELAY_def": 25,
+    "RIPPLE_def": 26,
+    "DELAY_opt": 25,
+    "RIPPLE_opt": 25,
+    "topo": "WS_n50",
+    "seed": 5
+  },
+  {
+    "DELAY_def": 29,
+    "RIPPLE_def": 14,
+    "DELAY_opt": 28,
+    "RIPPLE_opt": 14,
+    "topo": "WS_n50",
+    "seed": 6
+  },
+  {
+    "DELAY_def": 23,
+    "RIPPLE_def": 23,
+    "DELAY_opt": 19,
+    "RIPPLE_opt": 20,
+    "topo": "WS_n50",
+    "seed": 7
+  },
+  {
+    "DELAY_def": 32,
+    "RIPPLE_def": 32,
+    "DELAY_opt": 31,
+    "RIPPLE_opt": 31,
+    "topo": "WS_n50",
+    "seed": 8
+  },
+  {
+    "DELAY_def": 64,
+    "RIPPLE_def": 58,
+    "DELAY_opt": 57,
+    "RIPPLE_opt": 57,
+    "topo": "WS_n50",
+    "seed": 9
+  },
+  {
+    "DELAY_def": 43,
+    "RIPPLE_def": 25,
+    "DELAY_opt": 35,
+    "RIPPLE_opt": 16,
+    "topo": "WS_n50",
+    "seed": 10
+  },
+  {
+    "DELAY_def": 29,
+    "RIPPLE_def": 22,
+    "DELAY_opt": 24,
+    "RIPPLE_opt": 22,
+    "topo": "WS_n50",
+    "seed": 11
+  },
+  {
+    "DELAY_def": 60,
+    "RIPPLE_def": 41,
+    "DELAY_opt": 54,
+    "RIPPLE_opt": 38,
+    "topo": "WS_n50",
+    "seed": 12
+  },
+  {
+    "DELAY_def": 39,
+    "RIPPLE_def": 31,
+    "DELAY_opt": 37,
+    "RIPPLE_opt": 30,
+    "topo": "WS_n50",
+    "seed": 13
+  },
+  {
+    "DELAY_def": 21,
+    "RIPPLE_def": 14,
+    "DELAY_opt": 16,
+    "RIPPLE_opt": 14,
+    "topo": "WS_n50",
+    "seed": 14
+  },
+  {
+    "DELAY_def": 41,
+    "RIPPLE_def": 37,
+    "DELAY_opt": 37,
+    "RIPPLE_opt": 38,
+    "topo": "WS_n50",
+    "seed": 15
+  },
+  {
+    "DELAY_def": 20,
+    "RIPPLE_def": 7,
+    "DELAY_opt": 19,
+    "RIPPLE_opt": 4,
+    "topo": "WS_n50",
+    "seed": 16
+  },
+  {
+    "DELAY_def": 46,
+    "RIPPLE_def": 43,
+    "DELAY_opt": 43,
+    "RIPPLE_opt": 39,
+    "topo": "WS_n50",
+    "seed": 17
+  },
+  {
+    "DELAY_def": 73,
+    "RIPPLE_def": 46,
+    "DELAY_opt": 75,
+    "RIPPLE_opt": 50,
+    "topo": "WS_n50",
+    "seed": 18
+  },
+  {
+    "DELAY_def": 50,
+    "RIPPLE_def": 43,
+    "DELAY_opt": 48,
+    "RIPPLE_opt": 43,
+    "topo": "WS_n50",
+    "seed": 19
+  },
+  {
+    "DELAY_def": 54,
+    "RIPPLE_def": 40,
+    "DELAY_opt": 43,
+    "RIPPLE_opt": 33,
+    "topo": "WS_n50",
+    "seed": 20
+  },
+  {
+    "DELAY_def": 16,
+    "RIPPLE_def": 14,
+    "DELAY_opt": 16,
+    "RIPPLE_opt": 16,
+    "topo": "WS_n50",
+    "seed": 21
+  },
+  {
+    "DELAY_def": 33,
+    "RIPPLE_def": 36,
+    "DELAY_opt": 34,
+    "RIPPLE_opt": 32,
+    "topo": "WS_n50",
+    "seed": 22
+  },
+  {
+    "DELAY_def": 45,
+    "RIPPLE_def": 41,
+    "DELAY_opt": 41,
+    "RIPPLE_opt": 35,
+    "topo": "WS_n50",
+    "seed": 23
+  },
+  {
+    "DELAY_def": 46,
+    "RIPPLE_def": 30,
+    "DELAY_opt": 38,
+    "RIPPLE_opt": 29,
+    "topo": "WS_n50",
+    "seed": 24
+  },
+  {
+    "DELAY_def": 56,
+    "RIPPLE_def": 45,
+    "DELAY_opt": 41,
+    "RIPPLE_opt": 44,
+    "topo": "WS_n50",
+    "seed": 25
+  },
+  {
+    "DELAY_def": 19,
+    "RIPPLE_def": 13,
+    "DELAY_opt": 16,
+    "RIPPLE_opt": 12,
+    "topo": "WS_n50",
+    "seed": 26
+  },
+  {
+    "DELAY_def": 25,
+    "RIPPLE_def": 14,
+    "DELAY_opt": 20,
+    "RIPPLE_opt": 15,
+    "topo": "WS_n50",
+    "seed": 27
+  },
+  {
+    "DELAY_def": 51,
+    "RIPPLE_def": 54,
+    "DELAY_opt": 51,
+    "RIPPLE_opt": 53,
+    "topo": "WS_n50",
+    "seed": 28
+  },
+  {
+    "DELAY_def": 33,
+    "RIPPLE_def": 34,
+    "DELAY_opt": 34,
+    "RIPPLE_opt": 34,
+    "topo": "WS_n50",
+    "seed": 29
+  },
+  {
+    "DELAY_def": 37,
+    "RIPPLE_def": 18,
+    "DELAY_opt": 23,
+    "RIPPLE_opt": 17,
+    "topo": "Grid10",
+    "seed": 0
+  },
+  {
+    "DELAY_def": 28,
+    "RIPPLE_def": 25,
+    "DELAY_opt": 22,
+    "RIPPLE_opt": 20,
+    "topo": "Grid10",
+    "seed": 1
+  },
+  {
+    "DELAY_def": 31,
+    "RIPPLE_def": 29,
+    "DELAY_opt": 26,
+    "RIPPLE_opt": 24,
+    "topo": "Grid10",
+    "seed": 2
+  },
+  {
+    "DELAY_def": 14,
+    "RIPPLE_def": 6,
+    "DELAY_opt": 15,
+    "RIPPLE_opt": 7,
+    "topo": "Grid10",
+    "seed": 3
+  },
+  {
+    "DELAY_def": 7,
+    "RIPPLE_def": 6,
+    "DELAY_opt": 6,
+    "RIPPLE_opt": 5,
+    "topo": "Grid10",
+    "seed": 4
+  },
+  {
+    "DELAY_def": 33,
+    "RIPPLE_def": 29,
+    "DELAY_opt": 34,
+    "RIPPLE_opt": 30,
+    "topo": "Grid10",
+    "seed": 5
+  },
+  {
+    "DELAY_def": 20,
+    "RIPPLE_def": 16,
+    "DELAY_opt": 18,
+    "RIPPLE_opt": 16,
+    "topo": "Grid10",
+    "seed": 6
+  },
+  {
+    "DELAY_def": 13,
+    "RIPPLE_def": 15,
+    "DELAY_opt": 14,
+    "RIPPLE_opt": 14,
+    "topo": "Grid10",
+    "seed": 7
+  },
+  {
+    "DELAY_def": 17,
+    "RIPPLE_def": 8,
+    "DELAY_opt": 17,
+    "RIPPLE_opt": 7,
+    "topo": "Grid10",
+    "seed": 8
+  },
+  {
+    "DELAY_def": 42,
+    "RIPPLE_def": 37,
+    "DELAY_opt": 39,
+    "RIPPLE_opt": 38,
+    "topo": "Grid10",
+    "seed": 9
+  },
+  {
+    "DELAY_def": 26,
+    "RIPPLE_def": 13,
+    "DELAY_opt": 23,
+    "RIPPLE_opt": 12,
+    "topo": "Grid10",
+    "seed": 10
+  },
+  {
+    "DELAY_def": 14,
+    "RIPPLE_def": 13,
+    "DELAY_opt": 12,
+    "RIPPLE_opt": 12,
+    "topo": "Grid10",
+    "seed": 11
+  },
+  {
+    "DELAY_def": 53,
+    "RIPPLE_def": 47,
+    "DELAY_opt": 50,
+    "RIPPLE_opt": 43,
+    "topo": "Grid10",
+    "seed": 12
+  },
+  {
+    "DELAY_def": 17,
+    "RIPPLE_def": 16,
+    "DELAY_opt": 19,
+    "RIPPLE_opt": 15,
+    "topo": "Grid10",
+    "seed": 13
+  },
+  {
+    "DELAY_def": 11,
+    "RIPPLE_def": 10,
+    "DELAY_opt": 10,
+    "RIPPLE_opt": 10,
+    "topo": "Grid10",
+    "seed": 14
+  },
+  {
+    "DELAY_def": 34,
+    "RIPPLE_def": 35,
+    "DELAY_opt": 34,
+    "RIPPLE_opt": 33,
+    "topo": "Grid10",
+    "seed": 15
+  },
+  {
+    "DELAY_def": 26,
+    "RIPPLE_def": 18,
+    "DELAY_opt": 27,
+    "RIPPLE_opt": 18,
+    "topo": "Grid10",
+    "seed": 16
+  },
+  {
+    "DELAY_def": 20,
+    "RIPPLE_def": 12,
+    "DELAY_opt": 17,
+    "RIPPLE_opt": 10,
+    "topo": "Grid10",
+    "seed": 17
+  },
+  {
+    "DELAY_def": 30,
+    "RIPPLE_def": 29,
+    "DELAY_opt": 32,
+    "RIPPLE_opt": 24,
+    "topo": "Grid10",
+    "seed": 18
+  },
+  {
+    "DELAY_def": 24,
+    "RIPPLE_def": 21,
+    "DELAY_opt": 22,
+    "RIPPLE_opt": 20,
+    "topo": "Grid10",
+    "seed": 19
+  },
+  {
+    "DELAY_def": 41,
+    "RIPPLE_def": 35,
+    "DELAY_opt": 38,
+    "RIPPLE_opt": 34,
+    "topo": "Grid10",
+    "seed": 20
+  },
+  {
+    "DELAY_def": 14,
+    "RIPPLE_def": 15,
+    "DELAY_opt": 13,
+    "RIPPLE_opt": 9,
+    "topo": "Grid10",
+    "seed": 21
+  },
+  {
+    "DELAY_def": 9,
+    "RIPPLE_def": 9,
+    "DELAY_opt": 6,
+    "RIPPLE_opt": 6,
+    "topo": "Grid10",
+    "seed": 22
+  },
+  {
+    "DELAY_def": 2,
+    "RIPPLE_def": 3,
+    "DELAY_opt": 8,
+    "RIPPLE_opt": 4,
+    "topo": "Grid10",
+    "seed": 23
+  },
+  {
+    "DELAY_def": 26,
+    "RIPPLE_def": 18,
+    "DELAY_opt": 14,
+    "RIPPLE_opt": 12,
+    "topo": "Grid10",
+    "seed": 24
+  },
+  {
+    "DELAY_def": 19,
+    "RIPPLE_def": 12,
+    "DELAY_opt": 16,
+    "RIPPLE_opt": 10,
+    "topo": "Grid10",
+    "seed": 25
+  },
+  {
+    "DELAY_def": 17,
+    "RIPPLE_def": 10,
+    "DELAY_opt": 18,
+    "RIPPLE_opt": 9,
+    "topo": "Grid10",
+    "seed": 26
+  },
+  {
+    "DELAY_def": 21,
+    "RIPPLE_def": 10,
+    "DELAY_opt": 16,
+    "RIPPLE_opt": 9,
+    "topo": "Grid10",
+    "seed": 27
+  },
+  {
+    "DELAY_def": 44,
+    "RIPPLE_def": 42,
+    "DELAY_opt": 43,
+    "RIPPLE_opt": 41,
+    "topo": "Grid10",
+    "seed": 28
+  },
+  {
+    "DELAY_def": 15,
+    "RIPPLE_def": 14,
+    "DELAY_opt": 18,
+    "RIPPLE_opt": 14,
+    "topo": "Grid10",
+    "seed": 29
+  }
+]

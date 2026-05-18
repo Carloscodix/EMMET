@@ -1,0 +1,1884 @@
+{
+  "tube": {
+    "Grid5": 2.7319365079365077,
+    "Grid6": 3.576717261904762,
+    "Grid7": 4.326614267676767,
+    "Grid8": 4.813494671994672,
+    "Grid10": 5.9902472111222105,
+    "Grid12": 7.689646442470068,
+    "WS_n30_k4": 4.665625,
+    "WS_n50_k4": 5.230917658730159,
+    "WS_n50_k6": 8.567416666666666,
+    "WS_n80_k4": 6.486606150793651,
+    "BA_n50_m2": 5.138333333333334,
+    "BA_n50_m3": 9.334166666666667,
+    "BA_n80_m2": 5.850416666666666,
+    "GEANT": 3.904485119047619,
+    "Abilene": 2.0890909090909093
+  },
+  "meta": {
+    "Grid5": {
+      "n": 25,
+      "edges": 40
+    },
+    "Grid6": {
+      "n": 36,
+      "edges": 60
+    },
+    "Grid7": {
+      "n": 49,
+      "edges": 84
+    },
+    "Grid8": {
+      "n": 64,
+      "edges": 112
+    },
+    "Grid10": {
+      "n": 100,
+      "edges": 180
+    },
+    "Grid12": {
+      "n": 144,
+      "edges": 264
+    },
+    "WS_n30_k4": {
+      "n": 30,
+      "edges": 60
+    },
+    "WS_n50_k4": {
+      "n": 50,
+      "edges": 100
+    },
+    "WS_n50_k6": {
+      "n": 50,
+      "edges": 150
+    },
+    "WS_n80_k4": {
+      "n": 80,
+      "edges": 160
+    },
+    "BA_n50_m2": {
+      "n": 50,
+      "edges": 96
+    },
+    "BA_n50_m3": {
+      "n": 50,
+      "edges": 141
+    },
+    "BA_n80_m2": {
+      "n": 80,
+      "edges": 156
+    },
+    "GEANT": {
+      "n": 40,
+      "edges": 61
+    },
+    "Abilene": {
+      "n": 11,
+      "edges": 14
+    }
+  },
+  "runs": [
+    {
+      "topo": "Grid5",
+      "seed": 0,
+      "CONGA": 75,
+      "RIPPLE": 40
+    },
+    {
+      "topo": "Grid5",
+      "seed": 1,
+      "CONGA": 38,
+      "RIPPLE": 44
+    },
+    {
+      "topo": "Grid5",
+      "seed": 2,
+      "CONGA": 37,
+      "RIPPLE": 39
+    },
+    {
+      "topo": "Grid5",
+      "seed": 3,
+      "CONGA": 28,
+      "RIPPLE": 33
+    },
+    {
+      "topo": "Grid5",
+      "seed": 4,
+      "CONGA": 5,
+      "RIPPLE": 10
+    },
+    {
+      "topo": "Grid5",
+      "seed": 5,
+      "CONGA": 22,
+      "RIPPLE": 39
+    },
+    {
+      "topo": "Grid5",
+      "seed": 6,
+      "CONGA": 26,
+      "RIPPLE": 38
+    },
+    {
+      "topo": "Grid5",
+      "seed": 7,
+      "CONGA": 35,
+      "RIPPLE": 31
+    },
+    {
+      "topo": "Grid5",
+      "seed": 8,
+      "CONGA": 36,
+      "RIPPLE": 25
+    },
+    {
+      "topo": "Grid5",
+      "seed": 9,
+      "CONGA": 59,
+      "RIPPLE": 47
+    },
+    {
+      "topo": "Grid5",
+      "seed": 10,
+      "CONGA": 50,
+      "RIPPLE": 38
+    },
+    {
+      "topo": "Grid5",
+      "seed": 11,
+      "CONGA": 31,
+      "RIPPLE": 31
+    },
+    {
+      "topo": "Grid5",
+      "seed": 12,
+      "CONGA": 49,
+      "RIPPLE": 64
+    },
+    {
+      "topo": "Grid5",
+      "seed": 13,
+      "CONGA": 9,
+      "RIPPLE": 29
+    },
+    {
+      "topo": "Grid5",
+      "seed": 14,
+      "CONGA": 26,
+      "RIPPLE": 37
+    },
+    {
+      "topo": "Grid5",
+      "seed": 15,
+      "CONGA": 30,
+      "RIPPLE": 31
+    },
+    {
+      "topo": "Grid5",
+      "seed": 16,
+      "CONGA": 22,
+      "RIPPLE": 25
+    },
+    {
+      "topo": "Grid5",
+      "seed": 17,
+      "CONGA": 40,
+      "RIPPLE": 39
+    },
+    {
+      "topo": "Grid5",
+      "seed": 18,
+      "CONGA": 41,
+      "RIPPLE": 65
+    },
+    {
+      "topo": "Grid5",
+      "seed": 19,
+      "CONGA": 29,
+      "RIPPLE": 27
+    },
+    {
+      "topo": "Grid6",
+      "seed": 0,
+      "CONGA": 42,
+      "RIPPLE": 38
+    },
+    {
+      "topo": "Grid6",
+      "seed": 1,
+      "CONGA": 49,
+      "RIPPLE": 47
+    },
+    {
+      "topo": "Grid6",
+      "seed": 2,
+      "CONGA": 56,
+      "RIPPLE": 64
+    },
+    {
+      "topo": "Grid6",
+      "seed": 3,
+      "CONGA": 50,
+      "RIPPLE": 42
+    },
+    {
+      "topo": "Grid6",
+      "seed": 4,
+      "CONGA": 22,
+      "RIPPLE": 31
+    },
+    {
+      "topo": "Grid6",
+      "seed": 5,
+      "CONGA": 35,
+      "RIPPLE": 18
+    },
+    {
+      "topo": "Grid6",
+      "seed": 6,
+      "CONGA": 42,
+      "RIPPLE": 39
+    },
+    {
+      "topo": "Grid6",
+      "seed": 7,
+      "CONGA": 42,
+      "RIPPLE": 28
+    },
+    {
+      "topo": "Grid6",
+      "seed": 8,
+      "CONGA": 52,
+      "RIPPLE": 45
+    },
+    {
+      "topo": "Grid6",
+      "seed": 9,
+      "CONGA": 71,
+      "RIPPLE": 63
+    },
+    {
+      "topo": "Grid6",
+      "seed": 10,
+      "CONGA": 34,
+      "RIPPLE": 20
+    },
+    {
+      "topo": "Grid6",
+      "seed": 11,
+      "CONGA": 37,
+      "RIPPLE": 40
+    },
+    {
+      "topo": "Grid6",
+      "seed": 12,
+      "CONGA": 42,
+      "RIPPLE": 17
+    },
+    {
+      "topo": "Grid6",
+      "seed": 13,
+      "CONGA": 35,
+      "RIPPLE": 36
+    },
+    {
+      "topo": "Grid6",
+      "seed": 14,
+      "CONGA": 30,
+      "RIPPLE": 43
+    },
+    {
+      "topo": "Grid6",
+      "seed": 15,
+      "CONGA": 22,
+      "RIPPLE": 33
+    },
+    {
+      "topo": "Grid6",
+      "seed": 16,
+      "CONGA": 42,
+      "RIPPLE": 50
+    },
+    {
+      "topo": "Grid6",
+      "seed": 17,
+      "CONGA": 41,
+      "RIPPLE": 33
+    },
+    {
+      "topo": "Grid6",
+      "seed": 18,
+      "CONGA": 9,
+      "RIPPLE": 10
+    },
+    {
+      "topo": "Grid6",
+      "seed": 19,
+      "CONGA": 50,
+      "RIPPLE": 30
+    },
+    {
+      "topo": "Grid7",
+      "seed": 0,
+      "CONGA": 92,
+      "RIPPLE": 37
+    },
+    {
+      "topo": "Grid7",
+      "seed": 1,
+      "CONGA": 69,
+      "RIPPLE": 15
+    },
+    {
+      "topo": "Grid7",
+      "seed": 2,
+      "CONGA": 47,
+      "RIPPLE": 53
+    },
+    {
+      "topo": "Grid7",
+      "seed": 3,
+      "CONGA": 57,
+      "RIPPLE": 25
+    },
+    {
+      "topo": "Grid7",
+      "seed": 4,
+      "CONGA": 12,
+      "RIPPLE": 4
+    },
+    {
+      "topo": "Grid7",
+      "seed": 5,
+      "CONGA": 44,
+      "RIPPLE": 20
+    },
+    {
+      "topo": "Grid7",
+      "seed": 6,
+      "CONGA": 24,
+      "RIPPLE": 26
+    },
+    {
+      "topo": "Grid7",
+      "seed": 7,
+      "CONGA": 41,
+      "RIPPLE": 18
+    },
+    {
+      "topo": "Grid7",
+      "seed": 8,
+      "CONGA": 57,
+      "RIPPLE": 39
+    },
+    {
+      "topo": "Grid7",
+      "seed": 9,
+      "CONGA": 92,
+      "RIPPLE": 42
+    },
+    {
+      "topo": "Grid7",
+      "seed": 10,
+      "CONGA": 40,
+      "RIPPLE": 25
+    },
+    {
+      "topo": "Grid7",
+      "seed": 11,
+      "CONGA": 36,
+      "RIPPLE": 22
+    },
+    {
+      "topo": "Grid7",
+      "seed": 12,
+      "CONGA": 76,
+      "RIPPLE": 40
+    },
+    {
+      "topo": "Grid7",
+      "seed": 13,
+      "CONGA": 39,
+      "RIPPLE": 23
+    },
+    {
+      "topo": "Grid7",
+      "seed": 14,
+      "CONGA": 42,
+      "RIPPLE": 37
+    },
+    {
+      "topo": "Grid7",
+      "seed": 15,
+      "CONGA": 34,
+      "RIPPLE": 15
+    },
+    {
+      "topo": "Grid7",
+      "seed": 16,
+      "CONGA": 22,
+      "RIPPLE": 24
+    },
+    {
+      "topo": "Grid7",
+      "seed": 17,
+      "CONGA": 48,
+      "RIPPLE": 40
+    },
+    {
+      "topo": "Grid7",
+      "seed": 18,
+      "CONGA": 68,
+      "RIPPLE": 50
+    },
+    {
+      "topo": "Grid7",
+      "seed": 19,
+      "CONGA": 27,
+      "RIPPLE": 21
+    },
+    {
+      "topo": "Grid8",
+      "seed": 0,
+      "CONGA": 50,
+      "RIPPLE": 8
+    },
+    {
+      "topo": "Grid8",
+      "seed": 1,
+      "CONGA": 78,
+      "RIPPLE": 40
+    },
+    {
+      "topo": "Grid8",
+      "seed": 2,
+      "CONGA": 86,
+      "RIPPLE": 43
+    },
+    {
+      "topo": "Grid8",
+      "seed": 3,
+      "CONGA": 45,
+      "RIPPLE": 8
+    },
+    {
+      "topo": "Grid8",
+      "seed": 4,
+      "CONGA": 58,
+      "RIPPLE": 65
+    },
+    {
+      "topo": "Grid8",
+      "seed": 5,
+      "CONGA": 42,
+      "RIPPLE": 44
+    },
+    {
+      "topo": "Grid8",
+      "seed": 6,
+      "CONGA": 67,
+      "RIPPLE": 13
+    },
+    {
+      "topo": "Grid8",
+      "seed": 7,
+      "CONGA": 23,
+      "RIPPLE": 9
+    },
+    {
+      "topo": "Grid8",
+      "seed": 8,
+      "CONGA": 67,
+      "RIPPLE": 41
+    },
+    {
+      "topo": "Grid8",
+      "seed": 9,
+      "CONGA": 65,
+      "RIPPLE": 31
+    },
+    {
+      "topo": "Grid8",
+      "seed": 10,
+      "CONGA": 52,
+      "RIPPLE": 24
+    },
+    {
+      "topo": "Grid8",
+      "seed": 11,
+      "CONGA": 51,
+      "RIPPLE": 28
+    },
+    {
+      "topo": "Grid8",
+      "seed": 12,
+      "CONGA": 34,
+      "RIPPLE": 13
+    },
+    {
+      "topo": "Grid8",
+      "seed": 13,
+      "CONGA": 53,
+      "RIPPLE": 38
+    },
+    {
+      "topo": "Grid8",
+      "seed": 14,
+      "CONGA": 47,
+      "RIPPLE": 31
+    },
+    {
+      "topo": "Grid8",
+      "seed": 15,
+      "CONGA": 29,
+      "RIPPLE": 15
+    },
+    {
+      "topo": "Grid8",
+      "seed": 16,
+      "CONGA": 34,
+      "RIPPLE": 20
+    },
+    {
+      "topo": "Grid8",
+      "seed": 17,
+      "CONGA": 39,
+      "RIPPLE": 26
+    },
+    {
+      "topo": "Grid8",
+      "seed": 18,
+      "CONGA": 33,
+      "RIPPLE": 18
+    },
+    {
+      "topo": "Grid8",
+      "seed": 19,
+      "CONGA": 46,
+      "RIPPLE": 38
+    },
+    {
+      "topo": "Grid10",
+      "seed": 0,
+      "CONGA": 105,
+      "RIPPLE": 17
+    },
+    {
+      "topo": "Grid10",
+      "seed": 1,
+      "CONGA": 57,
+      "RIPPLE": 20
+    },
+    {
+      "topo": "Grid10",
+      "seed": 2,
+      "CONGA": 67,
+      "RIPPLE": 24
+    },
+    {
+      "topo": "Grid10",
+      "seed": 3,
+      "CONGA": 66,
+      "RIPPLE": 7
+    },
+    {
+      "topo": "Grid10",
+      "seed": 4,
+      "CONGA": 28,
+      "RIPPLE": 5
+    },
+    {
+      "topo": "Grid10",
+      "seed": 5,
+      "CONGA": 44,
+      "RIPPLE": 30
+    },
+    {
+      "topo": "Grid10",
+      "seed": 6,
+      "CONGA": 57,
+      "RIPPLE": 16
+    },
+    {
+      "topo": "Grid10",
+      "seed": 7,
+      "CONGA": 68,
+      "RIPPLE": 14
+    },
+    {
+      "topo": "Grid10",
+      "seed": 8,
+      "CONGA": 46,
+      "RIPPLE": 7
+    },
+    {
+      "topo": "Grid10",
+      "seed": 9,
+      "CONGA": 58,
+      "RIPPLE": 38
+    },
+    {
+      "topo": "Grid10",
+      "seed": 10,
+      "CONGA": 88,
+      "RIPPLE": 12
+    },
+    {
+      "topo": "Grid10",
+      "seed": 11,
+      "CONGA": 32,
+      "RIPPLE": 12
+    },
+    {
+      "topo": "Grid10",
+      "seed": 12,
+      "CONGA": 74,
+      "RIPPLE": 43
+    },
+    {
+      "topo": "Grid10",
+      "seed": 13,
+      "CONGA": 50,
+      "RIPPLE": 15
+    },
+    {
+      "topo": "Grid10",
+      "seed": 14,
+      "CONGA": 57,
+      "RIPPLE": 10
+    },
+    {
+      "topo": "Grid10",
+      "seed": 15,
+      "CONGA": 62,
+      "RIPPLE": 33
+    },
+    {
+      "topo": "Grid10",
+      "seed": 16,
+      "CONGA": 50,
+      "RIPPLE": 18
+    },
+    {
+      "topo": "Grid10",
+      "seed": 17,
+      "CONGA": 46,
+      "RIPPLE": 10
+    },
+    {
+      "topo": "Grid10",
+      "seed": 18,
+      "CONGA": 86,
+      "RIPPLE": 24
+    },
+    {
+      "topo": "Grid10",
+      "seed": 19,
+      "CONGA": 47,
+      "RIPPLE": 20
+    },
+    {
+      "topo": "Grid12",
+      "seed": 0,
+      "CONGA": 53,
+      "RIPPLE": 6
+    },
+    {
+      "topo": "Grid12",
+      "seed": 1,
+      "CONGA": 80,
+      "RIPPLE": 14
+    },
+    {
+      "topo": "Grid12",
+      "seed": 2,
+      "CONGA": 74,
+      "RIPPLE": 38
+    },
+    {
+      "topo": "Grid12",
+      "seed": 3,
+      "CONGA": 83,
+      "RIPPLE": 8
+    },
+    {
+      "topo": "Grid12",
+      "seed": 4,
+      "CONGA": 63,
+      "RIPPLE": 24
+    },
+    {
+      "topo": "Grid12",
+      "seed": 5,
+      "CONGA": 72,
+      "RIPPLE": 12
+    },
+    {
+      "topo": "Grid12",
+      "seed": 6,
+      "CONGA": 59,
+      "RIPPLE": 18
+    },
+    {
+      "topo": "Grid12",
+      "seed": 7,
+      "CONGA": 75,
+      "RIPPLE": 19
+    },
+    {
+      "topo": "Grid12",
+      "seed": 8,
+      "CONGA": 45,
+      "RIPPLE": 12
+    },
+    {
+      "topo": "Grid12",
+      "seed": 9,
+      "CONGA": 76,
+      "RIPPLE": 28
+    },
+    {
+      "topo": "Grid12",
+      "seed": 10,
+      "CONGA": 59,
+      "RIPPLE": 7
+    },
+    {
+      "topo": "Grid12",
+      "seed": 11,
+      "CONGA": 35,
+      "RIPPLE": 3
+    },
+    {
+      "topo": "Grid12",
+      "seed": 12,
+      "CONGA": 58,
+      "RIPPLE": 15
+    },
+    {
+      "topo": "Grid12",
+      "seed": 13,
+      "CONGA": 84,
+      "RIPPLE": 18
+    },
+    {
+      "topo": "Grid12",
+      "seed": 14,
+      "CONGA": 49,
+      "RIPPLE": 21
+    },
+    {
+      "topo": "Grid12",
+      "seed": 15,
+      "CONGA": 42,
+      "RIPPLE": 25
+    },
+    {
+      "topo": "Grid12",
+      "seed": 16,
+      "CONGA": 72,
+      "RIPPLE": 31
+    },
+    {
+      "topo": "Grid12",
+      "seed": 17,
+      "CONGA": 59,
+      "RIPPLE": 49
+    },
+    {
+      "topo": "Grid12",
+      "seed": 18,
+      "CONGA": 48,
+      "RIPPLE": 9
+    },
+    {
+      "topo": "Grid12",
+      "seed": 19,
+      "CONGA": 64,
+      "RIPPLE": 9
+    },
+    {
+      "topo": "WS_n30_k4",
+      "seed": 0,
+      "CONGA": 37,
+      "RIPPLE": 45
+    },
+    {
+      "topo": "WS_n30_k4",
+      "seed": 1,
+      "CONGA": 31,
+      "RIPPLE": 39
+    },
+    {
+      "topo": "WS_n30_k4",
+      "seed": 2,
+      "CONGA": 36,
+      "RIPPLE": 34
+    },
+    {
+      "topo": "WS_n30_k4",
+      "seed": 3,
+      "CONGA": 48,
+      "RIPPLE": 22
+    },
+    {
+      "topo": "WS_n30_k4",
+      "seed": 4,
+      "CONGA": 20,
+      "RIPPLE": 17
+    },
+    {
+      "topo": "WS_n30_k4",
+      "seed": 5,
+      "CONGA": 24,
+      "RIPPLE": 18
+    },
+    {
+      "topo": "WS_n30_k4",
+      "seed": 6,
+      "CONGA": 5,
+      "RIPPLE": 8
+    },
+    {
+      "topo": "WS_n30_k4",
+      "seed": 7,
+      "CONGA": 19,
+      "RIPPLE": 21
+    },
+    {
+      "topo": "WS_n30_k4",
+      "seed": 8,
+      "CONGA": 30,
+      "RIPPLE": 33
+    },
+    {
+      "topo": "WS_n30_k4",
+      "seed": 9,
+      "CONGA": 29,
+      "RIPPLE": 48
+    },
+    {
+      "topo": "WS_n30_k4",
+      "seed": 10,
+      "CONGA": 61,
+      "RIPPLE": 25
+    },
+    {
+      "topo": "WS_n30_k4",
+      "seed": 11,
+      "CONGA": 27,
+      "RIPPLE": 15
+    },
+    {
+      "topo": "WS_n30_k4",
+      "seed": 12,
+      "CONGA": 20,
+      "RIPPLE": 21
+    },
+    {
+      "topo": "WS_n30_k4",
+      "seed": 13,
+      "CONGA": 35,
+      "RIPPLE": 14
+    },
+    {
+      "topo": "WS_n30_k4",
+      "seed": 14,
+      "CONGA": 59,
+      "RIPPLE": 12
+    },
+    {
+      "topo": "WS_n30_k4",
+      "seed": 15,
+      "CONGA": 28,
+      "RIPPLE": 25
+    },
+    {
+      "topo": "WS_n30_k4",
+      "seed": 16,
+      "CONGA": 25,
+      "RIPPLE": 14
+    },
+    {
+      "topo": "WS_n30_k4",
+      "seed": 17,
+      "CONGA": 16,
+      "RIPPLE": 16
+    },
+    {
+      "topo": "WS_n30_k4",
+      "seed": 18,
+      "CONGA": 38,
+      "RIPPLE": 19
+    },
+    {
+      "topo": "WS_n30_k4",
+      "seed": 19,
+      "CONGA": 59,
+      "RIPPLE": 47
+    },
+    {
+      "topo": "WS_n50_k4",
+      "seed": 0,
+      "CONGA": 92,
+      "RIPPLE": 46
+    },
+    {
+      "topo": "WS_n50_k4",
+      "seed": 1,
+      "CONGA": 63,
+      "RIPPLE": 33
+    },
+    {
+      "topo": "WS_n50_k4",
+      "seed": 2,
+      "CONGA": 55,
+      "RIPPLE": 36
+    },
+    {
+      "topo": "WS_n50_k4",
+      "seed": 3,
+      "CONGA": 45,
+      "RIPPLE": 29
+    },
+    {
+      "topo": "WS_n50_k4",
+      "seed": 4,
+      "CONGA": 12,
+      "RIPPLE": 6
+    },
+    {
+      "topo": "WS_n50_k4",
+      "seed": 5,
+      "CONGA": 22,
+      "RIPPLE": 25
+    },
+    {
+      "topo": "WS_n50_k4",
+      "seed": 6,
+      "CONGA": 37,
+      "RIPPLE": 14
+    },
+    {
+      "topo": "WS_n50_k4",
+      "seed": 7,
+      "CONGA": 26,
+      "RIPPLE": 20
+    },
+    {
+      "topo": "WS_n50_k4",
+      "seed": 8,
+      "CONGA": 36,
+      "RIPPLE": 31
+    },
+    {
+      "topo": "WS_n50_k4",
+      "seed": 9,
+      "CONGA": 65,
+      "RIPPLE": 57
+    },
+    {
+      "topo": "WS_n50_k4",
+      "seed": 10,
+      "CONGA": 73,
+      "RIPPLE": 16
+    },
+    {
+      "topo": "WS_n50_k4",
+      "seed": 11,
+      "CONGA": 26,
+      "RIPPLE": 22
+    },
+    {
+      "topo": "WS_n50_k4",
+      "seed": 12,
+      "CONGA": 79,
+      "RIPPLE": 38
+    },
+    {
+      "topo": "WS_n50_k4",
+      "seed": 13,
+      "CONGA": 53,
+      "RIPPLE": 30
+    },
+    {
+      "topo": "WS_n50_k4",
+      "seed": 14,
+      "CONGA": 28,
+      "RIPPLE": 14
+    },
+    {
+      "topo": "WS_n50_k4",
+      "seed": 15,
+      "CONGA": 37,
+      "RIPPLE": 38
+    },
+    {
+      "topo": "WS_n50_k4",
+      "seed": 16,
+      "CONGA": 27,
+      "RIPPLE": 4
+    },
+    {
+      "topo": "WS_n50_k4",
+      "seed": 17,
+      "CONGA": 37,
+      "RIPPLE": 39
+    },
+    {
+      "topo": "WS_n50_k4",
+      "seed": 18,
+      "CONGA": 86,
+      "RIPPLE": 50
+    },
+    {
+      "topo": "WS_n50_k4",
+      "seed": 19,
+      "CONGA": 34,
+      "RIPPLE": 43
+    },
+    {
+      "topo": "WS_n50_k6",
+      "seed": 0,
+      "CONGA": 63,
+      "RIPPLE": 29
+    },
+    {
+      "topo": "WS_n50_k6",
+      "seed": 1,
+      "CONGA": 53,
+      "RIPPLE": 20
+    },
+    {
+      "topo": "WS_n50_k6",
+      "seed": 2,
+      "CONGA": 40,
+      "RIPPLE": 9
+    },
+    {
+      "topo": "WS_n50_k6",
+      "seed": 3,
+      "CONGA": 37,
+      "RIPPLE": 2
+    },
+    {
+      "topo": "WS_n50_k6",
+      "seed": 4,
+      "CONGA": 6,
+      "RIPPLE": 3
+    },
+    {
+      "topo": "WS_n50_k6",
+      "seed": 5,
+      "CONGA": 22,
+      "RIPPLE": 11
+    },
+    {
+      "topo": "WS_n50_k6",
+      "seed": 6,
+      "CONGA": 33,
+      "RIPPLE": 23
+    },
+    {
+      "topo": "WS_n50_k6",
+      "seed": 7,
+      "CONGA": 25,
+      "RIPPLE": 17
+    },
+    {
+      "topo": "WS_n50_k6",
+      "seed": 8,
+      "CONGA": 35,
+      "RIPPLE": 27
+    },
+    {
+      "topo": "WS_n50_k6",
+      "seed": 9,
+      "CONGA": 59,
+      "RIPPLE": 30
+    },
+    {
+      "topo": "WS_n50_k6",
+      "seed": 10,
+      "CONGA": 65,
+      "RIPPLE": 8
+    },
+    {
+      "topo": "WS_n50_k6",
+      "seed": 11,
+      "CONGA": 6,
+      "RIPPLE": 6
+    },
+    {
+      "topo": "WS_n50_k6",
+      "seed": 12,
+      "CONGA": 76,
+      "RIPPLE": 25
+    },
+    {
+      "topo": "WS_n50_k6",
+      "seed": 13,
+      "CONGA": 40,
+      "RIPPLE": 22
+    },
+    {
+      "topo": "WS_n50_k6",
+      "seed": 14,
+      "CONGA": 21,
+      "RIPPLE": 8
+    },
+    {
+      "topo": "WS_n50_k6",
+      "seed": 15,
+      "CONGA": 24,
+      "RIPPLE": 7
+    },
+    {
+      "topo": "WS_n50_k6",
+      "seed": 16,
+      "CONGA": 24,
+      "RIPPLE": 5
+    },
+    {
+      "topo": "WS_n50_k6",
+      "seed": 17,
+      "CONGA": 15,
+      "RIPPLE": 6
+    },
+    {
+      "topo": "WS_n50_k6",
+      "seed": 18,
+      "CONGA": 52,
+      "RIPPLE": 7
+    },
+    {
+      "topo": "WS_n50_k6",
+      "seed": 19,
+      "CONGA": 19,
+      "RIPPLE": 10
+    },
+    {
+      "topo": "WS_n80_k4",
+      "seed": 0,
+      "CONGA": 57,
+      "RIPPLE": 25
+    },
+    {
+      "topo": "WS_n80_k4",
+      "seed": 1,
+      "CONGA": 81,
+      "RIPPLE": 48
+    },
+    {
+      "topo": "WS_n80_k4",
+      "seed": 2,
+      "CONGA": 108,
+      "RIPPLE": 66
+    },
+    {
+      "topo": "WS_n80_k4",
+      "seed": 3,
+      "CONGA": 67,
+      "RIPPLE": 64
+    },
+    {
+      "topo": "WS_n80_k4",
+      "seed": 4,
+      "CONGA": 38,
+      "RIPPLE": 18
+    },
+    {
+      "topo": "WS_n80_k4",
+      "seed": 5,
+      "CONGA": 34,
+      "RIPPLE": 44
+    },
+    {
+      "topo": "WS_n80_k4",
+      "seed": 6,
+      "CONGA": 60,
+      "RIPPLE": 27
+    },
+    {
+      "topo": "WS_n80_k4",
+      "seed": 7,
+      "CONGA": 44,
+      "RIPPLE": 19
+    },
+    {
+      "topo": "WS_n80_k4",
+      "seed": 8,
+      "CONGA": 65,
+      "RIPPLE": 20
+    },
+    {
+      "topo": "WS_n80_k4",
+      "seed": 9,
+      "CONGA": 57,
+      "RIPPLE": 43
+    },
+    {
+      "topo": "WS_n80_k4",
+      "seed": 10,
+      "CONGA": 70,
+      "RIPPLE": 47
+    },
+    {
+      "topo": "WS_n80_k4",
+      "seed": 11,
+      "CONGA": 39,
+      "RIPPLE": 18
+    },
+    {
+      "topo": "WS_n80_k4",
+      "seed": 12,
+      "CONGA": 57,
+      "RIPPLE": 44
+    },
+    {
+      "topo": "WS_n80_k4",
+      "seed": 13,
+      "CONGA": 75,
+      "RIPPLE": 52
+    },
+    {
+      "topo": "WS_n80_k4",
+      "seed": 14,
+      "CONGA": 71,
+      "RIPPLE": 34
+    },
+    {
+      "topo": "WS_n80_k4",
+      "seed": 15,
+      "CONGA": 40,
+      "RIPPLE": 23
+    },
+    {
+      "topo": "WS_n80_k4",
+      "seed": 16,
+      "CONGA": 51,
+      "RIPPLE": 6
+    },
+    {
+      "topo": "WS_n80_k4",
+      "seed": 17,
+      "CONGA": 60,
+      "RIPPLE": 68
+    },
+    {
+      "topo": "WS_n80_k4",
+      "seed": 18,
+      "CONGA": 60,
+      "RIPPLE": 32
+    },
+    {
+      "topo": "WS_n80_k4",
+      "seed": 19,
+      "CONGA": 30,
+      "RIPPLE": 29
+    },
+    {
+      "topo": "BA_n50_m2",
+      "seed": 0,
+      "CONGA": 81,
+      "RIPPLE": 49
+    },
+    {
+      "topo": "BA_n50_m2",
+      "seed": 1,
+      "CONGA": 40,
+      "RIPPLE": 28
+    },
+    {
+      "topo": "BA_n50_m2",
+      "seed": 2,
+      "CONGA": 38,
+      "RIPPLE": 43
+    },
+    {
+      "topo": "BA_n50_m2",
+      "seed": 3,
+      "CONGA": 32,
+      "RIPPLE": 17
+    },
+    {
+      "topo": "BA_n50_m2",
+      "seed": 4,
+      "CONGA": 10,
+      "RIPPLE": 3
+    },
+    {
+      "topo": "BA_n50_m2",
+      "seed": 5,
+      "CONGA": 21,
+      "RIPPLE": 22
+    },
+    {
+      "topo": "BA_n50_m2",
+      "seed": 6,
+      "CONGA": 38,
+      "RIPPLE": 15
+    },
+    {
+      "topo": "BA_n50_m2",
+      "seed": 7,
+      "CONGA": 24,
+      "RIPPLE": 6
+    },
+    {
+      "topo": "BA_n50_m2",
+      "seed": 8,
+      "CONGA": 24,
+      "RIPPLE": 24
+    },
+    {
+      "topo": "BA_n50_m2",
+      "seed": 9,
+      "CONGA": 46,
+      "RIPPLE": 52
+    },
+    {
+      "topo": "BA_n50_m2",
+      "seed": 10,
+      "CONGA": 55,
+      "RIPPLE": 22
+    },
+    {
+      "topo": "BA_n50_m2",
+      "seed": 11,
+      "CONGA": 11,
+      "RIPPLE": 20
+    },
+    {
+      "topo": "BA_n50_m2",
+      "seed": 12,
+      "CONGA": 54,
+      "RIPPLE": 54
+    },
+    {
+      "topo": "BA_n50_m2",
+      "seed": 13,
+      "CONGA": 31,
+      "RIPPLE": 35
+    },
+    {
+      "topo": "BA_n50_m2",
+      "seed": 14,
+      "CONGA": 18,
+      "RIPPLE": 27
+    },
+    {
+      "topo": "BA_n50_m2",
+      "seed": 15,
+      "CONGA": 31,
+      "RIPPLE": 24
+    },
+    {
+      "topo": "BA_n50_m2",
+      "seed": 16,
+      "CONGA": 4,
+      "RIPPLE": 28
+    },
+    {
+      "topo": "BA_n50_m2",
+      "seed": 17,
+      "CONGA": 13,
+      "RIPPLE": 30
+    },
+    {
+      "topo": "BA_n50_m2",
+      "seed": 18,
+      "CONGA": 50,
+      "RIPPLE": 65
+    },
+    {
+      "topo": "BA_n50_m2",
+      "seed": 19,
+      "CONGA": 20,
+      "RIPPLE": 12
+    },
+    {
+      "topo": "BA_n50_m3",
+      "seed": 0,
+      "CONGA": 41,
+      "RIPPLE": 40
+    },
+    {
+      "topo": "BA_n50_m3",
+      "seed": 1,
+      "CONGA": 10,
+      "RIPPLE": 6
+    },
+    {
+      "topo": "BA_n50_m3",
+      "seed": 2,
+      "CONGA": 42,
+      "RIPPLE": 15
+    },
+    {
+      "topo": "BA_n50_m3",
+      "seed": 3,
+      "CONGA": 15,
+      "RIPPLE": 8
+    },
+    {
+      "topo": "BA_n50_m3",
+      "seed": 4,
+      "CONGA": 3,
+      "RIPPLE": 2
+    },
+    {
+      "topo": "BA_n50_m3",
+      "seed": 5,
+      "CONGA": 2,
+      "RIPPLE": 3
+    },
+    {
+      "topo": "BA_n50_m3",
+      "seed": 6,
+      "CONGA": 27,
+      "RIPPLE": 11
+    },
+    {
+      "topo": "BA_n50_m3",
+      "seed": 7,
+      "CONGA": 0,
+      "RIPPLE": 4
+    },
+    {
+      "topo": "BA_n50_m3",
+      "seed": 8,
+      "CONGA": 19,
+      "RIPPLE": 5
+    },
+    {
+      "topo": "BA_n50_m3",
+      "seed": 9,
+      "CONGA": 31,
+      "RIPPLE": 30
+    },
+    {
+      "topo": "BA_n50_m3",
+      "seed": 10,
+      "CONGA": 8,
+      "RIPPLE": 8
+    },
+    {
+      "topo": "BA_n50_m3",
+      "seed": 11,
+      "CONGA": 16,
+      "RIPPLE": 15
+    },
+    {
+      "topo": "BA_n50_m3",
+      "seed": 12,
+      "CONGA": 47,
+      "RIPPLE": 14
+    },
+    {
+      "topo": "BA_n50_m3",
+      "seed": 13,
+      "CONGA": 15,
+      "RIPPLE": 3
+    },
+    {
+      "topo": "BA_n50_m3",
+      "seed": 14,
+      "CONGA": 20,
+      "RIPPLE": 3
+    },
+    {
+      "topo": "BA_n50_m3",
+      "seed": 15,
+      "CONGA": 26,
+      "RIPPLE": 16
+    },
+    {
+      "topo": "BA_n50_m3",
+      "seed": 16,
+      "CONGA": 9,
+      "RIPPLE": 2
+    },
+    {
+      "topo": "BA_n50_m3",
+      "seed": 17,
+      "CONGA": 14,
+      "RIPPLE": 8
+    },
+    {
+      "topo": "BA_n50_m3",
+      "seed": 18,
+      "CONGA": 50,
+      "RIPPLE": 27
+    },
+    {
+      "topo": "BA_n50_m3",
+      "seed": 19,
+      "CONGA": 11,
+      "RIPPLE": 1
+    },
+    {
+      "topo": "BA_n80_m2",
+      "seed": 0,
+      "CONGA": 67,
+      "RIPPLE": 50
+    },
+    {
+      "topo": "BA_n80_m2",
+      "seed": 1,
+      "CONGA": 38,
+      "RIPPLE": 28
+    },
+    {
+      "topo": "BA_n80_m2",
+      "seed": 2,
+      "CONGA": 51,
+      "RIPPLE": 37
+    },
+    {
+      "topo": "BA_n80_m2",
+      "seed": 3,
+      "CONGA": 73,
+      "RIPPLE": 61
+    },
+    {
+      "topo": "BA_n80_m2",
+      "seed": 4,
+      "CONGA": 48,
+      "RIPPLE": 33
+    },
+    {
+      "topo": "BA_n80_m2",
+      "seed": 5,
+      "CONGA": 37,
+      "RIPPLE": 25
+    },
+    {
+      "topo": "BA_n80_m2",
+      "seed": 6,
+      "CONGA": 28,
+      "RIPPLE": 30
+    },
+    {
+      "topo": "BA_n80_m2",
+      "seed": 7,
+      "CONGA": 17,
+      "RIPPLE": 16
+    },
+    {
+      "topo": "BA_n80_m2",
+      "seed": 8,
+      "CONGA": 46,
+      "RIPPLE": 30
+    },
+    {
+      "topo": "BA_n80_m2",
+      "seed": 9,
+      "CONGA": 23,
+      "RIPPLE": 33
+    },
+    {
+      "topo": "BA_n80_m2",
+      "seed": 10,
+      "CONGA": 52,
+      "RIPPLE": 48
+    },
+    {
+      "topo": "BA_n80_m2",
+      "seed": 11,
+      "CONGA": 17,
+      "RIPPLE": 13
+    },
+    {
+      "topo": "BA_n80_m2",
+      "seed": 12,
+      "CONGA": 61,
+      "RIPPLE": 38
+    },
+    {
+      "topo": "BA_n80_m2",
+      "seed": 13,
+      "CONGA": 36,
+      "RIPPLE": 29
+    },
+    {
+      "topo": "BA_n80_m2",
+      "seed": 14,
+      "CONGA": 48,
+      "RIPPLE": 44
+    },
+    {
+      "topo": "BA_n80_m2",
+      "seed": 15,
+      "CONGA": 55,
+      "RIPPLE": 34
+    },
+    {
+      "topo": "BA_n80_m2",
+      "seed": 16,
+      "CONGA": 49,
+      "RIPPLE": 35
+    },
+    {
+      "topo": "BA_n80_m2",
+      "seed": 17,
+      "CONGA": 57,
+      "RIPPLE": 82
+    },
+    {
+      "topo": "BA_n80_m2",
+      "seed": 18,
+      "CONGA": 39,
+      "RIPPLE": 44
+    },
+    {
+      "topo": "BA_n80_m2",
+      "seed": 19,
+      "CONGA": 23,
+      "RIPPLE": 24
+    },
+    {
+      "topo": "GEANT",
+      "seed": 0,
+      "CONGA": 75,
+      "RIPPLE": 52
+    },
+    {
+      "topo": "GEANT",
+      "seed": 1,
+      "CONGA": 78,
+      "RIPPLE": 64
+    },
+    {
+      "topo": "GEANT",
+      "seed": 2,
+      "CONGA": 72,
+      "RIPPLE": 62
+    },
+    {
+      "topo": "GEANT",
+      "seed": 3,
+      "CONGA": 78,
+      "RIPPLE": 73
+    },
+    {
+      "topo": "GEANT",
+      "seed": 4,
+      "CONGA": 27,
+      "RIPPLE": 24
+    },
+    {
+      "topo": "GEANT",
+      "seed": 5,
+      "CONGA": 44,
+      "RIPPLE": 49
+    },
+    {
+      "topo": "GEANT",
+      "seed": 6,
+      "CONGA": 65,
+      "RIPPLE": 56
+    },
+    {
+      "topo": "GEANT",
+      "seed": 7,
+      "CONGA": 30,
+      "RIPPLE": 33
+    },
+    {
+      "topo": "GEANT",
+      "seed": 8,
+      "CONGA": 44,
+      "RIPPLE": 60
+    },
+    {
+      "topo": "GEANT",
+      "seed": 9,
+      "CONGA": 55,
+      "RIPPLE": 52
+    },
+    {
+      "topo": "GEANT",
+      "seed": 10,
+      "CONGA": 66,
+      "RIPPLE": 67
+    },
+    {
+      "topo": "GEANT",
+      "seed": 11,
+      "CONGA": 47,
+      "RIPPLE": 48
+    },
+    {
+      "topo": "GEANT",
+      "seed": 12,
+      "CONGA": 44,
+      "RIPPLE": 58
+    },
+    {
+      "topo": "GEANT",
+      "seed": 13,
+      "CONGA": 57,
+      "RIPPLE": 72
+    },
+    {
+      "topo": "GEANT",
+      "seed": 14,
+      "CONGA": 51,
+      "RIPPLE": 53
+    },
+    {
+      "topo": "GEANT",
+      "seed": 15,
+      "CONGA": 58,
+      "RIPPLE": 64
+    },
+    {
+      "topo": "GEANT",
+      "seed": 16,
+      "CONGA": 56,
+      "RIPPLE": 48
+    },
+    {
+      "topo": "GEANT",
+      "seed": 17,
+      "CONGA": 63,
+      "RIPPLE": 47
+    },
+    {
+      "topo": "GEANT",
+      "seed": 18,
+      "CONGA": 48,
+      "RIPPLE": 46
+    },
+    {
+      "topo": "GEANT",
+      "seed": 19,
+      "CONGA": 47,
+      "RIPPLE": 34
+    },
+    {
+      "topo": "Abilene",
+      "seed": 0,
+      "CONGA": 57,
+      "RIPPLE": 60
+    },
+    {
+      "topo": "Abilene",
+      "seed": 1,
+      "CONGA": 53,
+      "RIPPLE": 59
+    },
+    {
+      "topo": "Abilene",
+      "seed": 2,
+      "CONGA": 49,
+      "RIPPLE": 63
+    },
+    {
+      "topo": "Abilene",
+      "seed": 3,
+      "CONGA": 70,
+      "RIPPLE": 71
+    },
+    {
+      "topo": "Abilene",
+      "seed": 4,
+      "CONGA": 46,
+      "RIPPLE": 62
+    },
+    {
+      "topo": "Abilene",
+      "seed": 5,
+      "CONGA": 45,
+      "RIPPLE": 40
+    },
+    {
+      "topo": "Abilene",
+      "seed": 6,
+      "CONGA": 38,
+      "RIPPLE": 37
+    },
+    {
+      "topo": "Abilene",
+      "seed": 7,
+      "CONGA": 36,
+      "RIPPLE": 55
+    },
+    {
+      "topo": "Abilene",
+      "seed": 8,
+      "CONGA": 49,
+      "RIPPLE": 52
+    },
+    {
+      "topo": "Abilene",
+      "seed": 9,
+      "CONGA": 90,
+      "RIPPLE": 87
+    },
+    {
+      "topo": "Abilene",
+      "seed": 10,
+      "CONGA": 30,
+      "RIPPLE": 54
+    },
+    {
+      "topo": "Abilene",
+      "seed": 11,
+      "CONGA": 43,
+      "RIPPLE": 46
+    },
+    {
+      "topo": "Abilene",
+      "seed": 12,
+      "CONGA": 76,
+      "RIPPLE": 89
+    },
+    {
+      "topo": "Abilene",
+      "seed": 13,
+      "CONGA": 77,
+      "RIPPLE": 79
+    },
+    {
+      "topo": "Abilene",
+      "seed": 14,
+      "CONGA": 68,
+      "RIPPLE": 56
+    },
+    {
+      "topo": "Abilene",
+      "seed": 15,
+      "CONGA": 15,
+      "RIPPLE": 38
+    },
+    {
+      "topo": "Abilene",
+      "seed": 16,
+      "CONGA": 28,
+      "RIPPLE": 34
+    },
+    {
+      "topo": "Abilene",
+      "seed": 17,
+      "CONGA": 106,
+      "RIPPLE": 121
+    },
+    {
+      "topo": "Abilene",
+      "seed": 18,
+      "CONGA": 50,
+      "RIPPLE": 74
+    },
+    {
+      "topo": "Abilene",
+      "seed": 19,
+      "CONGA": 25,
+      "RIPPLE": 45
+    }
+  ],
+  "n_seeds": 20
+}

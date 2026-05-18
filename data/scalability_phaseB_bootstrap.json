@@ -1,0 +1,78 @@
+[
+  {
+    "scenario": "ER_n1000_p0.05",
+    "n_seeds": 100,
+    "sum_lasp": 0,
+    "sum_dp": 0,
+    "rel_total_pct": 0.0,
+    "mean_delta": 0,
+    "delta_ci95": [
+      0,
+      0
+    ],
+    "mean_rel_pct": null,
+    "rel_ci95": null,
+    "t_stat": null,
+    "t_p": null,
+    "wilcoxon_p": null,
+    "wilcoxon_r": null,
+    "cohens_d": 0.0
+  },
+  {
+    "scenario": "ER_n1000_p0.10",
+    "n_seeds": 100,
+    "sum_lasp": 0,
+    "sum_dp": 0,
+    "rel_total_pct": 0.0,
+    "mean_delta": 0,
+    "delta_ci95": [
+      0,
+      0
+    ],
+    "mean_rel_pct": null,
+    "rel_ci95": null,
+    "t_stat": null,
+    "t_p": null,
+    "wilcoxon_p": null,
+    "wilcoxon_r": null,
+    "cohens_d": 0.0
+  },
+  {
+    "scenario": "ER_n1000_p0.20",
+    "n_seeds": 100,
+    "sum_lasp": 0,
+    "sum_dp": 0,
+    "rel_total_pct": 0.0,
+    "mean_delta": 0,
+    "delta_ci95": [
+      0,
+      0
+    ],
+    "mean_rel_pct": null,
+    "rel_ci95": null,
+    "t_stat": null,
+    "t_p": null,
+    "wilcoxon_p": null,
+    "wilcoxon_r": null,
+    "cohens_d": 0.0
+  },
+  {
+    "scenario": "WS_n1000_k4_p0.10",
+    "n_seeds": 100,
+    "sum_lasp": 0,
+    "sum_dp": 0,
+    "rel_total_pct": 0.0,
+    "mean_delta": 0,
+    "delta_ci95": [
+      0,
+      0
+    ],
+    "mean_rel_pct": null,
+    "rel_ci95": null,
+    "t_stat": null,
+    "t_p": null,
+    "wilcoxon_p": null,
+    "wilcoxon_r": null,
+    "cohens_d": 0.0
+  }
+]

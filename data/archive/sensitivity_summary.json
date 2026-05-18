@@ -1,0 +1,153 @@
+{
+  "scenario": "ER_n20_p0.1",
+  "n_seeds": 100,
+  "defaults": {
+    "ttl_factor": 2,
+    "theta": 1.0,
+    "epsilon": 0.1,
+    "half_life": 100
+  },
+  "sweeps": {
+    "ttl_factor": [
+      {
+        "ttl_factor": 1,
+        "losses_mean": 14.31,
+        "losses_std": 10.256995641802702,
+        "lat_mean": 9.656491351475578,
+        "delivered_mean": 74.19
+      },
+      {
+        "ttl_factor": 2,
+        "losses_mean": 14.31,
+        "losses_std": 10.256995641802702,
+        "lat_mean": 9.656491351475578,
+        "delivered_mean": 74.19
+      },
+      {
+        "ttl_factor": 3,
+        "losses_mean": 14.31,
+        "losses_std": 10.256995641802702,
+        "lat_mean": 9.656491351475578,
+        "delivered_mean": 74.19
+      },
+      {
+        "ttl_factor": 5,
+        "losses_mean": 14.31,
+        "losses_std": 10.256995641802702,
+        "lat_mean": 9.656491351475578,
+        "delivered_mean": 74.19
+      }
+    ],
+    "theta": [
+      {
+        "theta": 0.0,
+        "losses_mean": 14.97,
+        "losses_std": 10.477927738678565,
+        "lat_mean": 9.65368714680698,
+        "delivered_mean": 74.1
+      },
+      {
+        "theta": 0.5,
+        "losses_mean": 14.6,
+        "losses_std": 10.18912075785648,
+        "lat_mean": 9.63319398068963,
+        "delivered_mean": 74.37
+      },
+      {
+        "theta": 1.0,
+        "losses_mean": 14.31,
+        "losses_std": 10.256995641802702,
+        "lat_mean": 9.656491351475578,
+        "delivered_mean": 74.19
+      },
+      {
+        "theta": 2.0,
+        "losses_mean": 13.76,
+        "losses_std": 10.121604057009378,
+        "lat_mean": 9.626940432384147,
+        "delivered_mean": 75.77
+      },
+      {
+        "theta": 5.0,
+        "losses_mean": 11.62,
+        "losses_std": 9.356875071898262,
+        "lat_mean": 9.615309846761688,
+        "delivered_mean": 77.55
+      }
+    ],
+    "eps": [
+      {
+        "eps": 0.0,
+        "losses_mean": 16.09,
+        "losses_std": 12.411378780470896,
+        "lat_mean": 9.278982718604551,
+        "delivered_mean": 79.04
+      },
+      {
+        "eps": 0.05,
+        "losses_mean": 15.04,
+        "losses_std": 10.417467847977088,
+        "lat_mean": 9.486187723277345,
+        "delivered_mean": 77.44
+      },
+      {
+        "eps": 0.1,
+        "losses_mean": 14.31,
+        "losses_std": 10.256995641802702,
+        "lat_mean": 9.656491351475578,
+        "delivered_mean": 74.19
+      },
+      {
+        "eps": 0.2,
+        "losses_mean": 13.33,
+        "losses_std": 8.363044006251853,
+        "lat_mean": 10.129281081959745,
+        "delivered_mean": 68.61
+      },
+      {
+        "eps": 0.3,
+        "losses_mean": 12.71,
+        "losses_std": 7.6121845442260225,
+        "lat_mean": 10.305698416657437,
+        "delivered_mean": 62.73
+      }
+    ],
+    "half_life": [
+      {
+        "half_life": 25,
+        "losses_mean": 16.97,
+        "losses_std": 11.78293150058485,
+        "lat_mean": 9.696036315426777,
+        "delivered_mean": 78.78
+      },
+      {
+        "half_life": 50,
+        "losses_mean": 14.8,
+        "losses_std": 10.575366841787751,
+        "lat_mean": 9.60698939986569,
+        "delivered_mean": 76.37
+      },
+      {
+        "half_life": 100,
+        "losses_mean": 14.31,
+        "losses_std": 10.256995641802702,
+        "lat_mean": 9.656491351475578,
+        "delivered_mean": 74.19
+      },
+      {
+        "half_life": 200,
+        "losses_mean": 13.78,
+        "losses_std": 9.99654485764502,
+        "lat_mean": 9.612900354729552,
+        "delivered_mean": 73.1
+      },
+      {
+        "half_life": 500,
+        "losses_mean": 13.5,
+        "losses_std": 9.803627446568495,
+        "lat_mean": 9.620289034259779,
+        "delivered_mean": 72.48
+      }
+    ]
+  }
+}

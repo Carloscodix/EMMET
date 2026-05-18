@@ -1,0 +1,712 @@
+[
+  {
+    "scenario": "ER_n20_p0.05",
+    "n_runs": 100,
+    "optimal_strategies": [
+      "sp",
+      "lasp",
+      "emmet_cold",
+      "emmet_adaptive",
+      "emmet_full"
+    ],
+    "points": {
+      "sp": [
+        5.629519526198245,
+        11.98
+      ],
+      "lasp": [
+        5.665338288335022,
+        11.53
+      ],
+      "emmet_cold": [
+        5.676150937103215,
+        11.25
+      ],
+      "emmet_thermal": [
+        5.757716320641794,
+        5.46
+      ],
+      "emmet_adaptive": [
+        5.682332919725644,
+        10.96
+      ],
+      "emmet_full": [
+        5.74318325149806,
+        5.15
+      ]
+    }
+  },
+  {
+    "scenario": "ER_n20_p0.10",
+    "n_runs": 100,
+    "optimal_strategies": [
+      "sp",
+      "lasp",
+      "emmet_cold",
+      "emmet_thermal",
+      "emmet_adaptive",
+      "emmet_full"
+    ],
+    "points": {
+      "sp": [
+        7.596847986831068,
+        39.67
+      ],
+      "lasp": [
+        7.758212358754969,
+        35.14
+      ],
+      "emmet_cold": [
+        7.845998455331389,
+        33.67
+      ],
+      "emmet_thermal": [
+        8.359085390029103,
+        13.15
+      ],
+      "emmet_adaptive": [
+        7.873038617405045,
+        32.24
+      ],
+      "emmet_full": [
+        8.37792040892723,
+        12.3
+      ]
+    }
+  },
+  {
+    "scenario": "ER_n20_p0.15",
+    "n_runs": 100,
+    "optimal_strategies": [
+      "sp",
+      "lasp",
+      "emmet_cold",
+      "emmet_thermal",
+      "emmet_adaptive",
+      "emmet_full"
+    ],
+    "points": {
+      "sp": [
+        6.961494162924597,
+        18.81
+      ],
+      "lasp": [
+        7.133106236185622,
+        11.48
+      ],
+      "emmet_cold": [
+        7.319181892882192,
+        10.37
+      ],
+      "emmet_thermal": [
+        8.272556681254619,
+        8.3
+      ],
+      "emmet_adaptive": [
+        7.349036594794388,
+        9.62
+      ],
+      "emmet_full": [
+        8.311112727675148,
+        7.61
+      ]
+    }
+  },
+  {
+    "scenario": "ER_n20_p0.20",
+    "n_runs": 100,
+    "optimal_strategies": [
+      "sp",
+      "lasp",
+      "emmet_cold",
+      "emmet_adaptive",
+      "emmet_full"
+    ],
+    "points": {
+      "sp": [
+        5.868219398537369,
+        10.57
+      ],
+      "lasp": [
+        5.974027363336291,
+        4.78
+      ],
+      "emmet_cold": [
+        6.269352074971399,
+        3.38
+      ],
+      "emmet_thermal": [
+        7.177575051133352,
+        2.64
+      ],
+      "emmet_adaptive": [
+        6.290155557664383,
+        3.04
+      ],
+      "emmet_full": [
+        7.174595050686785,
+        2.39
+      ]
+    }
+  },
+  {
+    "scenario": "ER_n20_p0.25",
+    "n_runs": 100,
+    "optimal_strategies": [
+      "sp",
+      "lasp",
+      "emmet_cold",
+      "emmet_adaptive"
+    ],
+    "points": {
+      "sp": [
+        5.022235338549635,
+        4.57
+      ],
+      "lasp": [
+        5.087221036541016,
+        1.14
+      ],
+      "emmet_cold": [
+        5.452872401783361,
+        0.45
+      ],
+      "emmet_thermal": [
+        6.149157932678061,
+        0.55
+      ],
+      "emmet_adaptive": [
+        5.464645163184879,
+        0.37
+      ],
+      "emmet_full": [
+        6.157816463074038,
+        0.41
+      ]
+    }
+  },
+  {
+    "scenario": "ER_n20_p0.30",
+    "n_runs": 100,
+    "optimal_strategies": [
+      "sp",
+      "lasp",
+      "emmet_cold",
+      "emmet_adaptive"
+    ],
+    "points": {
+      "sp": [
+        4.535891056808653,
+        2.45
+      ],
+      "lasp": [
+        4.584544934502789,
+        0.53
+      ],
+      "emmet_cold": [
+        4.994784848641464,
+        0.13
+      ],
+      "emmet_thermal": [
+        5.5576016586899755,
+        0.19
+      ],
+      "emmet_adaptive": [
+        5.002242302001642,
+        0.09
+      ],
+      "emmet_full": [
+        5.563599420301031,
+        0.17
+      ]
+    }
+  },
+  {
+    "scenario": "ER_n20_p0.40",
+    "n_runs": 100,
+    "optimal_strategies": [
+      "sp",
+      "lasp",
+      "emmet_cold",
+      "emmet_thermal"
+    ],
+    "points": {
+      "sp": [
+        3.822289677943189,
+        1.07
+      ],
+      "lasp": [
+        3.8544729055084193,
+        0.18
+      ],
+      "emmet_cold": [
+        4.306959031928005,
+        0.05
+      ],
+      "emmet_thermal": [
+        4.717886792655725,
+        0.03
+      ],
+      "emmet_adaptive": [
+        4.309922232205527,
+        0.05
+      ],
+      "emmet_full": [
+        4.726596538301123,
+        0.04
+      ]
+    }
+  },
+  {
+    "scenario": "ER_n20_p0.50",
+    "n_runs": 100,
+    "optimal_strategies": [
+      "sp",
+      "lasp",
+      "emmet_cold"
+    ],
+    "points": {
+      "sp": [
+        3.4276540298812095,
+        0.83
+      ],
+      "lasp": [
+        3.4556837138126197,
+        0.11
+      ],
+      "emmet_cold": [
+        3.9377860956712087,
+        0
+      ],
+      "emmet_thermal": [
+        4.272890884186712,
+        0
+      ],
+      "emmet_adaptive": [
+        3.938843951396565,
+        0
+      ],
+      "emmet_full": [
+        4.276736811945097,
+        0
+      ]
+    }
+  },
+  {
+    "scenario": "ER_n50_p0.05",
+    "n_runs": 100,
+    "optimal_strategies": [
+      "sp",
+      "lasp",
+      "emmet_full"
+    ],
+    "points": {
+      "sp": [
+        10.993286932408745,
+        16.87
+      ],
+      "lasp": [
+        11.188641570071566,
+        11.7
+      ],
+      "emmet_cold": [
+        11.28326891499589,
+        12.82
+      ],
+      "emmet_thermal": [
+        12.881083717699752,
+        5.27
+      ],
+      "emmet_adaptive": [
+        11.313391700629612,
+        12.1
+      ],
+      "emmet_full": [
+        12.872084861100427,
+        4.5
+      ]
+    }
+  },
+  {
+    "scenario": "ER_n50_p0.10",
+    "n_runs": 100,
+    "optimal_strategies": [
+      "sp",
+      "lasp",
+      "emmet_cold",
+      "emmet_full"
+    ],
+    "points": {
+      "sp": [
+        6.739159022678788,
+        1.11
+      ],
+      "lasp": [
+        6.779093695197585,
+        0.35
+      ],
+      "emmet_cold": [
+        7.1929416696028605,
+        0.21
+      ],
+      "emmet_thermal": [
+        8.42849196585059,
+        0.17
+      ],
+      "emmet_adaptive": [
+        7.196835306587942,
+        0.21
+      ],
+      "emmet_full": [
+        8.411082840261018,
+        0.13
+      ]
+    }
+  },
+  {
+    "scenario": "ER_n50_p0.15",
+    "n_runs": 100,
+    "optimal_strategies": [
+      "sp",
+      "lasp",
+      "emmet_cold"
+    ],
+    "points": {
+      "sp": [
+        5.209872340536072,
+        0.4
+      ],
+      "lasp": [
+        5.231539284109086,
+        0.06
+      ],
+      "emmet_cold": [
+        5.771954131189336,
+        0
+      ],
+      "emmet_thermal": [
+        6.553192768350004,
+        0
+      ],
+      "emmet_adaptive": [
+        5.773417803482964,
+        0
+      ],
+      "emmet_full": [
+        6.547265500921856,
+        0
+      ]
+    }
+  },
+  {
+    "scenario": "ER_n50_p0.20",
+    "n_runs": 100,
+    "optimal_strategies": [
+      "sp",
+      "lasp",
+      "emmet_cold"
+    ],
+    "points": {
+      "sp": [
+        4.4443067875807225,
+        0.09
+      ],
+      "lasp": [
+        4.4593110898096215,
+        0.01
+      ],
+      "emmet_cold": [
+        5.044796085117282,
+        0
+      ],
+      "emmet_thermal": [
+        5.603447740358314,
+        0
+      ],
+      "emmet_adaptive": [
+        5.045715903215526,
+        0
+      ],
+      "emmet_full": [
+        5.603815543107256,
+        0
+      ]
+    }
+  },
+  {
+    "scenario": "ER_n50_p0.25",
+    "n_runs": 100,
+    "optimal_strategies": [
+      "sp",
+      "lasp"
+    ],
+    "points": {
+      "sp": [
+        3.9816166692861787,
+        0.06
+      ],
+      "lasp": [
+        3.992534561638919,
+        0
+      ],
+      "emmet_cold": [
+        4.627876474646004,
+        0
+      ],
+      "emmet_thermal": [
+        5.075675534674256,
+        0
+      ],
+      "emmet_adaptive": [
+        4.6285629603297105,
+        0
+      ],
+      "emmet_full": [
+        5.07556137850379,
+        0
+      ]
+    }
+  },
+  {
+    "scenario": "ER_n50_p0.30",
+    "n_runs": 100,
+    "optimal_strategies": [
+      "sp"
+    ],
+    "points": {
+      "sp": [
+        3.6647944216550346,
+        0
+      ],
+      "lasp": [
+        3.674447025907861,
+        0
+      ],
+      "emmet_cold": [
+        4.320007623401665,
+        0
+      ],
+      "emmet_thermal": [
+        4.697494602599504,
+        0
+      ],
+      "emmet_adaptive": [
+        4.320457200482364,
+        0
+      ],
+      "emmet_full": [
+        4.69749453897483,
+        0
+      ]
+    }
+  },
+  {
+    "scenario": "ER_n100_p0.05",
+    "n_runs": 50,
+    "optimal_strategies": [
+      "sp",
+      "lasp",
+      "emmet_cold"
+    ],
+    "points": {
+      "sp": [
+        7.848395710784553,
+        0.18
+      ],
+      "lasp": [
+        7.871334976256819,
+        0.04
+      ],
+      "emmet_cold": [
+        8.324645375429332,
+        0
+      ],
+      "emmet_thermal": [
+        10.131749405680715,
+        0.02
+      ],
+      "emmet_adaptive": [
+        8.325453814188853,
+        0
+      ],
+      "emmet_full": [
+        10.171847791644016,
+        0
+      ]
+    }
+  },
+  {
+    "scenario": "ER_n100_p0.10",
+    "n_runs": 50,
+    "optimal_strategies": [
+      "sp",
+      "lasp"
+    ],
+    "points": {
+      "sp": [
+        5.184483416324764,
+        0.04
+      ],
+      "lasp": [
+        5.194861668281008,
+        0
+      ],
+      "emmet_cold": [
+        5.830589878008469,
+        0
+      ],
+      "emmet_thermal": [
+        6.63902612251983,
+        0
+      ],
+      "emmet_adaptive": [
+        5.830658211796244,
+        0
+      ],
+      "emmet_full": [
+        6.640143619988023,
+        0
+      ]
+    }
+  },
+  {
+    "scenario": "Abilene",
+    "n_runs": 100,
+    "optimal_strategies": [
+      "sp",
+      "lasp",
+      "emmet_cold",
+      "emmet_adaptive",
+      "emmet_full"
+    ],
+    "points": {
+      "sp": [
+        6.130423676407862,
+        56.67
+      ],
+      "lasp": [
+        6.493051291641994,
+        46.37
+      ],
+      "emmet_cold": [
+        6.5787349186175375,
+        44.36
+      ],
+      "emmet_thermal": [
+        7.6609141412921975,
+        43.68
+      ],
+      "emmet_adaptive": [
+        6.682577245112156,
+        42.62
+      ],
+      "emmet_full": [
+        7.737011008913276,
+        40.65
+      ]
+    }
+  },
+  {
+    "scenario": "GEANT",
+    "n_runs": 100,
+    "optimal_strategies": [
+      "sp",
+      "lasp",
+      "emmet_cold",
+      "emmet_adaptive",
+      "emmet_full"
+    ],
+    "points": {
+      "sp": [
+        9.383487615713388,
+        26.38
+      ],
+      "lasp": [
+        9.830911659426366,
+        11.68
+      ],
+      "emmet_cold": [
+        10.09903947937287,
+        11.11
+      ],
+      "emmet_thermal": [
+        11.632444330239926,
+        6.05
+      ],
+      "emmet_adaptive": [
+        10.144285561190276,
+        9.97
+      ],
+      "emmet_full": [
+        11.551700708097295,
+        5.31
+      ]
+    }
+  },
+  {
+    "scenario": "ER_n100_p0.15",
+    "n_runs": 50,
+    "optimal_strategies": [
+      "sp"
+    ],
+    "points": {
+      "sp": [
+        4.245741869569371,
+        0
+      ],
+      "lasp": [
+        4.252529124013955,
+        0
+      ],
+      "emmet_cold": [
+        4.960348474454716,
+        0
+      ],
+      "emmet_thermal": [
+        5.509418591482344,
+        0
+      ],
+      "emmet_adaptive": [
+        4.960332604344496,
+        0
+      ],
+      "emmet_full": [
+        5.5096636269647865,
+        0
+      ]
+    }
+  },
+  {
+    "scenario": "ER_n100_p0.20",
+    "n_runs": 50,
+    "optimal_strategies": [
+      "sp"
+    ],
+    "points": {
+      "sp": [
+        3.769966566405449,
+        0
+      ],
+      "lasp": [
+        3.774322163997526,
+        0
+      ],
+      "emmet_cold": [
+        4.511945625112723,
+        0
+      ],
+      "emmet_thermal": [
+        4.934550300099538,
+        0
+      ],
+      "emmet_adaptive": [
+        4.5125727661554995,
+        0
+      ],
+      "emmet_full": [
+        4.933199123991511,
+        0
+      ]
+    }
+  }
+]

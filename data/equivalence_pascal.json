@@ -1,0 +1,122 @@
+[
+  {
+    "topo": "Grid5",
+    "core": 0.030397506525141123,
+    "conga": 0.012678275517102253,
+    "drill": 0.032190969548826456,
+    "eq_conga": false,
+    "eq_drill": true
+  },
+  {
+    "topo": "Grid6",
+    "core": 0.020853522947366986,
+    "conga": 0.003284556610090293,
+    "drill": 0.02347571670079303,
+    "eq_conga": false,
+    "eq_drill": true
+  },
+  {
+    "topo": "Grid7",
+    "core": 0.013489597992864968,
+    "conga": 0.004101720158469006,
+    "drill": 0.021693175167324205,
+    "eq_conga": true,
+    "eq_drill": true
+  },
+  {
+    "topo": "Grid8",
+    "core": 0.008641614322139696,
+    "conga": 0.00576079315135875,
+    "drill": 0.01515483848757249,
+    "eq_conga": true,
+    "eq_drill": true
+  },
+  {
+    "topo": "Grid10",
+    "core": 0.004831526256476554,
+    "conga": 0.009198694705048407,
+    "drill": 0.01876012189681612,
+    "eq_conga": true,
+    "eq_drill": true
+  },
+  {
+    "topo": "Grid12",
+    "core": 0.004966730410802532,
+    "conga": 0.016114095320718662,
+    "drill": 0.008666358345833661,
+    "eq_conga": true,
+    "eq_drill": true
+  },
+  {
+    "topo": "WS_n30_k4",
+    "core": 0.03144668382908458,
+    "conga": 0.009701878788383066,
+    "drill": 0.004005401744322368,
+    "eq_conga": false,
+    "eq_drill": false
+  },
+  {
+    "topo": "WS_n50_k4",
+    "core": 0.024743817367681657,
+    "conga": 0.012877231105646484,
+    "drill": 0.0090784889330393,
+    "eq_conga": true,
+    "eq_drill": false
+  },
+  {
+    "topo": "WS_n50_k6",
+    "core": 0.0046478152721061055,
+    "conga": 0.0006603839994368478,
+    "drill": 0.0,
+    "eq_conga": true,
+    "eq_drill": true
+  },
+  {
+    "topo": "WS_n80_k4",
+    "core": 0.024152807125417744,
+    "conga": 0.011902732269585197,
+    "drill": 0.008329762123363959,
+    "eq_conga": true,
+    "eq_drill": false
+  },
+  {
+    "topo": "BA_n50_m2",
+    "core": 0.004513833111314245,
+    "conga": 0.0,
+    "drill": 0.0001722158438576349,
+    "eq_conga": true,
+    "eq_drill": true
+  },
+  {
+    "topo": "BA_n50_m3",
+    "core": 0.0009508722293696704,
+    "conga": 0.0,
+    "drill": 0.0,
+    "eq_conga": true,
+    "eq_drill": true
+  },
+  {
+    "topo": "BA_n80_m2",
+    "core": 0.0011919156936029314,
+    "conga": 0.00038795938063149627,
+    "drill": 0.0001675977653631285,
+    "eq_conga": true,
+    "eq_drill": true
+  },
+  {
+    "topo": "GEANT",
+    "core": 0.08073915562185885,
+    "conga": 0.0339261790795783,
+    "drill": 0.05335719719089066,
+    "eq_conga": false,
+    "eq_drill": false
+  },
+  {
+    "topo": "Abilene",
+    "core": 0.08073915562185885,
+    "conga": 0.0339261790795783,
+    "drill": 0.05335719719089066,
+    "eq_conga": false,
+    "eq_drill": false
+  }
+]
