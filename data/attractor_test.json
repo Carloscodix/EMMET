@@ -1,0 +1,115 @@
+[
+  {
+    "topo": "Grid5",
+    "tube_sp": 2.73,
+    "phys_phys": 0.995,
+    "phys_short": 0.946,
+    "phys_ecmp": 0.944
+  },
+  {
+    "topo": "Grid6",
+    "tube_sp": 3.58,
+    "phys_phys": 0.994,
+    "phys_short": 0.958,
+    "phys_ecmp": 0.903
+  },
+  {
+    "topo": "Grid7",
+    "tube_sp": 4.33,
+    "phys_phys": 0.991,
+    "phys_short": 0.946,
+    "phys_ecmp": 0.908
+  },
+  {
+    "topo": "Grid8",
+    "tube_sp": 4.81,
+    "phys_phys": 0.991,
+    "phys_short": 0.929,
+    "phys_ecmp": 0.865
+  },
+  {
+    "topo": "Grid10",
+    "tube_sp": 5.99,
+    "phys_phys": 0.985,
+    "phys_short": 0.928,
+    "phys_ecmp": 0.846
+  },
+  {
+    "topo": "Grid12",
+    "tube_sp": 7.69,
+    "phys_phys": 0.987,
+    "phys_short": 0.934,
+    "phys_ecmp": 0.786
+  },
+  {
+    "topo": "WS_n30_k4",
+    "tube_sp": 4.61,
+    "phys_phys": 0.995,
+    "phys_short": 0.969,
+    "phys_ecmp": 0.9
+  },
+  {
+    "topo": "WS_n50_k4",
+    "tube_sp": 5.33,
+    "phys_phys": 0.994,
+    "phys_short": 0.951,
+    "phys_ecmp": 0.873
+  },
+  {
+    "topo": "WS_n50_k6",
+    "tube_sp": 8.68,
+    "phys_phys": 0.993,
+    "phys_short": 0.957,
+    "phys_ecmp": 0.827
+  },
+  {
+    "topo": "WS_n80_k4",
+    "tube_sp": 6.19,
+    "phys_phys": 0.992,
+    "phys_short": 0.959,
+    "phys_ecmp": 0.918
+  },
+  {
+    "topo": "BA_n50_m2",
+    "tube_sp": 5.14,
+    "phys_phys": 0.996,
+    "phys_short": 0.953,
+    "phys_ecmp": 0.854
+  },
+  {
+    "topo": "BA_n50_m3",
+    "tube_sp": 9.24,
+    "phys_phys": 0.991,
+    "phys_short": 0.961,
+    "phys_ecmp": 0.8
+  },
+  {
+    "topo": "BA_n80_m2",
+    "tube_sp": 5.99,
+    "phys_phys": 0.991,
+    "phys_short": 0.96,
+    "phys_ecmp": 0.816
+  },
+  {
+    "topo": "GEANT",
+    "tube_sp": 2.75,
+    "phys_phys": 0.996,
+    "phys_short": 0.946,
+    "phys_ecmp": 0.947
+  },
+  {
+    "topo": "Abilene",
+    "tube_sp": 2.75,
+    "phys_phys": 0.996,
+    "phys_short": 0.946,
+    "phys_ecmp": 0.947
+  },
+  {
+    "_summary": {
+      "phys_phys_mean": 0.992,
+      "phys_short_mean": 0.949,
+      "phys_ecmp_mean": 0.876,
+      "corr_tube_divergence": 0.543
+    }
+  }
+]
