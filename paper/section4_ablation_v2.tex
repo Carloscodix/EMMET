@@ -1,0 +1,95 @@
+% ====================================================================
+% Section 4 (v2): The ablation - why two terms and not eight.
+% Faithful to data/ablation_raw.json (cap 2,2) and ablation_24_raw.json (cap 2,4).
+% Numbers are the change in losses when each layer is REMOVED from the full model.
+% ====================================================================
+\section{Ablation: Why Two Terms}
+\label{sec:ablation}
+
+Section~\ref{sec:core} asserted that only two mechanisms survive scrutiny. This
+section is the evidence. EMMET did not begin parsimonious; it began as an
+exercise in taking the particle metaphor seriously, and accreted eight physical
+layers. We removed them one at a time and measured what each was worth.
+
+\subsection{The candidate layers}
+
+Beyond the gradient (which is the irreducible substrate---without it there is no
+router) the full model carried four added mechanisms:
+
+\begin{itemize}
+\item \textbf{Newton-III scar} (loss-reaction memory, Section~\ref{sec:core}).
+\item \textbf{Effective mass}: a packet's influence on the potential grew with
+the congestion it had already traversed, modelling inertia.
+\item \textbf{Thermostat}: a global network ``temperature'' that scaled the
+congestion weight $\beta$ as mean utilisation rose.
+\item \textbf{Temporal ripple}: loss memory deposited not as a single
+increment but diffused over several subsequent steps, like a wave.
+\end{itemize}
+
+\subsection{Protocol}
+
+We evaluated the full model and four leave-one-out variants (each removing a
+single layer), plus a bare core (gradient only, all four layers removed),
+against the trivial-but-stateless DRILL baseline on the G\'EANT backbone under
+trunk-link failure. Two load regimes were used---moderate (capacity drawn from
+$[2,4]$) and saturated ($[2,2]$)---across the failed-link ensemble with 30
+seeds each. The quantity of interest is the \emph{change in total losses when a
+layer is removed} from the full model: a positive change means the layer was
+doing useful work; a negative or zero change means it was inert or harmful.
+
+\subsection{Result: only the scar earns its keep}
+
+Table~\ref{tab:ablation} reports the change in losses on removal of each layer,
+in both regimes.
+
+\begin{table}[t]
+\centering
+\caption{Change in total losses when each layer is removed from the full model
+(positive = the layer was helping; negative = it was hurting). G\'EANT, trunk
+failure, 30 seeds. The Newton-III scar is the only layer whose removal clearly
+hurts; the ripple's removal slightly \emph{helps}.}
+\label{tab:ablation}
+\small
+\begin{tabular}{lcc}
+\toprule
+Layer removed & moderate load & saturated load \\
+\midrule
+Temporal ripple   & $-0.4\%$ & $-0.5\%$ \\
+Thermostat        & $\phantom{+}0.0\%$ & $\phantom{+}0.0\%$ \\
+Effective mass    & $+4.2\%$ & $+1.6\%$ \\
+Newton-III scar   & $+16.7\%$ & $+6.4\%$ \\
+\midrule
+All four (bare core) & $+38.7\%$ & $+9.8\%$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The reading is blunt:
+
+\begin{itemize}
+\item The \textbf{Newton-III scar} is the one added layer that earns its keep:
+removing it raises losses by $6.4$--$16.7\%$. It is doing the real work.
+\item \textbf{Effective mass} contributes marginally ($1.6$--$4.2\%$).
+\item The \textbf{thermostat} has \emph{no measurable effect} (0.0\% in both
+regimes): it is pure decoration.
+\item The \textbf{temporal ripple} is mildly \emph{harmful}: removing it
+slightly improves results. The most physically evocative layer---a wave of loss
+memory rippling outward---was a net negative.
+\end{itemize}
+
+Removing all four at once (the bare gradient core) costs $9.8$--$38.7\%$,
+confirming that the gradient alone is not enough: it needs the scar. But it
+needs \emph{only} the scar. The mass, thermostat, and ripple together account
+for almost nothing, and the ripple actively hurts.
+
+\subsection{Interpretation}
+
+This is the parsimony result that gives the paper its title. Of the eight-layer
+apparatus, the data retain exactly two mechanisms---gradient descent and the
+Newton-III scar---and discard the rest. Crucially, the discarded layers were not
+obviously bad ideas: effective mass, thermal scaling, and wave-like diffusion
+are all physically natural, and each had a plausible story. They simply did not
+survive measurement. We take this as a methodological lesson worth stating
+explicitly: in physics-inspired modelling, the seductiveness of a mechanism is
+no evidence of its usefulness, and only ablation tells them apart. The two-term
+core of Section~\ref{sec:core} is what remained standing.

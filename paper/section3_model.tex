@@ -1,0 +1,294 @@
+% =====================================================================
+% Section 3: Model and Mechanism
+%
+% Structure:
+%   3.1  Physical motivation (origin story, honest)
+%   3.2  Network model (graph, attributes, potential function)
+%   3.3  Per-packet state and mass dynamics
+%   3.4  Thermal memory and global thermostat
+% =====================================================================
+
+\section{Model and Mechanism}
+\label{sec:model}
+
+This section presents the mathematical model underlying mass-aware
+routing. We begin with the physical intuition that motivated its
+form (\S\ref{subsec:physical-motivation}), then formalize the network
+model (\S\ref{subsec:network-model}), the per-packet state dynamics
+(\S\ref{subsec:mass-dynamics}), and the thermal memory mechanism
+(\S\ref{subsec:thermal-memory}).
+
+% =====================================================================
+\subsection{Physical motivation}
+\label{subsec:physical-motivation}
+
+The functional form of the algorithm presented in this paper
+originated as a thought experiment about the physical analog of a
+packet in transit. We record the analogy here because it shaped the
+mathematical decisions that follow---the multiplicative mass update,
+the integrated potential, the role of a global temperature---and
+because we believe the analogy retains explanatory value beyond its
+historical role. We emphasize that the algorithm's correctness and
+empirical performance, established in
+Sections~\ref{sec:algorithm}--\ref{sec:results}, do not rely on the
+analogy: the physical motivation is heuristic, not foundational. In
+particular, the scalar we call \emph{mass} below is closer in spirit
+to the \emph{effective mass} of solid-state physics---a quantity that
+varies with the medium a particle traverses---than to the invariant
+inertial mass of classical mechanics or to any thermodynamic quantity.
+The intuition is the one motivating the original effective-mass
+picture: when a metal is heated, the crystal lattice expands and the
+conduction electrons interact differently with that perturbed lattice;
+solid-state physicists model the change as a varying $m^{*}$ rather
+than as a change in the electron's true mass. We borrow only the
+structural form of that idea: a scalar that grows with the medium's
+local conditions and modifies the cost of further interaction.
+
+Consider a single packet traversing a sequence of network links.
+Treating the packet as a particle moving through a medium suggests
+several mappings, each of which has a counterpart in routing:
+
+\begin{itemize}
+\item \emph{Velocity and friction.} A particle moving through a
+denser medium dissipates more energy per unit distance. In the
+network analog, a packet traversing a more loaded edge encounters
+more ``friction''---a higher probability of queueing, drop, or
+retransmission. The local congestion ratio $\rho(u,v) = \lambda(u,v)/c(u,v)$
+plays the role of a medium density.
+
+\item \emph{Heat accumulation.} A particle that experiences friction
+warms the medium it traverses, leaving a thermal trace. In the
+network analog, a packet's transit through a congested edge raises
+the probability that subsequent packets crossing the same edge
+will experience loss. This thermal trace---the per-edge loss
+history---we encode as the snapshot $\theta(u,v)$, decayed
+exponentially over time.
+
+\item \emph{Effective mass.} A particle whose trajectory has crossed turbulent regions
+accumulates an effective resistance to further perturbation; in
+our analogy we encode this as a growing ``effective mass'' that
+makes the packet costlier to push through additional congestion.
+Translating this to routing: a packet
+that has already traversed congested edges has, in some sense,
+done more work against the network, and any further passage
+through congested regions should be discouraged. We encode this
+accumulated history as a scalar $m\ge 1$ that the packet carries
+internally and that grows multiplicatively whenever the packet
+traverses a congested edge:
+\begin{equation}
+m_{\text{out}} = \min\!\Big(m_{\text{in}}\cdot
+                       \big(1+\kappa\,\rho(u,v)\big),\;m_{\max}\Big).
+\label{eq:mass-update}
+\end{equation}
+
+\item \emph{Global temperature and thermostat coupling.} A
+hot system accelerates locally hot processes; the network analog
+is that when overall load is high, congestion penalties should
+weigh more heavily on routing decisions even at edges that are
+not themselves the most loaded. We capture this by defining a
+global temperature $T(G) = |E|^{-1}\sum_{(u,v)\in E}\rho(u,v)$
+and coupling the congestion coefficient through
+$\beta_{\text{eff}} = \beta(1 + \theta_T\cdot T(G))$.
+\end{itemize}
+
+Three structural commitments emerged from this analogy and are
+reflected throughout the paper:
+
+\begin{enumerate}
+\item \textbf{Per-packet state.} Each packet carries information
+about its own trajectory. This is the central commitment: routing
+decisions for a packet depend not only on the network state at the
+moment of decision, but also on the cumulative experience of the
+packet itself.
+
+\item \textbf{Multiplicative degradation.} The mass update is
+multiplicative rather than additive
+(Eq.~\ref{eq:mass-update}). This choice reflects the physical
+intuition that the cost of further congestion compounds with prior
+congestion: a fresh packet is robust to the first congested edge,
+but a heavily-laden packet should be steered around even mildly
+congested neighborhoods.
+
+\item \textbf{Saturation.} The mass is capped at $m_{\max}$. Beyond
+saturation, additional congestion does not change the packet's
+routing pressure; this avoids pathological behavior where one
+extremely degraded packet would dominate routing decisions for an
+arbitrarily long path.
+\end{enumerate}
+
+These three commitments---per-packet state, multiplicative growth,
+and saturation---are the operational content of the physical
+analogy. The remainder of this section makes them precise.
+
+% =====================================================================
+\subsection{Network model}
+\label{subsec:network-model}
+
+We model a network as an undirected graph $G=(V,E)$ with $|V|=n$
+nodes and $|E|=e$ edges. Each edge $(u,v)\in E$ carries four
+time-varying attributes:
+\begin{itemize}
+\item \emph{Latency} $\ell(u,v) > 0$: a fixed propagation cost
+sampled per realization from a positive distribution.
+\item \emph{Capacity} $c(u,v) > 0$: maximum simultaneous load
+the edge can sustain before drop.
+\item \emph{Load} $\lambda(u,v) \ge 0$: instantaneous load on
+the edge, updated as packets traverse and decayed by a factor
+$d_\lambda \in (0,1)$ at each routing step.
+\item \emph{Loss snapshot} $\theta(u,v) \ge 0$: cumulative
+loss memory, decayed by a factor $d_\theta \in (0,1)$ each step.
+\end{itemize}
+
+We define the local congestion of edge $(u,v)$ as
+$\rho(u,v) = \lambda(u,v)/c(u,v) \in [0,1]$ when the edge is
+operating below capacity. The global temperature of the network
+is the mean local congestion:
+\begin{equation}
+T(G) = \frac{1}{|E|}\sum_{(u,v)\in E}\rho(u,v).
+\label{eq:global-temperature}
+\end{equation}
+
+The \emph{integrated edge potential} combines latency, congestion,
+and thermal memory into a single scalar cost:
+\begin{equation}
+\Phi(u,v) = \alpha\,\ell(u,v)
+            + \beta_{\text{eff}}\,\rho(u,v)
+            + \gamma\,\theta(u,v),
+\label{eq:edge-potential}
+\end{equation}
+where $\beta_{\text{eff}} = \beta\,(1 + \theta_T\,T(G))$ is the
+thermostat-coupled congestion weight, and
+$\alpha,\beta,\gamma,\theta_T$ are non-negative coefficients
+controlling the relative contribution of each term. Throughout
+this paper we use $\alpha=1$, $\beta=3$, $\gamma=2$,
+$\theta_T=5$, $d_\lambda = 0.9$, $d_\theta=0.999$
+(see \S\ref{sec:experiments} for justification of these defaults).
+
+% =====================================================================
+\subsection{Per-packet state and mass dynamics}
+\label{subsec:mass-dynamics}
+
+A central novelty of this work is that each packet carries an
+internal scalar state, the \emph{mass} $m$, alongside its source
+and destination. The mass is initialized at $m_0 = 1$ when the
+packet is issued and evolves multiplicatively as the packet
+traverses edges, according to Equation~\ref{eq:mass-update}. The
+parameter $\kappa\ge 0$ controls the rate of growth; $\kappa = 0$
+disables the mechanism, reducing the algorithm to its stateless
+counterpart, while $\kappa \to \infty$ saturates the mass after a
+single congested edge. Empirically we find
+$\kappa \in [0.5, 1.5]$ is the productive range, with $\kappa=1$
+being Pareto-optimal across the topologies we evaluate
+(\S\ref{sec:results}).
+
+The mass enters the routing decision through a multiplicative
+scaling of the edge potential:
+\begin{equation}
+\delta(u,v\mid m) = m\cdot \Phi(u,v).
+\label{eq:cost-step}
+\end{equation}
+A packet with mass $m=1.0$ pays the bare potential; a packet with
+mass $m=2.0$ pays double for every edge it considers. The
+consequence is that a packet that has accumulated mass through
+congested edges is, by construction, more expensive to route
+through any further congested edge, and the dynamic-programming
+router (Algorithm~\ref{alg:massaware-dp}) systematically prefers
+cooler alternatives for it.
+
+The mass is bounded above by $m_{\max}$, ensuring that the
+multiplicative growth cannot cause numerical or behavioral
+pathologies. We use $m_{\max}=3$ throughout this paper, a value
+empirically sufficient to discriminate routing decisions while
+keeping the bucket discretization (Algorithm~\ref{alg:massaware-dp})
+tractable.
+
+For dynamic programming purposes, the continuous mass scalar is
+discretized into $B$ buckets uniformly distributed in $[1, m_{\max}]$;
+all experiments in this paper use $B=32$, with sensitivity to $B$
+analyzed in \S\ref{sec:results}.
+
+% =====================================================================
+\subsection{Thermal memory and global thermostat}
+\label{subsec:thermal-memory}
+
+Two mechanisms in our model carry information about past network
+behavior into future routing decisions: the per-edge loss snapshot
+$\theta(u,v)$, and the global temperature $T(G)$.
+
+The loss snapshot tracks the cumulative drop history at each edge,
+incremented whenever a packet attempts to traverse the edge with
+$\lambda(u,v)\ge c(u,v)$ and decayed by a factor $d_\theta$ at each
+simulation step. Because the snapshot decays exponentially, it
+captures recent loss events more strongly than ancient ones,
+acting as an exponentially-weighted moving average of edge
+unreliability. The coefficient $\gamma$ in
+Equation~\ref{eq:edge-potential} controls how strongly recent
+losses bias the routing potential.
+
+The global temperature $T(G)$ aggregates per-edge congestion into
+a scalar that reflects the overall stress on the network. When
+$T(G)$ is high, the thermostat-coupled coefficient
+$\beta_{\text{eff}}$ amplifies the per-edge congestion penalty,
+shifting the algorithm into a more cautious regime that prefers
+underutilized edges even at the cost of additional latency. When
+$T(G)$ is low, $\beta_{\text{eff}}\to\beta$ and the algorithm
+behaves as a standard load-aware router.
+
+Together, the loss snapshot and the global thermostat give the
+algorithm two distinct memory horizons: a slow, edge-local memory
+that tracks chronic unreliability, and a fast, network-global
+indicator that responds within a few steps to bursts of
+congestion. The integrated potential $\Phi(u,v)$ in
+Equation~\ref{eq:edge-potential} combines both, and the
+mass dynamics in Equation~\ref{eq:mass-update} weights them by the
+packet's accumulated trajectory cost.
+
+This three-way coupling---per-edge snapshot, global thermostat,
+per-packet mass---is what distinguishes mass-aware routing from
+prior load-aware schemes and what produces the empirical
+improvements documented in \S\ref{sec:results}.
+
+% =====================================================================
+\subsection{From v1 to EMMET-Newt: activating the loss snapshot}
+\label{subsec:newt-extension}
+
+The model just described stores a persistent per-edge loss snapshot
+$\sigma(u,v)$ and decays it at each step, but in the v1 algorithm
+this snapshot is populated only during warmup; once the production
+workload starts, $\sigma$ decays without ever being incremented.
+Under a stationary workload (Poisson) this is acceptable: the
+distribution that produced the warmup snapshot matches the
+distribution at test time. Under a non-stationary workload (bursty
+traffic, time-varying demand) the warmup snapshot becomes stale,
+and the $\gamma$ coefficient that biases the integrated potential
+operates on a frozen picture of past losses rather than a live one.
+
+We close this gap with what we call the \emph{reaction-memory}
+mechanism: every time a packet drops on edge $e$ at simulation
+step $t$, we increment $\sigma(e) \leftarrow \sigma(e) +
+\rho_{\mathrm{blood}}$ before the routine decay takes effect.
+The increment $\rho_{\mathrm{blood}}$ (we use values in $[5, 10]$
+in practice) acts as a discrete Newton-III reaction: the action (a
+packet dying on an edge) produces an opposed reaction (a persistent
+disincentive for subsequent packets to route through that edge).
+The mechanism is local to the dying edge and decays at the same
+rate as the warmup snapshot, so it integrates into the existing
+edge potential without changing the search structure of the DP
+router.
+
+When $\rho_{\mathrm{blood}} = 0$, the reaction-memory mechanism
+degenerates to the v1 algorithm bit-for-bit: $\sigma(e)$ is not
+updated at runtime and the warmup snapshot decays as before.
+We have verified this degeneration empirically on every topology
+tested. The mechanism is strictly additive: any v1 guarantee
+transfers to EMMET-Newt with $\rho_{\mathrm{blood}} = 0$.
+
+Under realistic operating conditions feedback is not instantaneous;
+intermediate routers do not learn of a drop the moment it happens.
+We therefore evaluate two variants. The \emph{immediate} variant
+updates $\sigma$ at the instant a packet dies and gives an upper
+bound on the mechanism's potential. The \emph{delayed} variant
+buffers drop events during a burst and releases them to $\sigma$ at
+the burst boundary, the conservative reading of what is achievable
+in practice. The empirical evaluation in \S\ref{sec:results}
+reports both, and treats the delayed variant as the headline.

@@ -1,0 +1,105 @@
+% ====================================================================
+% Section 3 (v2): The two-term physical core.
+% Replaces the 8-layer "mass-aware" model of v1. Faithful to
+% experiments/emmet_core.py.
+% ====================================================================
+\section{The Two-Term Physical Core}
+\label{sec:core}
+
+We model a packet as a classical particle descending a potential field
+defined on the network graph. The particle is subject to two forces, and
+only two. We state them first, then justify by ablation
+(Section~\ref{sec:ablation}) that no further mechanism is needed.
+
+\subsection{The potential}
+
+Each directed traversal of an edge $(u,v)$ carries a cost
+\begin{equation}
+\phi(u,v) \;=\; \alpha\,\ell(u,v) \;+\; \beta\,\frac{x(u,v)}{c(u,v)} \;+\; \gamma\,s(u,v),
+\label{eq:potential}
+\end{equation}
+where $\ell$ is edge latency, $x/c$ is the instantaneous load-to-capacity
+ratio (congestion), and $s$ is a persistent \emph{scar} term defined below.
+The three weights $(\alpha,\beta,\gamma)$ are the only tunable quantities of
+the model. All three are local: computing $\phi$ needs no global state beyond
+the edge itself.
+
+\subsection{Force 1: gradient descent}
+
+The particle follows the downhill direction of $\phi$ from source to
+destination, subject to a hop budget: it may use a path no longer than
+$\lceil \alpha_{\text{budget}}\, h_{\text{sp}} \rceil$ hops, where
+$h_{\text{sp}}$ is the shortest-path hop count. The minimum-potential path
+under this budget is found exactly by a dynamic program over
+$(\text{hops used},\, \text{node})$, in $O(k\,|E|)$ time with
+$k=\lceil\alpha_{\text{budget}} h_{\text{sp}}\rceil$.
+The budget is what lets the particle take a slightly longer, less congested
+detour instead of forcing every packet onto the single shortest path---the
+mechanism by which load spreads.
+
+% Algorithm 1: the two-term core routing step. Uses algorithm2e.
+\begin{algorithm}[t]
+\caption{EMMET-core routing step (two-term physical router)}
+\label{alg:core}
+\SetAlgoLined
+\KwIn{graph $G=(V,E)$ with per-edge latency $\ell$, load $x$, capacity $c$;
+scar field $s$; source $a$, destination $z$; weights $\alpha,\beta,\gamma$;
+budget factor $\alpha_b$}
+\KwOut{path $a \rightsquigarrow z$}
+$h_{\text{sp}} \leftarrow$ shortest-path hop count $a \to z$\;
+$k \leftarrow \lceil \alpha_b \, h_{\text{sp}} \rceil$\tcp*{hop budget}
+\For{each edge $(u,v)$}{
+  $\phi(u,v) \leftarrow \alpha\,\ell(u,v) + \beta\,x(u,v)/c(u,v) + \gamma\,s(u,v)$\;
+}
+$P \leftarrow$ min-$\sum\phi$ path of length $\le k$ via DP over (hops, node)\tcp*{$O(k|E|)$}
+\Return $P$\;
+\BlankLine
+\tcp{On a drop at edge $(u,v)$ while forwarding:}
+$s(u,v) \leftarrow s(u,v) + 1$\tcp*{Newton-III reaction}
+\tcp{Once per step, everywhere:}
+$s \leftarrow \rho\, s$, \quad $\rho = 2^{-1/T_{1/2}}$\tcp*{scars fade}
+\end{algorithm}
+
+
+\subsection{Force 2: Newton's third law (the scar)}
+
+The gradient term reacts to congestion that is \emph{present}. It cannot
+react to congestion that has just \emph{caused a loss}: once a packet is
+dropped, the offending edge's instantaneous load may already have fallen.
+We close this gap with a reaction term inspired by Newton's third law---to
+every action a packet undergoes, the network responds with an equal and
+opposite reaction on the packets that follow.
+
+Concretely, when a packet is dropped on edge $(u,v)$, that edge's scar is
+incremented, $s(u,v) \leftarrow s(u,v) + 1$. The scar enters the
+potential~\eqref{eq:potential} with weight $\gamma$, so subsequent particles
+feel a repulsive reaction steering them away from edges that recently
+failed---information the instantaneous congestion term does not carry.
+
+Scars are not permanent: at each step they decay,
+$s(u,v) \leftarrow \rho\, s(u,v)$ with $\rho = 2^{-1/T_{1/2}}$ and half-life
+$T_{1/2}$. A corridor that stops failing reopens on its own, and at rest
+(no losses) the scar field vanishes and the router reduces to pure gradient
+descent. The mechanism is self-regulating: it acts only when and where the
+network is actually breaking. This is the only memory in the model, and---as
+the ablation will show---the only added mechanism that earns its keep.
+
+\subsection{What is deliberately absent}
+\label{sec:absent}
+
+This two-term core is the survivor of a larger model. Earlier versions of
+EMMET endowed the packet-particle with extra physical attributes: an
+effective mass that grew with traversed congestion, a network thermostat
+modulating the congestion weight, a temporal ripple diffusing loss memory
+over several steps, and an Archimedes-style buoyancy term. Each was
+physically motivated and individually plausible.
+
+A systematic ablation (Section~\ref{sec:ablation}) removed them one at a time
+and measured the cost. The result was unambiguous: the gradient and the
+Newton-III scar account for essentially all of the performance, while the
+remaining mechanisms ranged from negligible to mildly harmful---removing the
+ripple and the thermostat slightly \emph{improved} results. We therefore
+report the two-term core as the model and treat the richer apparatus as a
+cautionary tale about physically-seductive terms that do not survive
+measurement. The reference implementation is 60 lines of Python.
+

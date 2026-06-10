@@ -1,0 +1,25 @@
+% ====================================================================
+% Robustness of the tube/sp regression: leave-one-out + Cook's distance.
+% Answers Kimi (feared the correlation leans on BA points; opposite is true).
+% Goes into the tube/sp applicability section.
+% Data: experiments/leverage_tubesp.py
+% ====================================================================
+\subsection{Is the predictor robust, or does it lean on a few points?}
+\label{sec:leverage}
+
+With only fifteen topologies, a correlation can be an artefact of one or two
+influential points. We checked. Across all single-point deletions
+(leave-one-out), the correlation coefficient moves by at most $0.059$; no
+individual topology drives the result. Only one point, the densest scale-free
+graph BA$_{n=50,m=3}$, exceeds the conventional Cook's distance cutoff of
+$4/n$, and removing it \emph{raises} the correlation rather than lowering it.
+
+We also ran the specific stress test a skeptic would ask for: removing all three
+Barab\'asi--Albert points, which sit visibly below the regression line. Far from
+collapsing, the correlation strengthens---$r$ rises from $0.78$ to $0.89$
+($R^2$ from $0.60$ to $0.79$). The scale-free graphs were the weakest-fitting
+points, slightly flattening the relationship; the structural predictor is in
+fact cleaner on the grid and small-world families than the full-sample $r=0.78$
+suggests. We report the full-sample figure as the conservative one. The point
+stands: tube/sp predicts the room a topology leaves for routing to matter, and
+the prediction does not hang on any handful of graphs.

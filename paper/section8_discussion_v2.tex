@@ -1,0 +1,71 @@
+% ====================================================================
+% Section 8 (v2): Discussion, limitations, future work.
+% ====================================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{What the equivalence means}
+
+The result of this paper is that two classical-mechanical forces---gradient
+descent on a potential and a Newton's-third-law reaction to loss---reach the
+operating point of purpose-built load balancers across the topologies where the
+geometry leaves room to manoeuvre. We read this less as a statement about
+routing and more as a statement about the problem: where the topology admits
+many near-shortest alternatives, good load distribution is not a feat requiring
+elaborate machinery, but something a simple local physical rule recovers on its
+own. The engineering and the physics converge because they are both descending
+the same landscape; the engineering simply pays for an explicit, enumerated map
+of it that the physics navigates implicitly.
+
+This reframes our own project history. The work began by asking what would
+happen if a packet were a physical particle with mass, heat, and friction, and
+accumulated machinery in pursuit of a decisive win. The decisive win never
+materialised against strong baselines; what materialised instead, once we
+stopped trying to beat the engineering and started measuring whether we could
+match it, was a cleaner and more defensible claim. Parsimony was the result, not
+the consolation.
+
+\subsection{Limitations}
+
+We state the boundaries of the claim plainly.
+
+\begin{itemize}
+\item \textbf{Simulation, not deployment.} All results are from a flow-level
+simulator, not a hardware or packet-level testbed. The simulator captures
+sustained-flow congestion dynamics but abstracts away queueing detail, control-
+loop latency, and the operational cost of maintaining the scar state in a real
+forwarding plane.
+\item \textbf{The real-backbone replicate.} G\'EANT and Abilene share a demand
+model in the present harness; the Abilene result should be read as an
+approximate backbone replicate pending a topology-specific demand matrix.
+\item \textbf{Predictor, not law.} The tube/sp relationship has $R^2 = 0.60$: a
+strong band, not a deterministic rule, with scale-free topologies fitting
+loosest.
+\item \textbf{Margin choice.} The equivalence margin ($\delta = 2$ percentage
+points) is a modelling decision; we report raw drop rates so the verdicts can be
+reinterpreted under a different margin.
+\end{itemize}
+
+\subsection{Future work: one principle, other domains}
+
+If load distribution on a graph is recoverable from two classical forces, the
+natural question is whether the same two-term rule applies to flow problems that
+are not networking at all. Last-mile logistics and supply-chain routing share
+the essential structure---flows over a capacitated graph, congestion as a cost
+to be spread---and admit public datasets. A companion study applying the
+identical core to such a domain would test whether what we report here is a
+networking trick or an instance of something more general: a classical-physics
+principle for flow allocation on graphs, of which packet routing is the first
+case. We regard that generalisation as the most interesting direction this work
+opens, and as the proper test of whether the equivalence reported here reflects
+a property of physics or merely a property of networks.
+
+\subsection{Conclusion}
+
+A ping packet, treated as a particle subject to a gradient and Newton's third
+law, routes about as well as engineered load balancers on the topologies where
+the geometry allows---and a single structural ratio says in advance which those
+are. The machinery that modern load balancers bring is not, on those
+topologies, buying performance the physics cannot reach; it is buying an
+explicit path enumeration that the physics performs implicitly. Two terms, and a
+condition for when they suffice. That is the whole of it.

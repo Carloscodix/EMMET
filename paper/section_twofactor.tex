@@ -1,0 +1,98 @@
+% ====================================================================
+% The two-factor law: why the router (sometimes) matters.
+% Replaces the retracted cut-based argument (which predicted the wrong
+% sign of the tube/sp-divergence relation and was removed). Everything
+% here is measured: activity audit, interventional capacity sweeps,
+% relief sweep, partial correlations. No claim without an experiment.
+% ====================================================================
+\section{Why the Router (Sometimes) Matters: A Two-Factor Law}
+\label{sec:twofactor}
+
+Section~\ref{sec:attractor} established that congestion-aware routers settle
+into nearly one load distribution. This section asks when the residual
+differences between them matter, and answers with a law in two factors---one
+of state, one of structure---each demonstrated by intervention or by partial
+correlation rather than by cross-sectional association alone.
+
+\subsection{The microfoundation: physical terms are congestion-gated}
+\label{sec:gating}
+
+The added terms of the physical cores are not always active. The Newton scar
+requires drops to exist at all; the Archimedean buoyancy requires edge density
+to exceed its flotation threshold. On topologies with negligible loss, both
+terms are mathematically zero and those cores \emph{are} the bare substrate:
+on our zero-drop scale-free graph, both relocate $0.00\%$ of load mass
+relative to it. Only the Pascalian diffusion, which reads neighbour load
+rather than failures, stays active everywhere ($3$--$10\%$ of mass moved,
+uncorrelated with drop level). An activity audit across the bench shows the
+scar moving $0$--$16\%$ of load mass and the buoyancy $0$--$3.3\%$, both
+tracking congestion. Two consequences follow. The convergence of
+Section~\ref{sec:attractor} must be read with this conditioning: where the
+gated terms are inactive, agreement between those cores is degeneracy, not
+evidence; the meaningful convergence is the one observed where all mechanisms
+are demonstrably active (the high-congestion topologies), and it holds there
+too. And mechanism divergence should rise with congestion---which we can test
+causally.
+
+\subsection{Factor one, by intervention: congestion drives divergence}
+\label{sec:causal}
+
+Cross-topology correlations confound everything topologies differ in. We
+therefore held each topology fixed and turned a single knob: every edge
+capacity scaled by a factor $f$, the demand and seeds unchanged. Across four
+topologies and six pressure levels, inter-core divergence tracks the drop rate
+within every graph (Spearman $+0.77$ to $+1.00$). The endpoint reversals are
+the sharpest statement: the scale-free graph on which the cores agree almost
+perfectly diverges by a factor of $21$ once squeezed ($f=0.45$), and G\'EANT,
+the bench's most divergent graph at native capacity, converges by a factor of
+$8$ once relieved ($f=1.5$). Same graph, same demand, opposite outcomes:
+congestion is the cause, not a correlate, of mechanism divergence. The sweep
+also reveals a saturation regime: past heavy loss ($f\le0.6$, drop rates above
+$\sim35\%$) divergence plateaus or falls again---when every path drowns, no
+mechanism can act, and the distributions reconverge in collapse. Mechanism
+identity matters in the \emph{contested} band between free flow and gridlock.
+
+\subsection{Factor two: structure sets the ceiling}
+\label{sec:ceiling}
+
+The real Abilene backbone is the stress case that exposes the second factor.
+It is by far the most congested graph on the bench (drop rate $0.22$ at native
+capacity), yet its inter-core divergence is unremarkable ($0.017$)---it
+single-handedly breaks any one-factor congestion law across topologies. The
+reason is structural: with eleven nodes and fourteen edges it contains four
+cycles, and divergence between routing mechanisms can only be expressed
+through alternative paths that exist. A capacity sweep on Abilene itself
+confirms both factors at once: relieving it traces the same inverted-U as
+every other graph (divergence rises from $0.001$ in free flow to a peak of
+$0.030$ in the contested band, then falls in saturation), but the peak is a
+third of what structurally richer graphs reach under comparable pressure.
+Congestion dictates the \emph{shape} of the divergence curve---where on it a
+network sits; structure dictates its \emph{amplitude}---how high the curve can
+go.
+
+\subsection{The dissociation: two predictors, two distinct roles}
+\label{sec:dissociation}
+
+The two factors separate cleanly in partial correlation, on opposite
+questions. For \emph{mechanism divergence}, congestion is the driver
+($r=+0.92$ controlling for tube/sp) and tube/sp retains nothing ($r=-0.10$
+controlling for congestion). For \emph{performance gains} over blind
+baselines, the roles invert: tube/sp retains a significant independent link
+($r=+0.59$ controlling for congestion) while congestion retains none
+($r=-0.23$). One variable of state, one of structure, each owning one
+question: congestion determines \emph{how much the choice of mechanism
+matters}; structure determines \emph{how much any congestion-aware rerouting
+can gain}. Both are measurable before deployment---one from a traffic
+estimate, one from the graph alone.
+
+\subsection{The law, stated}
+
+\emph{The load distribution of a graph under demand is an attractor that any
+congestion-aware rule approaches. The identity of the rule matters only in the
+contested regime between free flow and saturation, in proportion to the
+congestion it must manage (factor of state, causal), and only up to the
+diversity of paths the structure provides (factor of structure, the ceiling).}
+This is an empirical law with a mechanism (term gating), interventional
+support (capacity sweeps in both directions), and a stated boundary; a formal
+derivation of the attractor and of the ceiling's dependence on cycle structure
+remains open, and we offer it as the target for theoretical treatment.

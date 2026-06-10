@@ -1,0 +1,75 @@
+% ====================================================================
+% The ablation, re-audited: the core inverts. Reports the redux (scar
+% retired, threshold anticipation crowned), the parameter plateau, and
+% the Hooke matched-threshold test that isolates the active ingredient.
+% Every number from experiments/{ablation_redux,sensitivity_sweep,
+% hooke_quick}.py and the corresponding JSONs in the public repo.
+% ====================================================================
+\section{The Ablation, Re-Audited: the Core Inverts}
+\label{sec:redux}
+
+Section~\ref{sec:ablation} reported the ablation that reduced eight physical
+layers to two terms, retaining the Newton-III scar and discarding, among
+others, an Archimedean buoyancy. That ablation was run on an earlier harness:
+a packet-level simulator, weaker baselines, and---as the audit of
+Section~\ref{sec:fair} later showed for the comparison side---conditions that
+can flatter or bury a mechanism. Having rebuilt the bench (flow-level
+simulation, fifteen genuine topologies including the real Abilene, paired
+seeds), we re-ran the foundational question: does each physical term improve
+drop rate over the bare substrate (gradient plus linear congestion), and
+where?
+
+\subsection{The verdict inverts}
+
+It does not survive. The scar---the term the original ablation kept---yields
+no significant improvement in its home regime (contested topologies:
+$-0.34$\,pp, $p=0.12$), \emph{worsens} the dense grids, and degrades the
+saturated backbone by $+2.1$\,pp: a reactive memory of failures is largely
+redundant with the congestion term that already steers away from load, and in
+saturation it over-scars and thrashes. It is also the term that relocates the
+most load mass ($6$--$16\%$, Section~\ref{sec:gating})---movement without
+payoff. The buoyancy---the term the original ablation discarded---beats the
+substrate in every regime (free flow $-0.24$\,pp, $p=10^{-4}$; contested
+$-1.05$\,pp, $p<10^{-5}$; saturated $-3.31$\,pp, $p=5\times10^{-4}$) and on
+fifteen of fifteen topologies without exception (sign test
+$p=6\times10^{-5}$). The original verdict was a harness artifact, of the same
+family as the path-budget artifact of Section~\ref{sec:fair}; we report the
+inversion rather than quietly rewriting history.
+
+\subsection{Not a needle: the parameter plateau}
+
+A natural objection is overfitting: perhaps the buoyancy wins only at its
+default parameters. We swept the flotation threshold ($\rho_0$ from $0.4$ to
+$0.8$), the gain ($g$ from $2$ to $32$), and the substrate's congestion weight
+($\beta$ from $1.5$ to $6$). In all fourteen settings the buoyancy beats the
+substrate on fifteen of fifteen topologies ($p$ between $10^{-4}$ and
+$10^{-12}$). The trends are physically sensible: earlier anticipation (lower
+$\rho_0$) and stronger response help more, and a weaker substrate leaves more
+for the buoyancy to do. The win is a plateau, not a needle.
+
+\subsection{What the ingredient is: threshold, not curvature}
+
+The buoyancy differs from the substrate's linear congestion term in two ways
+at once: a threshold (no force below $\rho_0$) and a curvature (quadratic
+growth above it). A fourth classical core separates them: a Hookean spring,
+linear above a slack threshold. The spring also beats the substrate on fifteen
+of fifteen topologies (contested $-1.50$\,pp, $p<10^{-13}$; saturated
+$-4.38$\,pp), and at a matched threshold the linear and quadratic forms
+deliver nearly identical pooled gains ($-1.2$ versus $-1.15$\,pp). The active
+ingredient is therefore the \emph{anticipatory threshold}---a force that
+engages before loss, above a density the linear substrate treats as
+ordinary---while the functional form above the threshold is secondary. The
+spring also lands in the attractor with its siblings (cosine $0.987$ to the
+other cores), a fourth witness to Section~\ref{sec:attractor}.
+
+\subsection{What ``the core'' now means}
+
+The validated two-term core of this paper is \emph{gradient plus anticipatory
+threshold force}: implement the threshold with a buoyancy or a spring and the
+result stands, across the parameter plateau, in every congestion regime, on
+every topology of the bench. The reactive scar that founded this project is
+retired from the core with the role it earned: the instrument that started the
+search, and one of the convergence witnesses---but not, on the modern bench, a
+source of routing value. We consider catching this inversion ourselves, with
+the same audit machinery that earlier caught an inflated advantage over CONGA,
+to be part of the contribution.

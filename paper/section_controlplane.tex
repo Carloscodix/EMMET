@@ -1,0 +1,37 @@
+% ====================================================================
+% Control-plane / computational-cost limitation. Preventive honesty,
+% same spirit as the K=4 audit. Answers DeepSeek + Gemini + Kimi (the
+% serious shared critique). Goes into the discussion/limitations section.
+% ====================================================================
+\subsection{The control-plane cost we are not hiding}
+\label{sec:control-plane}
+
+The reference core fits in about sixty lines of Python, and it is tempting to
+read that as computational frugality. It is not, and we want to be explicit
+about the gap, because it is the most consequential limitation of this work.
+
+Two distinct notions of parsimony must be separated. The core is parsimonious in
+\emph{mechanism}: two terms, no per-flow state, no precomputed path tables, no
+hand-tuned controller. It is \emph{not} demonstrated to be parsimonious in
+\emph{computation or control overhead}. Algorithm~\ref{alg:core} evaluates a
+min-potential path by dynamic programming over the hop budget, $O(k|E|)$ per
+decision, and to evaluate $\phi(u,v)$ on each edge it needs the instantaneous
+load $x$ and scar state $s$ of every edge in the graph. Our flow-level simulator
+provides that global state for free and instantaneously. A real deployment would
+not: the load and loss state of remote edges would have to reach the deciding
+node through telemetry or flooding, with latency and overhead that our model
+omits entirely.
+
+This matters for the comparison as much as for deployability. DRILL, in
+particular, is a switch-local, per-hop mechanism that reacts to local queue
+occupancy and assumes no global view; CONGA distributes congestion state but
+within a bounded fabric. By granting our core an idealized, zero-latency global
+state, the simulator may flatter it relative to a genuinely distributed,
+local-information baseline. We did not measure how the equivalence degrades when
+the global state is stale or partial, and that is the single most important
+experiment this work leaves open. We therefore frame the core's standing as
+\emph{equivalence in routing quality under idealized state visibility}, not as a
+claim of operational efficiency. Establishing whether the physical core
+survives realistic control-plane constraints---bounded telemetry, propagation
+delay, partial views---is the necessary next step before any deployability claim
+could be made.

@@ -1,0 +1,49 @@
+% ====================================================================
+% Section 2 (v2): Related work.
+% Positions the contribution as parsimony, not SOTA competition.
+% ====================================================================
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Engineered load balancing.}
+Modern multipath load balancers spread traffic to avoid hot spots.
+ECMP~\cite{ecmp} splits flows across equal-cost shortest paths by hashing, with
+no congestion awareness. CONGA~\cite{conga} adds that awareness: it enumerates a
+set of candidate paths and selects among them using in-network congestion
+feedback, rerouting at flowlet granularity. DRILL~\cite{drill} pushes the
+decision to the switch and the microsecond, making per-packet local choices
+based on queue occupancy with minimal state. These systems define the operating
+points we measure against. Our aim is not to outperform them---on the
+topologies where they are strong, they remain strong---but to ask how much of
+their behaviour is recoverable from a far simpler, physically-motivated rule.
+
+\paragraph{Physics- and nature-inspired routing.}
+Using physical or biological analogies for routing has a long history:
+ant-colony optimisation, electrical-network and resistance analogies,
+potential- and field-based forwarding, and physarum-inspired path formation.
+These approaches typically introduce a mechanism and demonstrate that it works.
+Our contribution differs in emphasis in two ways. First, we run the analogy in
+reverse as an ablation: rather than showing that added physics helps, we add a
+great deal of physics and then measure how much can be removed, arriving at a
+two-term residue. Second, we frame the outcome as a statistical equivalence
+against strong engineered baselines, rather than as a demonstration that the
+physical method is novel or superior.
+
+\paragraph{Equivalence testing.}
+Most networking evaluations test for a difference (one method beats another).
+We instead test for \emph{equivalence}, using TOST (two one-sided
+tests), which asks whether two methods are indistinguishable within a stated
+margin. This is the statistically appropriate tool when the claim is ``as good
+as'', not ``better than'', and it guards against the familiar error of reading a
+non-significant difference as evidence of equivalence. To our knowledge,
+equivalence testing is uncommon in the routing-evaluation literature, and its
+use here is deliberate: the entire thesis is one of equivalence with parsimony.
+
+\paragraph{Applicability conditions.}
+A recurring weakness of method papers is silence about when the method fails. We
+attach to our result an explicit, topology-only predictor (the tube/sp ratio,
+Section~\ref{sec:applicability}) that says in advance where the equivalence
+holds and where engineered routing retains an edge. This places the
+contribution closer to the spirit of complex-systems and network-science work,
+where structural predictors of dynamical behaviour are themselves the object of
+study, than to a conventional systems-performance paper.

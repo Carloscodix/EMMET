@@ -1,0 +1,74 @@
+% ====================================================================
+% Attractor section v3 - corrected numbers (scar-fed Newton, real Abilene,
+% 15 genuine topologies), activity conditioning, tube/sp correlation
+% handed off to the two-factor section. Supersedes section_attractor_v2.
+% ====================================================================
+\section{Why They Converge: A Load-Distribution Attractor}
+\label{sec:attractor}
+
+Section~\ref{sec:convergence} established \emph{that} the physical cores reach
+the same drop-rate performance on most topologies. This section asks
+\emph{why}, and the answer turns the convergence from coincidence into
+mechanism: the cores do not merely score the same---they route traffic through
+the same edges in the same proportions, and so, to a large extent, does every
+congestion-aware rule we tested.
+
+\subsection{Measuring the distribution, not the score}
+
+For each of the fifteen topologies we run five routers on an identical graph
+and demand: the three physical cores and two blind controls---shortest path
+(ignores congestion) and ECMP (hash spread). The Newton core runs with its
+scar field alive (an earlier revision of this experiment inadvertently starved
+it, degenerating that core to the bare substrate; the bug was caught by our
+own audit, fixed, and all numbers below are from the corrected runs). For each
+router we record its per-edge utilization vector and compare vectors between
+routers with two independent measures: cosine similarity, and one minus the
+normalized $L_1$ distance (how much load mass would have to move to turn one
+distribution into the other). Twelve seeds per topology.
+
+\subsection{The cores converge to one distribution}
+
+The three physical cores produce near-identical load distributions: cosine
+$0.979 \pm 0.009$ and $0.930 \pm 0.018$ on the $L_1$ measure, stable across
+the bench. This agreement is not an artifact of shared inactivity: the
+activity audit of Section~\ref{sec:gating} shows the cores relocating load by
+amounts that differ by an order of magnitude (the scar up to $16\%$ of mass,
+the buoyancy at most $3.3\%$), in different directions, on the contested
+topologies---and they agree there too (G\'EANT, the most contested graph with
+all terms demonstrably active: $0.957$).
+
+\begin{table}[t]
+\centering
+\caption{Similarity of per-edge load distributions between routers (12 seeds,
+15 topologies, corrected runs). ``phys--phys'' is the mean over the three
+physical-core pairs; the controls are blind to congestion. Both measures
+agree: the cores converge to one distribution, tighter than either control.}
+\label{tab:attractor}
+\small
+\begin{tabular}{lcc}
+\toprule
+ & cosine & $1-L_1$ \\
+\midrule
+physics--physics  & $0.979 \pm 0.009$ & $0.930 \pm 0.018$ \\
+physics--shortest & $0.938 \pm 0.013$ & $0.837 \pm 0.025$ \\
+physics--ECMP     & $0.867 \pm 0.056$ & $0.762 \pm 0.064$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The convergence is significantly tighter than what the blind controls reach: a
+paired Wilcoxon test across topologies gives $p = 10^{-4}$ on both measures.
+The interpretation is twofold. First, the topology and demand do most of the
+work: even ECMP, blind to congestion, lands at cosine $0.87$---the graph
+already constrains where load can go. Second, congestion-awareness refines
+that rough distribution into a near-consensus ($0.98$) that the blind routers
+do not reach, and this shared refinement is what produces the matched drop
+rates of Section~\ref{sec:convergence}. The cores tie not by accident but
+because they descend into the same basin: a load distribution fixed largely by
+the structure and sharpened nearly identically by any congestion-aware rule.
+
+Across topologies, the tightness of this basin correlates with structure
+rather than with congestion alone (similarity is highest on the
+structure-poor graphs, $r=-0.54$ to $-0.56$ between tube/sp and divergence on
+the two measures)---a first sign of the two-factor account that
+Section~\ref{sec:twofactor} establishes by intervention.

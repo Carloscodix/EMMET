@@ -1,0 +1,59 @@
+% ====================================================================
+% Section: Why the attractor exists - a structural argument.
+% The "why", not just the "that". Answers Jarvis: evidence -> explanation.
+% Inserted into the attractor section, after the empirical results.
+% ====================================================================
+\subsection{Why the attractor exists: a structural argument}
+\label{sec:attractor-why}
+
+The measurements show \emph{that} independent routers converge to one load
+distribution. We now argue \emph{why}, and the argument is structural rather
+than physical---which is the point. The load distribution a router produces is
+not free; it is constrained by two quantities the router does not control.
+
+\paragraph{The demand fixes the flow across every cut.} Fix a demand matrix
+$D$. For any cut $(S, \bar S)$ partitioning the nodes, the total traffic that
+must cross from $S$ to $\bar S$ is $\sum_{i \in S, j \in \bar S} D_{ij}$,
+\emph{independent of routing}. No choice of paths can change how much flow
+traverses a cut; routing only chooses \emph{which} edges of the cut carry it.
+By the max-flow/min-cut duality, the narrow cuts---those with few edges or low
+capacity relative to the demand crossing them---are forced to carry load up to
+their limit regardless of the router. Their utilization is pinned by the
+structure, not the algorithm.
+
+\paragraph{Topology sets how many edges are pinned.} In a sparse topology
+(a WAN backbone), most demand pairs are separated by narrow cuts: the few
+edges on the handful of near-shortest paths are forced to carry nearly all the
+traffic, and every reasonable router loads them nearly identically. In a richly
+connected topology (a dense grid), most cuts are wide: many edges can share the
+load of any cut, leaving the router free to distribute traffic among them in
+many near-equivalent ways. The fraction of edges whose load is pinned by the
+cut structure is, informally, what the tube/sp ratio measures: low tube/sp
+means few alternatives, most edges pinned; high tube/sp means many
+alternatives, most edges free.
+
+\paragraph{The attractor is the pinned distribution; the physics fills the
+rest.} Putting these together explains every observation in one stroke. The
+component of the load distribution fixed by cuts and demand is the attractor:
+common to all routers, blind or congestion-aware, because none of them can
+move it (this is why even ECMP reaches cosine $0.87$). The residual---the load
+on the unpinned edges---is the only part a router can shape, and there any
+congestion-aware rule, physical or not, makes the same locally-greedy choice
+(spread away from load), which is why the three physical cores converge to
+$0.99$ while the blind controls, lacking that rule, do not. Where tube/sp is
+low, the pinned component dominates and all routers nearly coincide---the
+attractor is strong, and equivalence with engineered routers survives even
+strict statistical margins. Where tube/sp is high, the residual is large, the
+routers have room to differ, and equivalence becomes margin-sensitive. The
+attractor, the convergence of the three physics, the tube/sp predictor, and the
+margin-sensitivity of the equivalence are thus four faces of a single
+structural fact: \emph{the cut structure of the graph, under a fixed demand,
+pins most of the load distribution, and leaves a residual that any
+congestion-aware rule shapes identically}.
+
+\paragraph{Status of the argument.} This is a structural explanation, not a
+closed theorem: we have not derived the size of the pinned component as a
+function of tube/sp, nor proved convergence rates. We offer it as the mechanism
+the evidence points to, and as the conjecture a formal treatment should target.
+What the data establish is the four-way coincidence; what this argument
+provides is a single, testable reason for it.

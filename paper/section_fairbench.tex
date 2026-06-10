@@ -1,0 +1,42 @@
+\subsection{The bench at the fair budget}
+\label{sec:fairbench}
+The bookkeeping debt is paid here: Table~\ref{tab:fairbench} repeats the
+equivalence comparison at the fair budget of Section~\ref{sec:fair}
+(CONGA with $K{=}16$ precomputed paths) on the corrected bench, real Abilene
+included, twenty seeds per topology. At $\delta=2$\,pp the verdict counts are
+9/12/10 of fifteen against CONGA and 10/10/10 against DRILL for the three cores
+respectively; Section~\ref{sec:margin-sensitivity} shows how these counts
+tighten with the margin. Two readings stand out. The equivalences concentrate
+where the attractor predicts; and the real Abilene reaches equivalence with
+neither engineered router for any core---the saturation boundary, visible in
+the raw rates themselves.
+\begin{table}[t]
+\centering
+\caption{Drop rates (\%) at the fair budget on the corrected bench (20 seeds).
+For each physical core, the two marks denote TOST equivalence at
+$\delta=2$\,pp with CONGA$_{K=16}$ and DRILL respectively (\checkmark{} =
+equivalent, -- = not).}
+\label{tab:fairbench}
+\small
+\begin{tabular}{lccccc}
+\toprule
+Topology & CONGA & DRILL & Newton & Archimedes & Pascal \\
+\midrule
+Grid5 & 1.3 & 3.2 & 3.8 --\checkmark & 2.1 \checkmark\checkmark & 3.0 --\checkmark \\
+Grid6 & 0.3 & 2.3 & 2.7 --\checkmark & 1.3 \checkmark\checkmark & 2.1 --\checkmark \\
+Grid7 & 0.4 & 2.2 & 2.0 --\checkmark & 1.3 \checkmark\checkmark & 1.3 \checkmark\checkmark \\
+Grid8 & 0.6 & 1.5 & 1.2 \checkmark\checkmark & 0.6 \checkmark\checkmark & 0.9 \checkmark\checkmark \\
+Grid10 & 0.9 & 1.9 & 0.7 \checkmark\checkmark & 0.3 \checkmark-- & 0.5 \checkmark\checkmark \\
+Grid12 & 1.6 & 0.9 & 0.7 \checkmark\checkmark & 0.4 \checkmark\checkmark & 0.5 \checkmark\checkmark \\
+WS\_n30\_k4 & 1.0 & 0.4 & 2.7 ---- & 2.4 ---- & 3.1 ---- \\
+WS\_n50\_k4 & 1.3 & 0.9 & 2.4 \checkmark-- & 2.4 \checkmark-- & 2.5 \checkmark-- \\
+WS\_n50\_k6 & 0.1 & 0.0 & 0.6 \checkmark\checkmark & 0.4 \checkmark\checkmark & 0.5 \checkmark\checkmark \\
+WS\_n80\_k4 & 1.2 & 0.8 & 2.6 \checkmark-- & 2.2 \checkmark-- & 2.4 \checkmark-- \\
+BA\_n50\_m2 & 0.0 & 0.0 & 0.4 \checkmark\checkmark & 0.3 \checkmark\checkmark & 0.5 \checkmark\checkmark \\
+BA\_n50\_m3 & 0.0 & 0.0 & 0.1 \checkmark\checkmark & 0.0 \checkmark\checkmark & 0.1 \checkmark\checkmark \\
+BA\_n80\_m2 & 0.0 & 0.0 & 0.2 \checkmark\checkmark & 0.1 \checkmark\checkmark & 0.1 \checkmark\checkmark \\
+GEANT & 3.4 & 5.3 & 7.6 ---- & 6.0 --\checkmark & 8.1 ---- \\
+Abilene & 39.1 & 17.5 & 24.9 ---- & 18.7 ---- & 21.0 ---- \\
+\bottomrule
+\end{tabular}
+\end{table}

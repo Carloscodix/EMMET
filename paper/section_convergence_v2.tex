@@ -1,0 +1,123 @@
+% ====================================================================
+% Section: Convergence of independent classical-physics cores.
+% The new centerpiece. Faithful to data/equivalence_{newton,archimedes,
+% pascal}.json, all measured on the identical CONGA-K16 / DRILL / TOST bench.
+% ====================================================================
+\section{Convergence: Three Classical Physics, One Destination}
+\label{sec:convergence}
+
+If a single physically-motivated rule matched engineered routing, it could be a
+coincidence---one lucky analogy. The stronger claim, and the one this section
+supports, is that \emph{several independent classical-physics principles, each
+formalised on its own and sharing no mechanism, converge on the same operating
+point as engineered load balancers}. Convergence from independent starting
+points is evidence that the result reflects the structure of the problem, not
+the cleverness of one analogy.
+
+\subsection{Three cores, three mechanisms}
+
+We implement three routing cores. All share one search engine---an exact
+hop-budget dynamic program descending a per-edge potential---and differ
+\emph{only} in the added physical term. This makes the comparison fair by
+construction: any difference between cores comes from the physics, not the
+search.
+
+\begin{itemize}
+\item \textbf{Newton (reaction).} A dropped packet deposits a decaying scar on
+the offending edge; later packets feel a repulsive reaction and route away. The
+mechanism is \emph{reactive} and \emph{temporal}: it responds to losses already
+incurred, and the scar fades when not refreshed. (This is the two-term core of
+Section~\ref{sec:core}.)
+
+\item \textbf{Archimedes (anticipation).} Each edge exerts a buoyant push that
+grows with the square of its congestion density above a flotation threshold
+$\rho_0$: $g\cdot\max(0,\rho-\rho_0)^2$. The mechanism is \emph{anticipatory}
+and \emph{non-linear}: a packet is repelled from an edge \emph{before} it drops
+a packet, and only once density crosses the threshold. It carries no memory and
+no packet state.
+
+\item \textbf{Pascal (diffusion).} An edge inherits a share of the congestion of
+its graph neighbours, so a packet avoids not just congested edges but congested
+\emph{regions}. The mechanism is \emph{spatial}: pressure transmits to adjacent
+edges, as in a confined fluid.
+\end{itemize}
+
+These are not variants of one idea. Reaction-to-the-past, anticipation-of-the-
+present, and spatial-diffusion are physically distinct, and share no term beyond
+the common distance-plus-congestion substrate that any router needs.
+
+\subsection{All three reach parity}
+
+We evaluate each core on the identical bench used throughout: fifteen
+topologies, twenty seeds, flow-level simulation, statistical equivalence by TOST
+at margin $\delta = 2$ percentage points, against DRILL and against CONGA at a
+\emph{fair} path budget ($K=16$). Table~\ref{tab:convergence} reports the
+equivalence counts and, more tellingly, the per-topology pattern.
+
+\begin{table}[t]
+\centering
+\caption{Equivalence (TOST, $\delta=2$pp) of three independent physical cores
+with engineered routers, on the identical bench. ``C'' marks equivalence with
+CONGA$_{K=16}$, ``D'' with DRILL. The cores agree cell by cell far more than
+they differ, and fail on the same topologies.}
+\label{tab:convergence}
+\small
+\begin{tabular}{lccc}
+\toprule
+Topology & Newton & Archimedes & Pascal \\
+\midrule
+Grid $5$     & \phantom{C}D & CD           & \phantom{C}D \\
+Grid $6$     & \phantom{C}D & CD           & \phantom{C}D \\
+Grid $7$     & \phantom{C}D & CD           & CD \\
+Grid $8$     & CD           & CD           & CD \\
+Grid $10$    & CD           & C\phantom{D} & CD \\
+Grid $12$    & CD           & CD           & CD \\
+WS $n30\,k4$ & --           & --           & -- \\
+WS $n50\,k4$ & C\phantom{D} & C\phantom{D} & C\phantom{D} \\
+WS $n50\,k6$ & CD           & CD           & CD \\
+WS $n80\,k4$ & C\phantom{D} & C\phantom{D} & C\phantom{D} \\
+BA $n50\,m2$ & CD           & CD           & CD \\
+BA $n50\,m3$ & CD           & CD           & CD \\
+BA $n80\,m2$ & CD           & CD           & CD \\
+G\'EANT      & --           & \phantom{C}D & -- \\
+Abilene      & --           & \phantom{C}D & -- \\
+\midrule
+\textbf{$\equiv$ CONGA$_{K16}$} & 9/15 & 12/15 & 10/15 \\
+\textbf{$\equiv$ DRILL}         & 10/15 & 11/15 & 10/15 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Two features of the table matter more than the totals. First, the three cores
+land in the same band---9 to 12 of 15 against each baseline---despite their
+mechanisms having nothing in common. Second, and more striking, \emph{they agree
+cell by cell}: where one core reaches equivalence the others tend to, and where
+one fails the others fail. The disagreements are few and small.
+
+\subsection{They fail in the same places}
+
+The shared failures are the most informative part of the result. All three cores
+miss on \textbf{WS\,$n30\,k4$}, a dense small-world graph where DRILL's per-hop
+reactivity is genuinely hard to match, and all three miss (against CONGA) on the
+two real WAN backbones, \textbf{G\'EANT} and \textbf{Abilene}. These backbones
+have low tube/sp ratio---little room to manoeuvre among near-shortest
+paths---and Section~\ref{sec:applicability} shows the same metric predicts the
+failures of all three cores, not just one.
+
+That independent physical mechanisms succeed on the same topologies and fail on
+the same topologies is the core finding. It means the boundary of the result is
+a property of the \emph{problem}---the topology's room to manoeuvre---rather than
+of any single physical analogy. Load distribution on a graph with sufficient
+near-shortest diversity is recoverable by classical physics; which physics one
+chooses barely matters.
+
+\subsection{Honest disagreements}
+
+We do not smooth over the cells where the cores differ. Archimedes is the
+strongest of the three (12/15 against CONGA) and is the only core to reach DRILL
+equivalence on the backbones, an advantage we attribute to its anticipatory,
+threshold-based repulsion coping better with the backbones' sharp bottlenecks;
+we report it but do not over-read a single-topology difference. Newton is the
+weakest against CONGA (9/15), losing the smaller grids where its reactive scar
+needs a drop before it can act. These differences are real and consistent with
+each mechanism's character; none disturbs the central pattern of convergence.

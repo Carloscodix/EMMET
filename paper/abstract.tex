@@ -1,0 +1,52 @@
+% =====================================================================
+% Abstract for EMMET-Newt paper (v2.0+).
+% Target venue: IEEE TNSM, Computer Networks (Elsevier).
+% Length: 200-280 words.
+% Tone: framework contribution, mechanistic vocabulary, no hype.
+% =====================================================================
+
+\begin{abstract}
+Adaptive routing algorithms react to network congestion through edge
+state shared across packets, but lack two ingredients we find
+empirically useful: \emph{per-packet history} (each packet's path so
+far) and \emph{persistent loss memory} (which edges recently dropped
+packets, beyond instantaneous load). We introduce \textbf{EMMET-Newt},
+a framework that builds two complementary mechanisms on a gradient
+router. The first, \emph{mass-aware routing}, gives each packet an
+internal scalar (its \emph{mass}) that grows with traversed congestion
+and scales the cost of candidate edges, biasing more-traveled packets
+toward less-loaded paths. The second, the \emph{reaction-memory}
+mechanism, increments a persistent per-edge bloodstain on every packet
+drop so subsequent packets evade recently-failing edges---a discrete
+Newton-III feedback on the routing potential. We instantiate the
+framework as a constrained dynamic-programming router and a bursty
+variant with delayed feedback (releasing accumulated memory at burst
+boundaries, the conservative reading).
+On 600 paired scenarios under Poisson workload (Erd\H{o}s--R\'enyi, scale-free,
+small-world, regular lattice and real WAN backbones), the mass-aware
+router cuts congestion losses against the Dijkstra-with-potential
+baseline by 43.5\% on G\'EANT (95\% CI $[28.4, 57.2]$\%), 61.5\% on
+Watts--Strogatz (95\% CI $[36.9, 79.0]$\%) and 93.0\% on a regular
+grid (95\% CI $[83.7, 100]$\%). On bursty cross-topology runs ($n=30$
+per cell), adding reaction memory improves the mass-aware router
+further and outperforms CONGA-WAN on structured topologies (+61\% on
+a $10\times 10$ grid with the conservative DELAY variant), while
+remaining competitive but not dominant on Abilene and G\'EANT.
+A temporal-ripple extension inspired by wave propagation closes the
+gap on GÉANT to a statistical tie ($-3.3\%$, CI $[-10.1, +3.4]$\%)
+and extends the Grid$10\times 10$ headline to $+66.7\%$
+($[+56.9, +74.4]$\%).
+We extend to $n=1{,}000$ and document the saturation regime where
+both arms reach 100\% delivery and no signal remains. The framework
+also accommodates two theoretical siblings (collective pressure,
+pairwise repulsion) that we sketch but do not claim empirically.
+\end{abstract}
+
+\begin{keyword}
+adaptive routing \sep
+load-aware routing \sep
+congestion control \sep
+stateful packet processing \sep
+reaction memory \sep
+network simulation
+\end{keyword}

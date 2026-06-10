@@ -1,0 +1,79 @@
+﻿% ====================================================================
+% The temporal channel: Newton re-examined, and the taxonomy that
+% closes the circle. Every number from experiments/newton_redemption.py
+% and data/newton_redemption.json. The flaky bench is declared as
+% designed a posteriori for memory habitat: existence claim, not
+% generality.
+% ====================================================================
+\section{The Temporal Channel: a Taxonomy of Physical Information}
+\label{sec:taxonomy}
+
+Section~\ref{sec:redux} retired the Newton-III scar from the stationary core,
+and left a question a careful reader should ask: was the law wrong, or was the
+bench wrong for the law? Two observations argue for a second look. First,
+calibration: the scar parameters were never swept, and the historical decay of
+$0.998$ per tick gives the scar a half-life of $346$ ticks in a $200$-tick
+simulation---the ``reaction'' of the redux never healed; it was a permanent
+grudge, and permanent over-punishment is a sufficient explanation for the
+thrashing observed on dense grids and in saturation. Second, and more
+fundamental, habitat: the scar is \emph{temporal memory}, and the entire bench
+of this paper is \emph{stationary}---fixed demand statistics, fixed
+capacities. In a stationary world the instantaneous state is statistically
+sufficient and memory is redundant \emph{by construction of the bench}, not by
+fault of the law. We had evaluated a historian in a world without a past.
+
+\subsection{Calibration accounts for the harm, not for a stationary win}
+
+Re-running the stationary bench with swept scar parameters confirms both
+halves. Short half-lives remove the damage (the saturated backbone flips from
+$+2.1$\,pp \emph{worse} to slightly better than the substrate; the dense-grid
+harm disappears at gentle deposits), so the redux's negative verdict was in
+part an artifact of temporal miscalibration. But no calibration produces a
+clear stationary win either: the verdict of Section~\ref{sec:redux}
+stands---where there is no history, memory has nothing to sell.
+
+\subsection{A bench with a past: flaky links}
+
+The falsifiable question is therefore whether a realistic regime exists in
+which temporal memory is the winning channel. Real networks supply an obvious
+candidate: \emph{flaky links}---hardware that fails in episodes and looks
+healthy in between, precisely the case where the instantaneous state misleads
+and only memory can warn. We built a non-stationary bench: in each run,
+$15\%$ of edges (fixed per seed, shared by all routers) suffer periodic
+degradation episodes (every $40$ ticks, for $8$ ticks, capacity scaled to
+$0.2$), recovering fully in between. We state plainly that this bench was
+designed \emph{a posteriori} for memory's habitat: the claim defended here is
+one of existence---there is a realistic regime where the temporal channel
+wins---not of generality.
+
+In that regime the retired physicist wins outright. The calibrated scar
+(half-life matched to the episode period) beats the bare substrate on
+fourteen of fifteen topologies ($-1.26$\,pp, $p=4\times10^{-10}$), and---the
+decisive comparison---beats both threshold cores as well: Archimedes on
+thirteen of fifteen ($p=5\times10^{-4}$) and Hooke on twelve of fifteen
+($p=9\times10^{-3}$). Its sole loss is the saturated backbone, exactly where
+the two-factor law of Section~\ref{sec:twofactor} says no mechanism can act.
+An anti-ghost check confirms the channel is real: ranking edges by
+accumulated scar identifies the flaky set with precision $0.69$--$0.80$,
+while ranking by mean utilization---the best a memoryless router could
+do---reaches only $0.06$--$0.20$. The scar sees what load cannot. A
+calibration law emerges for free: the long-memory (historical) scar performs
+even better when the failing set is persistent ($-1.68$\,pp pooled) and
+drowns in saturation---the scar's half-life should match the timescale of
+the disturbance it is meant to remember.
+
+\subsection{The taxonomy}
+
+The arc of this paper's cores now closes into a taxonomy of information
+channels. The substrate reads the \emph{linear present}. The threshold cores
+(Archimedes, Hooke) add the \emph{nonlinear present}---anticipatory warning
+above a density the linear term treats as ordinary---and own the stationary
+regime (Section~\ref{sec:redux}). Pascal adds \emph{space}---neighbourhood
+pressure---and contributes modestly wherever contention is local. Newton adds
+\emph{time}---memory of failures---and owns the non-stationary regime, where
+it beats every memoryless core including the stationary champions. No channel
+dominates everywhere; the regime decides which information pays, in the sense
+made quantitative by the two-factor law. The practical reading for a network
+operator is correspondingly plain: a two-term gradient-plus-threshold rule
+suffices wherever traffic is stationary; add the temporal term, with its
+half-life matched to failure timescales, on infrastructure known to flap.

@@ -1,0 +1,128 @@
+% ====================================================================
+% Section 5 (v2): The equivalence experiment.
+% The heart of the reframed paper. Faithful to experiments/equivalence.py
+% and data/equivalence_results.txt + data/fair_comparison_results.txt.
+% ====================================================================
+\section{Equivalence with Engineered Routers}
+\label{sec:equivalence}
+
+The central claim of this paper is deliberately modest and precisely
+testable:
+
+\begin{quote}
+\emph{The two-term physical core reaches the operating point of
+purpose-built load balancers across most topologies, using a fraction of
+their machinery; and a topological metric predicts the cases where it does
+not.}
+\end{quote}
+
+We test this as a statistical \emph{equivalence} claim, not a superiority
+claim. The distinction matters: showing that two methods are
+indistinguishable requires a different test than showing one beats the
+other, and conflating the two is a common error.
+
+\subsection{Design}
+\label{sec:equiv-design}
+
+We compare the two-term core (gradient + Newton-III, no mass) against two
+engineered baselines: \textbf{CONGA}, a multi-path congestion-aware balancer
+that scores $K$ shortest paths and selects the least congested, and
+\textbf{DRILL}, a near-stateless balancer that makes per-hop local decisions.
+ECMP and shortest-path serve as weak controls the physical core is expected
+to beat.
+
+All routers are evaluated in a flow-level simulator: a flow is born, lives
+for several ticks injecting sustained load along its route, then dies. This
+matters because routing behaviour differs between the packet-bullet regime
+(where DRILL's per-hop reactivity shines) and the flow regime (where choosing
+a whole path well at birth matters more). We report the flow regime as the
+more realistic of the two for backbone traffic.
+
+We sweep \textbf{15 topologies} spanning four families: regular lattices
+(grids $5\times5$ to $12\times12$), small-world (Watts--Strogatz, several
+sizes and degrees), scale-free (Barab\'asi--Albert), and two real WAN
+backbones (G\'EANT, Abilene). Each topology is run with $n=20$ seeds. The
+performance metric is the drop rate (fraction of flow-ticks that hit an
+overloaded edge; lower is better).
+
+\subsection{Equivalence test}
+
+For each topology we test equivalence between the core and each baseline with
+\textbf{TOST} (two one-sided tests) on the paired per-seed drop rates, with an
+equivalence margin $\delta = 2$ percentage points. TOST declares equivalence
+only when the $90\%$ confidence interval of the mean difference lies entirely
+within $[-\delta, +\delta]$: that is, when we can reject \emph{both} the
+hypothesis that the core is worse by more than $\delta$ \emph{and} that it is
+better by more than $\delta$. This is a stricter, more honest bar than
+observing overlapping confidence intervals.
+
+\subsection{Results}
+\label{sec:equiv-results}
+
+Table~\ref{tab:equivalence} reports the per-topology drop rates and TOST
+verdicts. The core is statistically equivalent to DRILL on
+\textbf{12 of 15 topologies}. Against CONGA at its default budget ($K=4$) the
+formal equivalence count is lower (5 of 15), but---crucially---most of the
+non-equivalences are cases where the core is \emph{better}, not worse: on the
+larger grids the core's drop rate is $0.002$--$0.005$ versus CONGA's
+$0.034$--$0.066$. We examine this apparent advantage critically in
+Section~\ref{sec:fair}, where it turns out to be an artifact of CONGA's path
+budget rather than a genuine physical superiority.
+
+\begin{table}[t]
+\centering
+\caption{Drop rate (lower is better) of the two-term core versus engineered
+baselines across 15 topologies, flow regime, $n=20$ seeds. ``$\equiv$D'' and
+``$\equiv$C'' mark TOST equivalence ($\delta=2$pp) with DRILL and CONGA$_{K=4}$
+respectively.}
+\label{tab:equivalence}
+\small
+\begin{tabular}{lccccc}
+\toprule
+Topology & core & CONGA$_{K=4}$ & DRILL & $\equiv$D & $\equiv$C \\
+\midrule
+Grid $5$      & 0.018 & 0.029 & 0.032 &     &     \\
+Grid $6$      & 0.011 & 0.024 & 0.023 & yes & yes \\
+Grid $7$      & 0.011 & 0.027 & 0.022 & yes &     \\
+Grid $8$      & 0.005 & 0.034 & 0.015 & yes &     \\
+Grid $10$     & 0.003 & 0.050 & 0.019 &     &     \\
+Grid $12$     & 0.002 & 0.066 & 0.009 & yes &     \\
+WS $n30\,k4$  & 0.016 & 0.033 & 0.004 & yes &     \\
+WS $n50\,k4$  & 0.023 & 0.040 & 0.009 &     &     \\
+WS $n50\,k6$  & 0.005 & 0.007 & 0.000 & yes & yes \\
+WS $n80\,k4$  & 0.022 & 0.037 & 0.008 & yes &     \\
+BA $n50\,m2$  & 0.003 & 0.001 & 0.000 & yes & yes \\
+BA $n50\,m3$  & 0.000 & 0.000 & 0.000 & yes & yes \\
+BA $n80\,m2$  & 0.001 & 0.001 & 0.000 & yes & yes \\
+G\'EANT       & 0.057 & 0.042 & 0.053 & yes &     \\
+Abilene       & 0.057 & 0.042 & 0.053 & yes &     \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The scale-free topologies (Barab\'asi--Albert) sit near zero drop for every
+router: their hub structure leaves little congestion to redistribute, so
+equivalence there is trivial and we do not lean on it. The informative cases
+are the grids, the small-world graphs, and the real backbones.
+
+\subsection{Limitations of this experiment}
+
+Two caveats are stated plainly, and the first records a correction. An audit
+of the harness behind this bench found that its `Abilene' entry had been
+loading the G\'EANT graph under a second name: every Abilene figure that
+harness produced---including the Abilene row of
+Table~\ref{tab:equivalence}---was G\'EANT counted twice. The harness is fixed
+in this revision: Abilene is now the real eleven-node backbone with its own
+independent demand, restoring a bench of fifteen genuine topologies, and all
+results from Section~\ref{sec:margin-sensitivity} onward use it. The corrected
+Abilene turns out to be the bench's saturation regime (drop rates above
+$20\%$), where no physical core reaches equivalence at any margin
+(Sections~\ref{sec:margin-sensitivity} and~\ref{sec:twofactor});
+Table~\ref{tab:equivalence} retains the historical row within the $K{=}4$
+presentation that Section~\ref{sec:fair} audits, and the regenerated table at the fair
+budget, on the corrected bench, is Table~\ref{tab:fairbench}
+(Section~\ref{sec:fairbench}).
+Second, the equivalence margin $\delta=2$pp is a generous modelling choice;
+Section~\ref{sec:margin-sensitivity} analyses how the verdicts behave as it
+tightens, and we report raw drop rates alongside the verdicts so a reader who
+prefers a different margin can reinterpret the table directly.

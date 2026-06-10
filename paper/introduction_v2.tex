@@ -1,0 +1,88 @@
+% ====================================================================
+% Section 1 (v2): Introduction.
+% Written last, with the whole body in place. Voice: physics-first,
+% honesty as a feature, equivalence-not-dominance.
+% ====================================================================
+\section{Introduction}
+\label{sec:intro}
+
+Network load balancing is a mature engineering discipline. Production systems
+such as CONGA~\cite{conga} and DRILL~\cite{drill} spread traffic across a
+network using carefully designed mechanisms: per-flowlet rerouting, multi-path
+candidate enumeration, local queue sampling, and centrally or distributively
+maintained congestion state. These systems work well, and improving on them is
+hard.
+
+This paper does not try to improve on them. It asks a different and, we think,
+more interesting question:
+
+\begin{quote}
+\emph{How much of what engineered load balancers achieve can be recovered from
+classical physics alone---from a packet treated as a particle obeying a couple
+of elementary mechanical laws?}
+\end{quote}
+
+The motivation is partly methodological. An expert in routing reasons within
+the conceptual vocabulary of routing; a physicist handed the same problem
+reasons about gradients, forces, and conservation laws. Occasionally the second
+framing reaches a familiar destination by an unfamiliar and more economical
+road, and the comparison is informative regardless of which arrives first. Our
+interest is therefore not a horse race but a question of \emph{parsimony}: how
+little mechanism suffices to reach the operating point that elaborate
+engineering reaches.
+
+\subsection{The model, in one paragraph}
+
+We treat a packet as a particle descending a potential field defined on the
+network graph. The particle feels two forces. The first is a \emph{gradient}:
+it rolls toward lower latency and lower congestion, subject to a hop budget that
+lets it take a modestly longer, emptier detour rather than forcing every packet
+onto the single shortest path. The second is a \emph{reaction} in the sense of
+Newton's third law: when a packet is dropped on a congested edge, it pushes
+back, depositing a decaying ``scar'' that steers subsequent packets away from
+edges that have just failed. That is the entire router---two terms, no central
+controller, no per-flow state, no precomputed path tables, sixty lines of code.
+
+\subsection{What we find}
+
+Our central result is deliberately stated as an \emph{equivalence}, not a
+victory:
+
+\begin{enumerate}
+\item \textbf{Two terms suffice.} The two-term core is the survivor of an
+ablation: an earlier model carried eight physically-motivated layers (effective
+mass, a thermostat, a temporal ripple, buoyancy), and measurement showed that
+only the gradient and the Newton-III scar earn their keep---the rest are inert
+or mildly harmful (Section~\ref{sec:ablation}).
+
+\item \textbf{It matches engineered routers.} Tested as a statistical
+equivalence (TOST, margin $2$ percentage points) across fifteen topologies in a
+flow-level simulator, the core is equivalent to DRILL on twelve of fifteen, and
+equivalent to CONGA once CONGA is given a fair path budget. It reaches the same
+operating point CONGA reaches only after enumerating and scoring sixteen to
+thirty-two candidate paths per flow (Sections~\ref{sec:equivalence}--\ref{sec:fair}).
+
+\item \textbf{A topological metric predicts when.} A quantity computable from
+the graph alone, the tube/sp ratio (room to manoeuvre among near-shortest
+paths), predicts where the equivalence holds and where engineered multi-path
+routing keeps a genuine edge (Pearson $r = 0.78$); the two real WAN backbones,
+with low tube/sp, are exactly the predicted exceptions
+(Section~\ref{sec:applicability}).
+\end{enumerate}
+
+The upshot is that two classical forces, with none of the apparatus of modern
+load balancers, reach the same place those balancers reach, on the topologies
+where the geometry leaves room to do so---and that the qualifying clause is
+itself predictable.
+
+\subsection{A note on method}
+
+This paper reports its negative results and its own corrections in full.
+The eight-layer model is presented and then dismantled; an early, larger
+advantage over CONGA is shown to have been an artifact of an unfair path budget
+and is retracted (Section~\ref{sec:fair}). We regard this not as throat-clearing
+but as the substance of the contribution: a claim that physics matches
+engineering is worth precisely as much as the adversarial scrutiny it has
+survived, and we would rather report an honest equivalence than an inflated
+win. Every headline figure here has been checked against the strongest version
+of its baseline we could build.

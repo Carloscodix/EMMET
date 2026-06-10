@@ -1,0 +1,188 @@
+% =====================================================================
+% Section 7: Discussion
+% =====================================================================
+
+\section{Discussion}
+\label{sec:discussion}
+
+This section interprets the empirical results
+(\S\ref{subsec:what-mass-does}), positions the algorithm in the
+landscape of network architectures
+(\S\ref{subsec:protocol-implications}), records its limitations
+honestly (\S\ref{subsec:limitations}), and outlines work the
+authors believe is worth pursuing
+(\S\ref{subsec:future-work}).
+
+\subsection{What the mass mechanism actually does}
+\label{subsec:what-mass-does}
+
+The improvements documented in \S\ref{sec:results} are produced by
+an algorithm that, stripped of motivational language, has a
+straightforward operational description:
+\textit{a packet that has already crossed congested edges becomes
+internally more expensive to route, and the routing algorithm
+systematically prefers cooler alternatives for it.}
+
+This produces an effect that is \emph{not} reducible to either of
+the two standard categories of routing improvement. It is not
+load-aware in the classical sense (LASP, ECMP) because two packets
+arriving at the same node from different histories receive
+different routing recommendations. It is not learned in the
+reinforcement-learning sense because no policy is trained or
+updated; the algorithm is a fixed dynamic program parameterized by
+$\kappa$ alone. What the mass mechanism does is closer in spirit
+to a form of \emph{trajectory-conditioned scheduling}: routing
+decisions for a packet depend on what that packet has already
+experienced, not only on the current network state.
+
+The empirical signature of this mechanism is consistent with the
+interpretation: improvement scales with the amount of congestion
+(\S\ref{subsec:vanishing}), is largest where the topology offers
+genuine alternatives (real backbones, regular lattices), and
+vanishes in regimes where the network has spare capacity
+everywhere. The mechanism is also \emph{conservative}: average
+hop counts increase by only $0.04$ on GÉANT, indicating that
+the algorithm is not trading capacity for safety in any
+substantial way. It is using existing capacity more
+intelligently.
+
+\subsection{Implications for protocol design}
+\label{subsec:protocol-implications}
+
+EMMET-DP is an admission-time, controller-level routing
+algorithm. It assumes access to global topology and to per-edge
+state, makes a single routing decision per packet \emph{at the
+moment the packet is admitted to the network}, and emits a fixed
+forwarding path. The mass scalar evolves internally during the
+dynamic-programming search over candidate paths; once the path
+is selected, packets do not reroute mid-flight under the
+evaluation in this paper. This places it in the same architectural family
+as software-defined networking control planes such as B4 and
+SWAN~\cite{jain2013b4,hong2013swan}, and unlike data-plane schemes
+such as ECMP that distribute routing decisions per-flow at line
+rate.
+
+For deployment, three architectural observations follow:
+
+\paragraph{The mass scalar is cheap.}
+The per-packet state is a single floating-point value (or, in our
+implementation, a 5-bit bucket index). Carrying it in a header
+field costs less than carrying a flow identifier, and updating it
+requires a single fused-multiply-add per hop. There is no
+fundamental obstacle to in-band carriage in protocols where
+header extension is feasible (IPv6 hop-by-hop options,
+SRv6~\cite{filsfils2018srv6}).
+
+\paragraph{The DP is centralizable, not on the critical path.}
+The dynamic-programming router runs at admission time, not at
+forwarding time. In a controller-augmented network, the controller
+emits a forwarding label encoding the precomputed path; the data
+plane forwards along that label without re-running the DP. The
+algorithm is therefore compatible with line-rate forwarding even
+on hardware that cannot evaluate the DP itself.
+
+\paragraph{Mass dynamics generalize beyond admission.}
+A more ambitious deployment would have intermediate routers update
+the mass scalar as the packet traverses, allowing reroute decisions
+mid-flight in response to mass-bucket transitions. We have not
+evaluated this regime; the present paper restricts itself to
+admission-time routing, where the algorithm reduces cleanly to
+existing controller-plane infrastructure.
+
+\subsection{Limitations}
+\label{subsec:limitations}
+
+We record limitations of the present work in the order in which a
+practitioner is likely to encounter them.
+
+\paragraph{Synthetic workload.}
+Our headline workload is uniformly random source--destination
+pairs at fixed step intervals. Real datacenter and ISP traffic
+shows heavy-tailed flow sizes, locality, and time-of-day patterns.
+We ran exploratory tests with Pareto inter-arrivals and Lognormal
+flow sizes (median 3 packets, $\alpha=1.5$) on GÉANT with
+matched bursty warmup. Under that regime LASP-aug, CONGA-WAN,
+and EMMET-DP converge to within $\pm 4\%$ of each other --- the
+per-packet memory mechanism, tuned for Poisson regimes, does
+not extract usable signal from short heavy-tailed bursts.
+Recalibrating $\kappa$, $\alpha_{\rm budget}$ and the load-decay
+parameter $d_\lambda$ for bursty traffic is left to future work;
+we suspect a collective-pressure extension (saturated edges
+discounting their neighbours) would be the natural direction.
+The improvements we document should therefore be read as bounds
+on \emph{algorithmic} performance under Poisson-like conditions,
+not as predicted production gains.
+
+\paragraph{Single-domain evaluation.}
+Both real backbones we evaluate (GÉANT, Abilene) are
+single-AS academic networks. Inter-AS routing introduces policy
+constraints, BGP-driven path selection, and economic
+considerations that EMMET-DP does not currently model. The
+algorithm is single-domain by construction; multi-domain
+extension is non-trivial and out of scope.
+
+\paragraph{Static edge attributes.}
+Edge latency and capacity are sampled once per topology
+realization and held fixed. Real networks experience link flaps,
+maintenance windows, and time-varying capacity (e.g., wireless,
+shared queues). Extending the algorithm to handle attribute drift
+is mechanically straightforward (the loss snapshot $\theta$
+already responds to recent loss events) but requires an
+evaluation we have not performed.
+
+\paragraph{Hyperparameter discovery.}
+The headline value $\kappa = 1.0$ was selected from a sweep over a
+single discrete grid (\S\ref{subsec:kappa-sweep}). Production
+deployment would benefit from automated $\kappa$ selection per
+deployment, possibly tied to a measurable global quantity such as
+$T(G)$. We do not provide such a procedure here.
+
+\paragraph{Per-packet ordering effects.}
+Our simulation processes traffic events sequentially within a
+seed, so packet $i+1$ observes the network state left by packet
+$i$. In a real network, packets are injected concurrently and
+observe an aggregated state. The ordering effect is bounded by
+the load-decay parameter $d_\lambda = 0.9$, but a more rigorous
+treatment would model packet arrivals as a continuous-time
+process. This is on the future-work list.
+
+\subsection{Future work}
+\label{subsec:future-work}
+
+Three directions appear to us most promising:
+
+\paragraph{Generalization to other domains.}
+The mass-aware routing structure—per-agent state, multiplicative
+update on encountering friction, dynamic programming over a
+constrained state space—is not specific to packet networks. The
+same template applies to robotics navigation through hazard
+fields, logistics under congestion, and epidemic-aware routing in
+contact graphs. We are preparing a companion paper that lifts the
+algorithm out of the networking context and treats it as a
+general framework for trajectory-aware planning under
+medium-induced cost dynamics.
+
+\paragraph{Online learning of $\kappa$.}
+Rather than fixing $\kappa$ at deployment time, the controller
+could adjust it from observed loss rates and global temperature,
+using a slow outer loop while EMMET-DP runs the fast inner loop.
+This sits naturally between the fully-fixed regime evaluated here
+and the fully-learned regime of reinforcement-learning routers,
+and may capture most of the benefits of both.
+
+\paragraph{Hardware-accelerated DP.}
+The dynamic program is regular: $|V| \cdot H \cdot B$ states with
+constant work per state. This makes it a candidate for
+acceleration on FPGAs, network processors, or eBPF in-kernel
+paths. We have not benchmarked any of these. A latency floor
+below 10 microseconds per route would put EMMET-DP within reach
+of inline use rather than admission-time precomputation.
+
+A final note: this work argues that giving packets a small amount
+of internal state, and carrying that state into routing decisions,
+buys real improvement on a stateless-baseline that already uses
+all available network-level information. The mechanism is simple,
+cheap, and physically motivated. Whether it generalizes beyond
+the regimes we evaluate is, of course, an empirical question—but
+the evidence here is, to our reading, encouraging enough to
+warrant the larger evaluation we are planning.
