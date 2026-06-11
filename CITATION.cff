@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this code or refer to the EMMET algorithm, please cite as below."
+message: "If you use this code or refer to the EMMET findings, please cite as below."
 title: "EMMET: Effective-Mass Memory Edge Transport"
 authors:
   - family-names: "Lopez"
@@ -8,14 +8,19 @@ authors:
 type: software
 repository-code: "https://github.com/Carloscodix/EMMET"
 license: MIT
-version: "1.0.0"
-date-released: "2026-05-11"
+version: "2.0.0"
+date-released: "2026-06-11"
 identifiers:
   - type: doi
     value: "10.5281/zenodo.20128309"
-    description: "Zenodo DOI for v1.0-preprint release (version DOI, immutable)"
+    description: "Concept DOI - always resolves to the latest version"
+  - type: doi
+    value: "10.5281/zenodo.20647173"
+    description: "Version DOI for v2.0-preprint (immutable)"
 keywords:
   - "adaptive routing"
-  - "load-aware routing"
-  - "stateful packet processing"
+  - "load balancing"
   - "congestion control"
+  - "equivalence testing"
+  - "network topology"
+  - "physics-inspired heuristics"
