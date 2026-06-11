@@ -41,7 +41,7 @@ onto the single shortest path. The second is a \emph{reaction} in the sense of
 Newton's third law: when a packet is dropped on a congested edge, it pushes
 back, depositing a decaying ``scar'' that steers subsequent packets away from
 edges that have just failed. That is the entire router---two terms, no central
-controller, no per-flow state, no precomputed path tables, sixty lines of code.
+controller, no per-flow state, no precomputed path tables, sixty lines of code. (Sixty lines describe the mechanism, not the operating cost; Section~\ref{sec:control-plane} prices that difference.)
 
 \subsection{What we find}
 
@@ -86,3 +86,5 @@ engineering is worth precisely as much as the adversarial scrutiny it has
 survived, and we would rather report an honest equivalence than an inflated
 win. Every headline figure here has been checked against the strongest version
 of its baseline we could build.
+
+One reading note. Sections~\ref{sec:core} and~\ref{sec:ablation} present the model as it was originally conceived and reduced---gradient plus a Newton-III loss reaction---because the re-audit that later \emph{inverts} that verdict (Section~\ref{sec:redux}) is itself one of the results. The reader should know the destination in advance: the core this paper ultimately validates is gradient plus an anticipatory threshold force; the two-factor law of Section~\ref{sec:twofactor} is the central claim; and the physical cores are best understood as instruments. We preserve the chronology because the inversion, and the machinery that caught it, are part of the contribution.
