@@ -20,7 +20,7 @@
 \large A Two-Factor Law and a Structural Attractor in Graph Load Balancing,\\
 Found Through Classical-Physics Heuristics}
 \author{Carlos L\'opez}
-\date{Final draft (v5.1) --- \today}
+\date{Final draft (v6) --- \today}
 
 \begin{document}
 \maketitle
@@ -61,12 +61,17 @@ Found Through Classical-Physics Heuristics}
 
 \input{section_controlplane.tex}
 
+\input{section_freshness.tex}
+
 
 \section*{Data and Code Availability}
 Every experiment script, the raw per-seed JSON files behind every number in
 this paper, the results manifest mapping each claim to the script and data
 file that produce it, and the full audit log are publicly available at
 \texttt{github.com/Carloscodix/EMMET} (MIT license).
+
+\appendix
+\input{section_appendix_tubesp.tex}
 
 \bibliographystyle{plain}
 \bibliography{references}

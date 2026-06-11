@@ -1,4 +1,4 @@
-﻿"""stale_state.py - THE crown experiment of v6 (rock #1, ~10 votes).
+"""stale_state.py - THE crown experiment of v6 (rock #1, ~10 votes).
 Does the validated core survive bounded-freshness telemetry?
 The router decides on a load VIEW refreshed only every T ticks while the
 real load evolves underneath. Three reviewer predictions on trial:

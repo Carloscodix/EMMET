@@ -1,4 +1,4 @@
-﻿"""cpu_bench.py - rock #1b: microseconds per routing decision.
+"""cpu_bench.py - rock #1b: microseconds per routing decision.
 Physics DP O(k|E|) vs CONGA-K16 (selection over precomputed paths) vs
 DRILL (local per-hop). Warm load state, 300 timed decisions each."""
 import sys, time, json, random

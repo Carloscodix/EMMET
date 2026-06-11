@@ -1,0 +1,126 @@
+﻿% ====================================================================
+% v6: the two consensus rocks of review round 2, converted to numbers.
+% Stale-state (the crown), per-decision cost, bursty arrivals.
+% Every figure here maps to experiments/{stale_state,cpu_bench,
+% bursty_bench}.py and data/*.json in the public repository.
+% ====================================================================
+\subsection{Pricing the deployment assumptions: stale state, decision cost, bursty arrivals}
+\label{sec:freshness}
+
+An external review round of nine independent readers converged on exactly the
+two limitations declared above: the idealized global state, and the flow-level
+granularity. Rather than leave them as confessions, we measured them. Two
+predictions were registered before running the staleness experiment: ours, that
+degradation at one-twentieth telemetry frequency would stay under half a
+percentage point; and a reviewer's, that deciding on stale potential maps would
+induce resonance---severe oscillation that amplifies congestion instead of
+relieving it. Both turned out to be wrong, in instructive and opposite ways.
+
+\paragraph{Stale state.}
+The validated core (gradient plus Archimedean threshold) routes every flow
+using a load \emph{view} that is refreshed only every $T$ ticks, while the true
+load evolves underneath; $T{=}1$ (one-tick lag, the minimum any real system
+pays) is the control. Fifteen topologies, six paired seeds, $T \in
+\{1,2,5,10,20,40\}$. Table~\ref{tab:stale} reports the pooled result. The
+degradation is real and monotone: negligible at half frequency
+($+0.44$pp), material from one-fifth frequency onward ($+2.5$pp at $T{=}5$,
+$+7.7$pp at $T{=}20$). Our registered prediction missed the magnitude badly,
+and we report that miss in the same spirit as the other inversions in this
+paper. The reviewer's predicted failure mode, however, did not appear at all:
+the mean temporal variance of per-edge load---the natural signature of
+oscillatory rerouting---rises only from $1.00\times$ to $1.29\times$ across
+the entire sweep, with no inflection. Stale state makes the core
+\emph{blind}, not \emph{unstable}: decisions lose information and quality
+degrades smoothly, but the attractor does not turn into a feedback amplifier.
+Operationally, the freshness assumption now has a price tag: telemetry at
+half the decision rate costs under half a point; at one-fifth the decision
+rate the cost consumes the equivalence margin itself.
+
+\begin{table}[t]
+\centering
+\caption{Stale-state sweep, pooled over 15 topologies $\times$ 6 paired
+seeds. The router decides on a load view refreshed every $T$ ticks.
+Oscillation ratio is the mean temporal variance of per-edge load relative to
+$T{=}1$. (\texttt{experiments/stale\_state.py},
+\texttt{data/stale\_state.json})}
+\label{tab:stale}
+\begin{tabular}{rcccc}
+\toprule
+$T$ & mean drop & $\Delta$ vs $T{=}1$ (pp) & Wilcoxon $p$ & osc.\ ratio \\
+\midrule
+1  & 0.028 & ---     & ---                & 1.00 \\
+2  & 0.033 & $+0.44$ & $9.9\times10^{-5}$ & 1.02 \\
+5  & 0.053 & $+2.49$ & $8.6\times10^{-14}$ & 1.10 \\
+10 & 0.082 & $+5.39$ & $8.0\times10^{-16}$ & 1.18 \\
+20 & 0.105 & $+7.70$ & $1.2\times10^{-15}$ & 1.26 \\
+40 & 0.118 & $+8.94$ & $8.3\times10^{-16}$ & 1.29 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Decision cost.}
+On the same substrate (pure Python, identical graphs, warm load state), one
+routing decision of the physical core costs 72--2{,}347\,$\mu$s depending on
+graph size, the $O(k|E|)$ scaling visible directly. Evaluating CONGA's $K{=}16$
+precomputed catalogue costs roughly ten times more \emph{in this substrate},
+and DRILL's switch-local sampling is 5--26$\times$ cheaper. None of these
+numbers is a hardware measurement---all three mechanisms deploy on optimized
+datapaths---but the comparison within a common substrate supports a bounded
+claim: the core hides no anomalous decision cost relative to its flow-level
+rivals, and at 0.07--2.3\,ms per \emph{flow} (not per packet) it is feasible
+in software at backbone flow-arrival rates. Per-packet, microsecond-scale
+switching remains DRILL-and-silicon territory.
+(\texttt{experiments/cpu\_bench.py})
+
+\paragraph{Bursty arrivals (flow-level).}
+A schedule of calm traffic punctuated by dense five-tick bursts of short
+flows every twenty-five ticks---the harshest arrival pattern expressible at
+flow granularity---opens a gap in DRILL's favour of $+0.59$pp pooled
+($p=0.014$): its territory, confirmed and now quantified at roughly half a
+point. Thirteen of fifteen topologies remain within the 2pp equivalence
+margin. Against CONGA-$K{=}16$ the core concedes nothing (mean $-0.74$pp in
+the core's favour, not significant; the mean is driven largely by Abilene,
+where the precomputed catalogue pays heavily under bursts, while CONGA wins
+ten of fifteen topologies by small margins; fourteen of fifteen within
+2pp). True microsecond micro-bursts remain out of scope as stated above.
+(\texttt{experiments/bursty\_bench.py}, \texttt{data/bursty\_bench.json})
+
+\paragraph{Partial visibility (the spatial axis).}
+The complementary question is spatial: instead of a stale global snapshot,
+the deciding node sees the \emph{true} load only on edges within $k$ hops
+of itself; beyond that horizon edges show zero load and the potential
+degenerates to the static gradient. $k{=}0$ is the blind router; the
+blind-to-global gap is $7.7$pp pooled. Two checks were registered before
+running: $k{=}2$ recovers at least half the gap, $k{=}3$ at least
+two-thirds. Both held (Table~\ref{tab:khop}): one hop of horizon recovers
+$36\%$, two hops $63\%$, three hops $77\%$---at which point the core sits
+$+1.75$pp from the global view, \emph{inside the equivalence margin
+itself}. Vision pays steeply and locally: most of the value of congestion
+awareness lives in the deciding node's neighbourhood, where its flows
+land first. The physical core does not need a god's-eye view; it needs a
+neighbourhood. (\texttt{experiments/khop\_visibility.py},
+\texttt{data/khop\_visibility.json})
+
+\begin{table}[t]
+\centering
+\caption{Spatial visibility sweep, pooled over 15 topologies $\times$ 6
+paired seeds. True load is visible within $k$ hops of the deciding node,
+zero beyond.}
+\label{tab:khop}
+\begin{tabular}{rccc}
+\toprule
+$k$ & mean drop & vs.\ global (pp) & gap recovered \\
+\midrule
+0 (blind) & 0.105 & $+7.66$ & 0\% \\
+1         & 0.077 & $+4.87$ & 36\% \\
+2         & 0.056 & $+2.80$ & 63\% \\
+3         & 0.046 & $+1.75$ & 77\% \\
+global    & 0.028 & ---     & 100\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\medskip
+\noindent After this battery, what remains unmeasured: telemetry bandwidth
+and propagation dynamics beyond the staleness and visibility knobs above,
+and the packet-level regime---a narrower perimeter, still on the queue.

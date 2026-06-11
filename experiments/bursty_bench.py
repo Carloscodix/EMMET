@@ -1,4 +1,4 @@
-﻿"""bursty_bench.py - rock #2 partial mitigation, declared as partial.
+"""bursty_bench.py - rock #2 partial mitigation, declared as partial.
 Bursty demand at flow level: calm trickle + sharp 5-tick bursts of short
 flows every 25 ticks. Does DRILL's reactive advantage open a gap against
 the threshold core when traffic arrives in bursts? (True micro-bursts are

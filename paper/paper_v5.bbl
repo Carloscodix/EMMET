@@ -1,0 +1,28 @@
+\begin{thebibliography}{1}
+
+\bibitem{alistarh2022dynamic}
+Dan Alistarh, Giorgi Nadiradze, and Amirmojtaba Sabour.
+\newblock Dynamic averaging load balancing on cycles.
+\newblock {\em Algorithmica}, 84(4):1007--1029, 2022.
+
+\bibitem{conga}
+Mohammad Alizadeh, Tom Edsall, Sarang Dharmapurikar, Ramanan Vaidyanathan,
+  Kevin Chu, Andy Fingerhut, Vinh~The Lam, Francis Matus, Rong Pan, Navindra
+  Yadav, and George Varghese.
+\newblock {CONGA}: Distributed congestion-aware load balancing for datacenters.
+\newblock In {\em Proceedings of the 2014 ACM SIGCOMM Conference}, pages
+  503--514, 2014.
+
+\bibitem{drill}
+Soudeh Ghorbani, Zibin Yang, P.~Brighten Godfrey, Yashar Ganjali, and Amin
+  Firoozshahian.
+\newblock {DRILL}: Micro load balancing for low-latency data center networks.
+\newblock In {\em Proceedings of the 2017 ACM SIGCOMM Conference}, pages
+  225--238, 2017.
+
+\bibitem{ecmp}
+Christian~E. Hopps.
+\newblock Analysis of an equal-cost multi-path algorithm.
+\newblock {\em RFC 2992, IETF}, 2000.
+
+\end{thebibliography}

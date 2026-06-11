@@ -72,3 +72,15 @@ rather than with congestion alone (similarity is highest on the
 structure-poor graphs, $r=-0.54$ to $-0.56$ between tube/sp and divergence on
 the two measures)---a first sign of the two-factor account that
 Section~\ref{sec:twofactor} establishes by intervention.
+
+
+\medskip
+A third, coarser lens agrees. The Jain fairness index of mean per-edge
+utilization differs by only $0.016$ across the three physics cores
+($0.581$--$0.597$ pooled over the bench), while the engineered balancers
+sit visibly apart (DRILL $0.640$; CONGA $0.710$, whose sixteen-path
+catalogue spreads load more uniformly by construction). Distinct
+mechanics, one basin: catalogue breadth, not mechanism identity, is what
+moves the fairness needle.
+(\texttt{experiments/jain\_fairness.py},
+\texttt{data/jain\_fairness.json})

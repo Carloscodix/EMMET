@@ -27,7 +27,7 @@ the choice of load-balancing mechanism matters at all.
 Every quantitative claim below maps to a script and a JSON in this
 repository. Nothing is reported that was not stress-tested first.
 
-## The five findings
+## The six findings
 
 **1. A load-distribution attractor.** All congestion-aware rules produce
 near-identical per-edge load distributions (cosine 0.979 between physics
@@ -75,6 +75,20 @@ reach 0.20. Each physics owns an information channel: **threshold = the
 nonlinear present, Pascal = space, Newton = time.** The regime decides
 which channel pays.
 `experiments/newton_redemption.py` -> `data/newton_redemption.json`
+
+**6. The deployment assumptions, priced.** The two most-cited limitations
+(idealized global state; flow-level granularity) converted into
+measurements. Routing on a load view refreshed every T ticks degrades
+*gracefully*: +0.44pp at half telemetry frequency, +2.5pp at one fifth,
++7.7pp at one twentieth -- monotone, and with **no resonance** (oscillation
+ratio <= 1.29 across the sweep: stale state makes the core blind, not
+unstable; the predicted oscillatory failure mode did not appear). Decision
+cost in a common substrate: 0.07-2.3 ms per *flow*, ~10x cheaper than
+evaluating CONGA's K=16 catalogue, 5-26x dearer than DRILL's local
+sampling. Flow-level bursts open +0.59pp for DRILL (its territory,
+quantified at half a point); 13/15 topologies stay within the 2pp margin. The spatial axis, also measured: with true load visible only within k hops (zero beyond), k=1 recovers 36% of the blind-to-global gap, k=2 63%, k=3 77% -- at three hops the core sits +1.75pp from the global view, inside the equivalence margin. The physics needs a neighbourhood, not a god's eye.
+`experiments/stale_state.py`, `experiments/cpu_bench.py`,
+`experiments/bursty_bench.py` -> `data/{stale_state,cpu_bench,bursty_bench}.json`
 
 **The boundary, stated plainly:** in saturation (real Abilene, >20%
 drops) no physical core reaches TOST equivalence with the engineered

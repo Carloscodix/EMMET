@@ -27,11 +27,6 @@ particular, is a switch-local, per-hop mechanism that reacts to local queue
 occupancy and assumes no global view; CONGA distributes congestion state but
 within a bounded fabric. By granting our core an idealized, zero-latency global
 state, the simulator may flatter it relative to a genuinely distributed,
-local-information baseline. We did not measure how the equivalence degrades when
-the global state is stale or partial, and that is the single most important
-experiment this work leaves open. We therefore frame the core's standing as
+local-information baseline. How the equivalence degrades when the global state is stale was, until this revision, the single most important experiment this work left open; Section~\ref{sec:freshness} now reports it, together with a per-decision cost benchmark and a bursty-arrival stress. We therefore frame the core's standing as
 \emph{equivalence in routing quality under idealized state visibility}, not as a
-claim of operational efficiency. Establishing whether the physical core
-survives realistic control-plane constraints---bounded telemetry, propagation
-delay, partial views---is the necessary next step before any deployability claim
-could be made.
+claim of operational efficiency. Establishing whether the core survives the remaining constraints---telemetry bandwidth and propagation dynamics beyond the staleness and visibility priced in Section~\ref{sec:freshness}---is still required before any deployability claim could be made.

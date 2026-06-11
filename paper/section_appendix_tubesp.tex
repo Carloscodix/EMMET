@@ -1,0 +1,81 @@
+% ====================================================================
+% Appendix: formal definition of tube/sp + elementary properties.
+% Faithful to experiments/sweep_topologies.py::tube_sp (b = 1.25,
+% <=400 sampled pairs, unweighted hop distances). The walk-vs-path
+% observation below is stated as a mechanical source of predictor
+% residual -- it is a feature of the analysis, not an apology.
+% ====================================================================
+\section{The tube/sp ratio: definition and elementary properties}
+\label{app:tubesp}
+
+Throughout, $G=(V,E)$ is the undirected network graph and $d(\cdot,\cdot)$
+denotes unweighted hop distance.
+
+\paragraph{Definition (near-shortest tube).}
+Fix a budget factor $b \geq 1$. For an ordered pair $(s,t)$ with
+$d(s,t) = h$, the \emph{tube} is the edge set
+\[
+T_b(s,t) \;=\; \bigl\{\, \{u,v\} \in E \;:\;
+\min\bigl(d(s,u) + 1 + d(v,t),\; d(s,v) + 1 + d(u,t)\bigr)
+\leq \lceil b\,h \rceil \,\bigr\},
+\]
+i.e.\ the edges that some $s\!\to\!t$ \emph{walk} of length at most
+$\lceil b\,h\rceil$ can traverse. The per-pair ratio is $|T_b(s,t)|/h$, and
+the graph-level metric reported in this paper is the mean of that ratio
+over up to $400$ uniformly sampled pairs, computed with $b = 1.25$
+(\texttt{experiments/sweep\_topologies.py}).
+
+\paragraph{Proposition 1 (lower bound).}
+$|T_b(s,t)| \geq d(s,t)$ for every connected pair, hence
+$\mathrm{tube/sp} \geq 1$ on every graph.
+\emph{Proof.} Every edge $\{u,v\}$ on a shortest $s\!\to\!t$ path with $u$
+at distance $i$ from $s$ satisfies $d(s,u)+1+d(v,t) = i + 1 + (h-i-1) = h
+\leq \lceil b\,h\rceil$. A shortest path has $h$ edges. \hfill$\square$
+
+\paragraph{Proposition 2 (monotonicity).}
+$T_b(s,t) \subseteq T_{b'}(s,t)$ whenever $b \leq b'$; the metric is
+nondecreasing in the budget factor. \emph{Proof.} Immediate from the
+definition. \hfill$\square$
+
+\paragraph{Proposition 3 (trees anchor the law exactly).}
+On a tree, every pair $(s,t)$ has a unique simple path, so \emph{any}
+loop-free routing mechanism---blind or congestion-aware, simple or
+engineered---produces the identical edge-load distribution: divergence is
+exactly zero. The lower anchor of the two-factor law is therefore not an
+empirical observation but a degeneracy of the path space.
+\hfill$\square$
+
+\paragraph{Observation (walks, not simple paths: a mechanical source of
+residual).}
+$T_b$ counts edges reachable by \emph{walks} within the budget, which is a
+superset of the edges usable by simple paths. On a tree with $h \geq
+1/(b-1) \cdot 2$, an edge hanging one hop off the shortest path enters
+$T_b$ even though no simple $s\!\to\!t$ path can use it; the same
+overcount occurs around pendant vertices and hub peripheries in general
+graphs. The computed metric is therefore an \emph{upper bound} on the
+router's true action support, loosest exactly where low-degree appendages
+meet high-degree cores---which is the anatomy of scale-free graphs, the
+family this paper reports as fitting the regression loosest. We state
+this as the identified mechanical component of the predictor's residual
+($R^2 = 0.60$); a corrected simple-path tube is a natural refinement and
+remains future work.
+
+\paragraph{Connection to the routing core.}
+By construction, $T_b(s,t)$ contains every edge that any router operating
+under hop budget $b$ can place the $(s,t)$ flow on. All redistribution
+that any congestion-aware mechanism performs is therefore supported
+inside the tube, and the per-hop tube width $|T_b(s,t)|/h$ measures the
+size of the action space per unit of task length. This is the
+mechanistic reading of the empirical law: the gain of congestion-aware
+routing over a blind baseline grows with the room the graph offers
+(Section~\ref{sec:twofactor}), and the break-even near
+$\mathrm{tube/sp} \approx 2.45$ is the bench's estimate of where that
+room stops paying for the machinery.
+
+\paragraph{Open problem.}
+Derive the functional form of the gain--tube/sp relation and the
+break-even point from first principles. One candidate is already
+eliminated: a min-cut account predicted the wrong sign of the
+structure--divergence relation and was retracted
+(Section~\ref{sec:twofactor}). The walk-vs-path correction above is the
+natural first refinement for any future attempt.

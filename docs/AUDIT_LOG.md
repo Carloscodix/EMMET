@@ -76,3 +76,46 @@ ordering at the 5th decimal.
   non-stationary (flaky-links) bench the calibrated scar beats all
   memoryless cores, identifying flaky edges with precision 0.69-0.80
   where load statistics reach 0.20. Pre-registered outcomes throughout.
+
+
+## June 11 - External review round 2 and the freshness battery
+
+- **Nine independent reviews** of the v5 manuscript (including the two
+  harshest reviewers of round 1, whose round had surfaced five fatal flaws
+  and preceded a desk rejection). Result: zero undeclared technical flaws
+  in nine readings; the two consensus criticisms were exactly the
+  limitations the paper already states (idealized global state; flow-level
+  granularity). One stale caveat from a pre-fix revision survived in the
+  limitations list, was caught by four readers, and is corrected in v5.1.
+- **Stale-state experiment** (the "single most important experiment this
+  work leaves open", now run): graceful, monotone degradation (+0.44pp at
+  T=2 up to +8.94pp at T=40). Our pre-registered prediction (<0.5pp at
+  T=20) missed the magnitude and is reported as such; the
+  reviewer-predicted resonance failure mode did not appear (oscillation
+  ratio <=1.29 across the sweep). Stale state blinds the core; it does
+  not destabilize it.
+- **Decision-cost benchmark:** physics DP ~0.1x the CONGA-K16 catalogue
+  cost and 5-26x DRILL local sampling, same substrate; 0.07-2.3 ms per
+  flow.
+- **Bursty-arrival stress:** DRILL +0.59pp pooled (p=0.014); 13/15
+  topologies within the 2pp margin; vs CONGA-K16 the core concedes
+  nothing.
+- **Reproducibility bug found and fixed:** a module-level import of the
+  retired momentum layer broke `policy_drill` on a clean clone
+  (`bursty_runner.py`); now guarded so legacy runners fail only if
+  actually invoked.
+
+- **Spatial-visibility experiment (k-hop horizon):** both pre-registered
+  checks held this time: k=2 recovers 63% of the blind-to-global gap
+  (>=50% registered), k=3 recovers 77% (>=66%); at k=3 the core sits
+  +1.75pp from the global view, inside the 2pp margin.
+- **Jain fairness:** the three physics cores land within 0.016 of each
+  other; engineered balancers sit visibly apart. The attractor through a
+  third metric.
+- **Formal appendix added (tube/sp):** faithful definition, three
+  elementary propositions, and the walk-vs-path overcount identified as a
+  mechanical source of the predictor residual -- consistent with
+  scale-free graphs fitting the regression loosest.
+- **Verified citation added:** Alistarh, Nadiradze & Sabour,
+  Algorithmica 2022 (dynamic averaging on graphs), as the conceptual
+  neighbour of the attractor in router-free load-balancing theory.
