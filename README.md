@@ -20,9 +20,9 @@ and nothing else.
 
 The answer turned out to be worth more than the router. Used as
 *independent instruments* on a bench of fifteen topologies (grids,
-small-world, scale-free, and the real GEANT and Abilene backbones), the
-physics cores uncovered **two empirical laws and a taxonomy** about when
-the choice of load-balancing mechanism matters at all.
+small-world, scale-free, and the real GEANT and Abilene backbones), the physics cores uncovered **two empirical laws, a channel taxonomy, and a
+measured deployment envelope** for when the choice of load-balancing
+mechanism matters at all.
 
 Every quantitative claim below maps to a script and a JSON in this
 repository. Nothing is reported that was not stress-tested first.
@@ -124,6 +124,7 @@ The inversions are part of the result, not painted over:
 | Attractor cosine 0.992 | An experiment starved the scar field; fixed, re-run: 0.979, p improved |
 | 15-topology bench | The harness loaded GEANT twice under the "Abilene" label; fixed, 15 genuine |
 | The scar is dead | Mis-calibrated (half-life > simulation) and benched in the wrong regime; redeemed on the flaky bench |
+| Staleness would cost <0.5pp at T=20 (our pre-registered guess) | Missed badly: +7.7pp, reported as-is; the resonance a reviewer predicted did not appear either -- stale state blinds, it does not destabilize |
 
 Full trail in [`docs/AUDIT_LOG.md`](docs/AUDIT_LOG.md) and the commit
 history.
@@ -133,7 +134,7 @@ history.
 ```text
 experiments/   every experiment as a standalone script (python3 experiments/X.py)
 data/          raw per-seed JSONs behind every number in the paper
-paper/         LaTeX sources (paper_v5.tex = current)
+paper/         LaTeX sources (paper_v5.tex = current master, v6 draft)
 docs/          audit log, development notes
 archive/       historical material
 ```
@@ -148,6 +149,16 @@ python3 experiments/causal_capacity_sweep.py # ~6 min
 python3 experiments/newton_redemption.py     # ~8 min
 ```
 
+The deployment-envelope battery (v6):
+
+```bash
+python3 experiments/stale_state.py           # ~3 min  staleness sweep
+python3 experiments/khop_visibility.py       # ~4 min  k-hop visibility
+python3 experiments/bursty_bench.py          # ~5 min  bursty arrivals
+python3 experiments/cpu_bench.py             # ~1 min  per-decision cost
+python3 experiments/jain_fairness.py         # ~8 min  fairness / attractor
+```
+
 Exact commands, runtimes and expected outputs for every claim:
 [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md). Claim-to-data mapping:
 [`RESULTS_MANIFEST.md`](RESULTS_MANIFEST.md).
@@ -156,7 +167,10 @@ Exact commands, runtimes and expected outputs for every claim:
 
 *When Does the Router Matter? A Two-Factor Law and a Structural Attractor
 in Graph Load Balancing, Found Through Classical-Physics Heuristics.*
-LaTeX sources in [`paper/`](paper/). Preprint: arXiv link upcoming.
+Twenty-three pages: six findings, a formal appendix on the tube/sp
+metric, and an operator decision diagram distilled from the law. LaTeX
+sources in [`paper/`](paper/) (master: `paper_v5.tex`, v6 draft).
+Preprint: arXiv link upcoming.
 
 ## Cite
 
