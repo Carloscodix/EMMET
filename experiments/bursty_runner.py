@@ -78,7 +78,12 @@ def run_bursty_conga(G, traf):
         _decay(G)
     return _summary(delivered, losses, nopath, cap_d, cap_l)
 
-from momentum_clean import M_MAX, ALPHA_BUDGET
+try:
+    from momentum_clean import M_MAX, ALPHA_BUDGET
+except ModuleNotFoundError:
+    # momentum layer retired from the public tree; helpers above stay
+    # importable, legacy momentum runners fail loudly only if invoked.
+    M_MAX, ALPHA_BUDGET = None, None
 
 def run_bursty_emmet(G, traf, snap, kappa, n_buckets):
     snap_l = dict(snap)
