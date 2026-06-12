@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{alistarh2022dynamic}
 Dan Alistarh, Giorgi Nadiradze, and Amirmojtaba Sabour.
@@ -13,6 +13,36 @@ Mohammad Alizadeh, Tom Edsall, Sarang Dharmapurikar, Ramanan Vaidyanathan,
 \newblock In {\em Proceedings of the 2014 ACM SIGCOMM Conference}, pages
   503--514, 2014.
 
+\bibitem{alizadeh2010dctcp}
+Mohammad Alizadeh, Albert Greenberg, David~A. Maltz, Jitendra Padhye, Parveen
+  Patel, Balaji Prabhakar, Sudipta Sengupta, and Murari Sridharan.
+\newblock Data center tcp (dctcp).
+\newblock In {\em Proc.\ ACM SIGCOMM}, pages 63--74, 2010.
+
+\bibitem{boyan1994packet}
+Justin~A. Boyan and Michael~L. Littman.
+\newblock Packet routing in dynamically changing networks: A reinforcement
+  learning approach.
+\newblock In {\em Advances in Neural Information Processing Systems (NIPS)},
+  pages 671--678, 1993.
+
+\bibitem{briscoe2014conex}
+Bob Briscoe, Richard Woundy, and Alissa Cooper.
+\newblock Congestion exposure (conex) concepts, abstract mechanism, and
+  requirements.
+\newblock RFC 7713, IETF, 2015.
+
+\bibitem{dicaro1998antnet}
+Gianni Di~Caro and Marco Dorigo.
+\newblock Antnet: Distributed stigmergetic control for communications networks.
+\newblock {\em Journal of Artificial Intelligence Research}, 9:317--365, 1998.
+
+\bibitem{ford2013mptcp}
+Alan Ford, Costin Raiciu, Mark Handley, Olivier Bonaventure, and Christoph
+  Paasch.
+\newblock Tcp extensions for multipath operation with multiple addresses.
+\newblock RFC 8684, IETF, 2020.
+
 \bibitem{drill}
 Soudeh Ghorbani, Zibin Yang, P.~Brighten Godfrey, Yashar Ganjali, and Amin
   Firoozshahian.
@@ -24,5 +54,45 @@ Soudeh Ghorbani, Zibin Yang, P.~Brighten Godfrey, Yashar Ganjali, and Amin
 Christian~E. Hopps.
 \newblock Analysis of an equal-cost multi-path algorithm.
 \newblock {\em RFC 2992, IETF}, 2000.
+
+\bibitem{ietfquicmultipath}
+Managing multiple paths for a {QUIC} connection.
+\newblock Internet-Draft draft-ietf-quic-multipath-21, IETF.
+\newblock Work in Progress.
+
+\bibitem{ji2013delay}
+Bo~Ji, Changhee Joo, and Ness~B. Shroff.
+\newblock Delay-based back-pressure scheduling in multihop wireless networks.
+\newblock {\em IEEE/ACM Transactions on Networking}, 21(5):1539--1552, 2013.
+
+\bibitem{ramakrishnan2001ecn}
+K.~Ramakrishnan, Sally Floyd, and David Black.
+\newblock The addition of explicit congestion notification (ecn) to ip.
+\newblock RFC 3168, IETF, 2001.
+
+\bibitem{tassiulas1992stability}
+Leandros Tassiulas and Anthony Ephremides.
+\newblock Stability properties of constrained queueing systems and scheduling
+  policies for maximum throughput in multihop radio networks.
+\newblock {\em IEEE Transactions on Automatic Control}, 37(12):1936--1948,
+  1992.
+
+\bibitem{tero2010physarum}
+Atsushi Tero, Seiji Takagi, Tetsu Saigusa, Kentaro Ito, Dan~P. Bebber, Mark~D.
+  Fricker, Kenji Yumiki, Ryo Kobayashi, and Toshiyuki Nakagaki.
+\newblock Rules for biologically inspired adaptive network design.
+\newblock {\em Science}, 327(5964):439--442, 2010.
+
+\bibitem{valadarsky2017learning}
+Asaf Valadarsky, Michael Schapira, Dafna Shahaf, and Aviv Tamar.
+\newblock Learning to route.
+\newblock In {\em Proc.\ ACM HotNets-XVI}, pages 185--191, 2017.
+
+\bibitem{xiao2021survey}
+Yang Xiao, Jun Liu, Jiawei Wu, and Nirwan Ansari.
+\newblock Leveraging deep reinforcement learning for traffic engineering: A
+  survey.
+\newblock {\em IEEE Communications Surveys \& Tutorials}, 23(4):2064--2097,
+  2021.
 
 \end{thebibliography}

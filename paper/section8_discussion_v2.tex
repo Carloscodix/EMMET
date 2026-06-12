@@ -34,7 +34,7 @@ We state the boundaries of the claim plainly.
 simulator, not a hardware or packet-level testbed. The simulator captures
 sustained-flow congestion dynamics but abstracts away queueing detail, control-
 loop latency, and the operational cost of maintaining the scar state in a real
-forwarding plane. In particular, micro-bursts---the microsecond-scale queue excursions that DRILL's per-packet reactivity is designed to absorb---do not exist at flow granularity; the equivalence reported against DRILL is therefore established for sustained-flow traffic and is not claimed for the micro-burst regime. A packet-level replication is the natural follow-up.
+forwarding plane. In particular, micro-bursts---the microsecond-scale queue excursions that DRILL's per-packet reactivity is designed to absorb---do not exist at flow granularity; the equivalence reported against DRILL is therefore established for sustained-flow traffic and is not claimed for the micro-burst regime. Testing it requires a packet-level instrument (an ns-3-class simulator or an emulated data plane), outside the scope of the flow-level harness used here.
 \item \textbf{Synthetic demand on real topologies.} An earlier revision of this harness loaded the G\'EANT graph under the Abilene label; the audit and the fix are reported in Section~\ref{sec:equivalence}. Both backbones now run as genuinely independent topologies, but their demand matrices remain synthetic (gravity-style) rather than measured traffic: results on them should be read as topology-faithful, demand-approximate.
 \item \textbf{Predictor, not law.} The tube/sp relationship has $R^2 = 0.60$: a
 strong band, not a deterministic rule, with scale-free topologies fitting
@@ -57,6 +57,14 @@ principle for flow allocation on graphs, of which packet routing is the first
 case. We regard that generalisation as the most interesting direction this work
 opens, and as the proper test of whether the equivalence reported here reflects
 a property of physics or merely a property of networks.
+Two narrower directions emerge from the analysis above but lie beyond, or remain ahead of, the present instrument. An
+\emph{adaptive scar half-life}: an operator does not know failure
+timescales in advance, and a slow meta-controller estimating $T_{1/2}$
+from the recent variance of losses would make the temporal channel
+self-tuning. And a \emph{packet-level replication} targeting the
+micro-burst regime excluded above, ideally on an emulated control plane,
+which would also price the telemetry this paper's simulator grants for
+free.
 
 \subsection{Conclusion}
 
@@ -69,11 +77,3 @@ explicit path enumeration that the physics performs implicitly. Two terms, and a
 condition for when they suffice. That is the whole of it.
 
 
-Two narrower follow-ups are also queued by the analysis above. An
-\emph{adaptive scar half-life}: an operator does not know failure
-timescales in advance, and a slow meta-controller estimating $T_{1/2}$
-from the recent variance of losses would make the temporal channel
-self-tuning. And a \emph{packet-level replication} targeting the
-micro-burst regime excluded above, ideally on an emulated control plane,
-which would also price the telemetry this paper's simulator grants for
-free.
