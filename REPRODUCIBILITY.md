@@ -28,6 +28,7 @@ Paired comparisons share graph, demand and flow schedule per seed.
 | `bursty_bench.py` | ~5 min | bursty-arrival stress |
 | `cpu_bench.py` | ~1 min | per-decision cost benchmark |
 | `jain_fairness.py` | ~8 min | Jain fairness, attractor third lens |
+| `negative_control.py` | ~8 min | harness integrity: identical routers must tie exactly (expect PASS, worst delta 0.0) |
 
 The printed verdict blocks match the paper's numbers to the digits shown.
 Claim-to-data mapping: [`RESULTS_MANIFEST.md`](RESULTS_MANIFEST.md).
