@@ -159,6 +159,14 @@ python3 experiments/cpu_bench.py             # ~1 min  per-decision cost
 python3 experiments/jain_fairness.py         # ~8 min  fairness / attractor
 ```
 
+The code-audit suite (harness integrity):
+
+```bash
+python3 experiments/negative_control.py      # ~8 min  identical-routers control
+```
+
+Method, scope and findings of the code audit: [`docs/CODE_AUDIT.md`](docs/CODE_AUDIT.md).
+
 Exact commands, runtimes and expected outputs for every claim:
 [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md). Claim-to-data mapping:
 [`RESULTS_MANIFEST.md`](RESULTS_MANIFEST.md).

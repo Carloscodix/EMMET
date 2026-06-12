@@ -22,6 +22,7 @@ the raw per-seed data. No claim depends on data outside this repository.
 | Bursty arrivals: DRILL +0.59pp pooled (p=0.014), 13/15 within 2pp; vs CONGA-16 mean -0.74pp n.s., 14/15 within 2pp (freshness) | `experiments/bursty_bench.py` | `data/bursty_bench.json` |
 | Spatial visibility: k-hop horizon recovers 36/63/77% of the blind-to-global gap at k=1/2/3; k=3 sits +1.75pp from global, inside the margin; both pre-registered checks held (freshness) | `experiments/khop_visibility.py` | `data/khop_visibility.json` |
 | Jain fairness of per-edge utilization: physics spread 0.016 (0.581-0.597); DRILL 0.640, CONGA-16 0.710 (attractor) | `experiments/jain_fairness.py` | `data/jain_fairness.json` |
+| Harness integrity: two identical routers bit-identical across all 15 topologies with interleaved DRILL run, worst delta exactly zero (code audit) | `experiments/negative_control.py` | `data/negative_control.json` |
 
 Data files from earlier development phases (bursty, momentum, scalability,
 blood sweeps, ...) remain under `data/` for provenance; they back the

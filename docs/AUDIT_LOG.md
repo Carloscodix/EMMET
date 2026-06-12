@@ -119,3 +119,23 @@ ordering at the 5th decimal.
 - **Verified citation added:** Alistarh, Nadiradze & Sabour,
   Algorithmica 2022 (dynamic averaging on graphs), as the conceptual
   neighbour of the attractor in router-free load-balancing theory.
+
+## 2026-06-12: related-work restoration and code-audit start
+
+- **Coverage regression found and fixed:** the v2 rewrite of the
+  related-work section had silently dropped four literature families
+  present in the original draft (149 lines, 12 citations reduced to 59
+  lines, 4 citations). v3 restores backpressure/queue-gradient,
+  learning-based routing, and per-packet congestion state, with
+  positioning updated to the equivalence framing.
+- **Three citation errors caught by verification before publication:**
+  a survey cited with the wrong year (2020 vs 2021, COMST); multipath
+  QUIC cited as an RFC when it is still an Internet-Draft; and the
+  draft title itself had changed at rev 21. All references now verified
+  against dblp, doi.org or the IETF datatracker.
+- **Future-work hygiene:** every remaining future-work mention is now
+  explicitly one of: done, requires another instrument (stated), or
+  open problem. A misplaced paragraph after the conclusion was moved
+  into the future-work subsection.
+- **Code audit opened (method 3 first):** negative control PASS, see
+  docs/CODE_AUDIT.md.
