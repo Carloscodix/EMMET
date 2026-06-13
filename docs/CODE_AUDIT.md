@@ -16,7 +16,7 @@ Core (everything depends on it): `flowsim.py`, `physics_cores.py`,
 | # | Method | Status |
 |---|---|---|
 | 1 | External adversarial review of the core scripts | in progress |
-| 2 | Invariant test suite (conservation, reset, pairing) | planned |
+| 2 | Invariant test suite (conservation, reset, pairing) | **PASS** |
 | 3 | Negative control: identical routers must tie exactly | **PASS** |
 | 4 | Cross-implementation of metrics (TOST vs statsmodels) | planned |
 | 5 | Baseline fidelity vs published specs (DRILL, CONGA) | planned |
@@ -39,3 +39,12 @@ routers therefore reflects the routers, not the harness.
 
 Script: `experiments/negative_control.py`. Raw data:
 `data/negative_control.json`.
+
+## Method 2: invariant suite (2026-06-12)
+
+Seven invariants, checked across the first four topologies and two
+seeds per policy (shortest, DRILL, EMMET): flow conservation, drop_rate
+range, drop_rate/count consistency, determinism, reset clearing edge
+load, births bounded by schedule entries, and per-tick load reset. All
+pass. Suite: `tests/test_invariants.py` (self-contained, runs without
+pytest).
