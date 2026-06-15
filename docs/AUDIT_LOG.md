@@ -153,3 +153,15 @@ ordering at the 5th decimal.
   moved to `data/_superseded/` with a README. The paper tables are
   backed by post-fix `equivalence_strict_*.json` (20 seeds/topo, per
   RESULTS_MANIFEST); re-running the audit there gives a clean PASS.
+
+## 2026-06-15: baseline fidelity audited (method 5)
+
+- **DRILL and CONGA verified behaviourally** against their published
+  descriptions (Ghorbani 2017; Alizadeh 2014). DRILL samples and picks
+  least-loaded per hop (not a global argmin); CONGA selects the least
+  congested of K shortest paths. Five tests, all pass.
+- **K=4 artefact encoded as a regression test.** Reported results use
+  K=16/32.
+- **Declared limitation:** fidelity is to the published descriptions and
+  the WAN adaptation the paper states, not bit-equivalence with
+  unreleased reference code.

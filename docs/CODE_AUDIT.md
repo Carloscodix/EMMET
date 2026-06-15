@@ -19,7 +19,7 @@ Core (everything depends on it): `flowsim.py`, `physics_cores.py`,
 | 2 | Invariant test suite (conservation, reset, pairing) | **PASS** |
 | 3 | Negative control: identical routers must tie exactly | **PASS** |
 | 4 | Cross-implementation of metrics (TOST vs statsmodels) | **PASS** |
-| 5 | Baseline fidelity vs published specs (DRILL, CONGA) | planned |
+| 5 | Baseline fidelity vs published specs (DRILL, CONGA) | **PASS** |
 | 6 | Seed and pairing audit (RNG isolation) | planned |
 | 7 | Known-answer tests on hand-checkable graphs | planned |
 | 8 | Static analysis (ruff, mypy) | planned |
@@ -58,3 +58,32 @@ backing the paper tables (3 cores x 15 topologies x {DRILL, CONGA},
 90 paired comparisons), all three paths agree on the equivalence
 verdict and the p-values match to ~1e-16 or better. Script:
 `experiments/tost_audit.py`.
+## Method 5: baseline fidelity (2026-06-15)
+
+DRILL (Ghorbani et al., SIGCOMM 2017) is implemented as DRILL[m,1]:
+at each hop it samples up to m candidate next-hops biased toward the
+destination, picks the least loaded by load/capacity, and remembers the
+previous best to damp per-packet oscillation. The paper describes it as
+"a near-stateless balancer that makes per-hop local decisions", which
+matches the code.
+
+CONGA (Alizadeh et al., SIGCOMM 2014) is congestion-aware multipath
+load balancing, originally for leaf-spine datacenter fabrics. Here it
+is adapted to general WAN topologies as a K-shortest-path selector that
+picks the least congested path (ties broken by latency). The paper
+states this plainly: CONGA "scores K shortest paths and selects the
+least congested". This is an adaptation, not a literal datacenter CONGA,
+and is labelled as such; the essence preserved is global congestion-aware
+path choice over a bounded candidate set.
+
+**Lesson encoded:** the K=4 grid artefact (an early result where CONGA
+looked weak because K was too small) is now a regression test: K must
+expose the disjoint paths for CONGA to exploit congestion. The reported
+equivalence uses K=16/32. Five behavioural tests in
+`tests/test_baseline_fidelity.py` confirm both baselines act as
+described; all pass.
+
+**Honest limitation:** behavioural fidelity is verified, not
+bit-equivalence with the authors reference code (not public for either).
+The baselines are faithful to the published *descriptions* and to the
+adaptations the paper declares.
