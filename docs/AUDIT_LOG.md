@@ -220,3 +220,10 @@ the affected numbers:
 - **Net:** code now reproduces; the headline result is verified; the
   observational script is repaired and available but remains the weaker,
   caveated angle it always was.
+
+- **Minor note (non-blocking):** four analysis scripts (partial_perf,
+  divergence_vs_congestion, causal_capacity_sweep, bursty_warmup) run
+  their analysis at import time (no `if __name__` guard). They are
+  single-use command-line scripts, so this affects no paper number;
+  importing one just runs it. Left as-is for now to avoid touching
+  working code before submission; a future cleanup could add guards.
