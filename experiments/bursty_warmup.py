@@ -16,7 +16,7 @@ from emmet_budget import edge_potential, BETA, THETA, reset
 from emmet_momentum_dp import lasp_aug_route, emmet_momentum_dp_route
 from conga_wan import conga_wan_route
 from bursty_traffic import GAP_SENTINEL
-from momentum_clean import M_MAX, ALPHA_BUDGET
+from emmet_momentum_dp import M_MAX, ALPHA_BUDGET
 
 def _decay(G):
     for u, v in G.edges():

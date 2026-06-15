@@ -56,12 +56,14 @@ for t in TOPOS:
         util = {}; dr = []
         for core in PHYS:
             G, _ = build_topo(name, builder, dsrc, s); reset(G)
-            # need drop_rate too: simulate_util_scar returns only util, so use a
-            # parallel scar sim for drop rate
-            G2, _ = build_topo(name, builder, dsrc, s); reset(G2)
-            sim = FS.simulate_flows_scar if core == 'newton' else FS.simulate_flows
-            dr.append(sim(G2, sched, 200, PC.make_physics_policy(core))['drop_rate'])
-            util[core] = simulate_util_scar(G, sched, 200, PC.make_physics_policy(core))
+            # simulate_flows_util returns BOTH drop_rate and the per-edge util
+            # vector in one pass; feed_scar=True keeps Newton-III memory alive
+            # for the scar-reading core, matching simulate_flows_scar.
+            res = FS.simulate_flows_util(G, sched, 200,
+                                         PC.make_physics_policy(core),
+                                         feed_scar=(core == "newton"))
+            dr.append(res["drop_rate"])
+            util[core] = res["util"]
         pp = np.mean([cos2(util['newton'], util['archimedes']),
                       cos2(util['newton'], util['pascal']),
                       cos2(util['archimedes'], util['pascal'])])
