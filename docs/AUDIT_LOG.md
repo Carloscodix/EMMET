@@ -139,3 +139,17 @@ ordering at the 5th decimal.
   into the future-work subsection.
 - **Code audit opened (method 3 first):** negative control PASS, see
   docs/CODE_AUDIT.md.
+
+## 2026-06-13: TOST cross-implementation audit + provenance catch
+
+- **Statistic certified (method 4):** our paired TOST reproduces
+  statsmodels.ttost_paired and the confidence-interval form exactly
+  (p-values to 1e-16) on synthetic data and on all 90 per-seed vectors
+  behind the paper tables. No implementation error.
+- **Stale data artefact caught and quarantined:** the audit first ran
+  against the non-strict `equivalence_*.json`, which disagreed on 4 of
+  15 topologies. Root cause was not the statistic but provenance: those
+  JSONs predate the Abilene fix and are not the paper source. They were
+  moved to `data/_superseded/` with a README. The paper tables are
+  backed by post-fix `equivalence_strict_*.json` (20 seeds/topo, per
+  RESULTS_MANIFEST); re-running the audit there gives a clean PASS.

@@ -18,7 +18,7 @@ Core (everything depends on it): `flowsim.py`, `physics_cores.py`,
 | 1 | External adversarial review of the core scripts | in progress |
 | 2 | Invariant test suite (conservation, reset, pairing) | **PASS** |
 | 3 | Negative control: identical routers must tie exactly | **PASS** |
-| 4 | Cross-implementation of metrics (TOST vs statsmodels) | planned |
+| 4 | Cross-implementation of metrics (TOST vs statsmodels) | **PASS** |
 | 5 | Baseline fidelity vs published specs (DRILL, CONGA) | planned |
 | 6 | Seed and pairing audit (RNG isolation) | planned |
 | 7 | Known-answer tests on hand-checkable graphs | planned |
@@ -48,3 +48,13 @@ range, drop_rate/count consistency, determinism, reset clearing edge
 load, births bounded by schedule entries, and per-tick load reset. All
 pass. Suite: `tests/test_invariants.py` (self-contained, runs without
 pytest).
+## Method 4: cross-implementation of TOST (2026-06-13)
+
+The equivalence statistic in `equivalence.py::tost` was checked against
+two independent paths: the canonical `statsmodels.stats.weightstats.
+ttost_paired`, and the (1-2*alpha) confidence-interval characterisation
+of a 5% TOST. On four synthetic regimes and on every per-seed vector
+backing the paper tables (3 cores x 15 topologies x {DRILL, CONGA},
+90 paired comparisons), all three paths agree on the equivalence
+verdict and the p-values match to ~1e-16 or better. Script:
+`experiments/tost_audit.py`.
