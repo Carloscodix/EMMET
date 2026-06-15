@@ -1,0 +1,13 @@
+# Static-analysis config for the code audit (method 8).
+# Scope: the live code that produces the paper numbers. experiments/archive/
+# holds dead branches and superseded versions, kept for provenance but not
+# linted (their warnings are noise and fixing dead code adds risk for no gain).
+
+extend-exclude = ["experiments/archive"]
+
+[lint]
+# Correctness-focused: Pyflakes (F), bugbear (B), and the comparison/except
+# pitfalls that can actually change behaviour. Style-only rules are not
+# treated as audit findings.
+select = ["F", "B", "E711", "E712", "E714", "E722"]
+ignore = ["F541", "B905"]  # empty f-strings and zip-strict: noise here

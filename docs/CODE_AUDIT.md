@@ -22,7 +22,7 @@ Core (everything depends on it): `flowsim.py`, `physics_cores.py`,
 | 5 | Baseline fidelity vs published specs (DRILL, CONGA) | **PASS** |
 | 6 | Seed and pairing audit (RNG isolation) | **PASS** |
 | 7 | Known-answer tests on hand-checkable graphs | **PASS** |
-| 8 | Static analysis (ruff, mypy) | planned |
+| 8 | Static analysis (ruff, mypy) | **PASS (core) + 1 finding** |
 
 ## Method 3: negative control (2026-06-12)
 
@@ -107,3 +107,10 @@ mutate the shared schedule; and a DRILL run reproduces its solo result
 even after an interleaved EMMET run (its internal RNG does not leak into
 other runs). This complements the negative control, which proved the
 same at the result level. Tests: tests/test_seed_isolation.py.
+## Method 8: static analysis (2026-06-15)
+
+ruff and mypy over the live code (experiments/archive excluded as dead).
+The seven core scripts that produce the paper numbers are clean: ruff
+correctness rules (F, B, comparison pitfalls) report nothing, and mypy
+finds no type issues across the six importable core modules. Config in
+`ruff.toml`.

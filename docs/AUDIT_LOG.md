@@ -182,3 +182,19 @@ ordering at the 5th decimal.
   by a simulation; DRILL reproduces its solo result after an interleaved
   run (RNG does not leak across runs). Complements the negative control
   at the mechanism level. Tests: tests/test_seed_isolation.py.
+
+## 2026-06-15: static analysis (method 8) + reproducibility finding
+
+- **Core is clean:** ruff (correctness rules) and mypy report nothing on
+  the seven scripts that produce the paper numbers. Config in ruff.toml;
+  experiments/archive excluded as dead code.
+- **FINDING (reproducibility, fix before submission):** three scripts in
+  RESULTS_MANIFEST cannot be imported/run as committed, because their
+  dependency momentum_clean was moved to experiments/archive/ in a later
+  cleanup. Affected: sweep_topologies.py, bursty_warmup.py (broken
+  import); divergence_vs_congestion.py (depends on the former + an
+  undefined simulate_util_scar). The numbers they back (tube/sp; the
+  congestion->divergence partial r=+0.92) are in the paper but the code
+  as committed does not reproduce them. Single moved module is the root
+  cause. Fix: restore/re-point dependency, repair the undefined name,
+  regenerate, confirm match.
