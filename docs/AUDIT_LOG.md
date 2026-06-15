@@ -165,3 +165,12 @@ ordering at the 5th decimal.
 - **Declared limitation:** fidelity is to the published descriptions and
   the WAN adaptation the paper states, not bit-equivalence with
   unreleased reference code.
+
+## 2026-06-15: known-answer tests (method 7)
+
+- **Five hand-computed cases** confirm the load/drop mechanic to the
+  tick: under-capacity, full overflow, the exact-capacity boundary
+  (verifying the drop condition is strict >, not >=), a second-hop
+  bottleneck (drop scans the whole path), and TTL lifetime accounting.
+  All pass. The boundary test would catch a systematic off-by-one in
+  every reported drop-rate. Tests: tests/test_known_answer.py.

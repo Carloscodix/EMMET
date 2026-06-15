@@ -21,7 +21,7 @@ Core (everything depends on it): `flowsim.py`, `physics_cores.py`,
 | 4 | Cross-implementation of metrics (TOST vs statsmodels) | **PASS** |
 | 5 | Baseline fidelity vs published specs (DRILL, CONGA) | **PASS** |
 | 6 | Seed and pairing audit (RNG isolation) | planned |
-| 7 | Known-answer tests on hand-checkable graphs | planned |
+| 7 | Known-answer tests on hand-checkable graphs | **PASS** |
 | 8 | Static analysis (ruff, mypy) | planned |
 
 ## Method 3: negative control (2026-06-12)
@@ -87,3 +87,13 @@ described; all pass.
 bit-equivalence with the authors reference code (not public for either).
 The baselines are faithful to the published *descriptions* and to the
 adaptations the paper declares.
+## Method 7: known-answer tests (2026-06-15)
+
+Five tiny graphs with hand-built schedules where served/drop counts are
+worked out by pencil and checked against the simulator, with routes
+forced so only the load/drop mechanic is under test: a single flow under
+capacity, an overflow where all flows drop, the exact-capacity boundary
+(load == capacity must NOT drop, pinning the strict > condition), a
+second-hop bottleneck (drop scans every edge), and exact flow-lifetime
+(TTL) accounting. All five match the arithmetic. Tests:
+`tests/test_known_answer.py`.
