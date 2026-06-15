@@ -174,3 +174,11 @@ ordering at the 5th decimal.
   bottleneck (drop scans the whole path), and TTL lifetime accounting.
   All pass. The boundary test would catch a systematic off-by-one in
   every reported drop-rate. Tests: tests/test_known_answer.py.
+
+## 2026-06-15: seed/pairing isolation (method 6)
+
+- **Four tests confirm the paired design is sound:** gen_flows is
+  deterministic and seed-sensitive; the shared schedule is not mutated
+  by a simulation; DRILL reproduces its solo result after an interleaved
+  run (RNG does not leak across runs). Complements the negative control
+  at the mechanism level. Tests: tests/test_seed_isolation.py.

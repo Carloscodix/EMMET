@@ -20,7 +20,7 @@ Core (everything depends on it): `flowsim.py`, `physics_cores.py`,
 | 3 | Negative control: identical routers must tie exactly | **PASS** |
 | 4 | Cross-implementation of metrics (TOST vs statsmodels) | **PASS** |
 | 5 | Baseline fidelity vs published specs (DRILL, CONGA) | **PASS** |
-| 6 | Seed and pairing audit (RNG isolation) | planned |
+| 6 | Seed and pairing audit (RNG isolation) | **PASS** |
 | 7 | Known-answer tests on hand-checkable graphs | **PASS** |
 | 8 | Static analysis (ruff, mypy) | planned |
 
@@ -97,3 +97,13 @@ capacity, an overflow where all flows drop, the exact-capacity boundary
 second-hop bottleneck (drop scans every edge), and exact flow-lifetime
 (TTL) accounting. All five match the arithmetic. Tests:
 `tests/test_known_answer.py`.
+## Method 6: seed and pairing isolation (2026-06-15)
+
+The equivalence comparisons are paired: per seed, one schedule is built
+once and every router runs it on a freshly rebuilt graph. Four tests
+confirm the isolation that makes the pairing valid: gen_flows is
+deterministic in its seed and sensitive to it; simulate_flows does not
+mutate the shared schedule; and a DRILL run reproduces its solo result
+even after an interleaved EMMET run (its internal RNG does not leak into
+other runs). This complements the negative control, which proved the
+same at the result level. Tests: tests/test_seed_isolation.py.
