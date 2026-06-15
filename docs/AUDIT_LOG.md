@@ -198,3 +198,25 @@ ordering at the 5th decimal.
   as committed does not reproduce them. Single moved module is the root
   cause. Fix: restore/re-point dependency, repair the undefined name,
   regenerate, confirm match.
+
+## 2026-06-15 (cont.): reproducibility finding resolved
+
+The broken import chain from method 8 is fixed (commit above) and, more
+importantly, the scope of the finding was pinned down by regenerating
+the affected numbers:
+
+- **The headline interventional result reproduces exactly.** Re-running
+  causal_capacity_sweep.py gives within-topology Spearman +0.94, +1.00,
+  +1.00, +0.77 (drop vs divergence), matching the paper and the stored
+  causal_sweep.json bit-for-bit. This is the source of the
+  congestion-drives-divergence claim.
+- **The broken script was secondary, not the source of the headline
+  number.** divergence_vs_congestion.py runs an OBSERVATIONAL cross-
+  topology correlation (15 points), which the paper itself flags as the
+  noisy one. The partial r=+0.92 / r=+0.59 dissociation is computed by
+  partial_perf.py (Abilene excluded, n=14, documented in its header) on
+  top of the causal data, not by the broken script. So the paper number
+  never depended on the break.
+- **Net:** code now reproduces; the headline result is verified; the
+  observational script is repaired and available but remains the weaker,
+  caveated angle it always was.

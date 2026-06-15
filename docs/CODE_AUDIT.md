@@ -22,7 +22,7 @@ Core (everything depends on it): `flowsim.py`, `physics_cores.py`,
 | 5 | Baseline fidelity vs published specs (DRILL, CONGA) | **PASS** |
 | 6 | Seed and pairing audit (RNG isolation) | **PASS** |
 | 7 | Known-answer tests on hand-checkable graphs | **PASS** |
-| 8 | Static analysis (ruff, mypy) | **PASS (core) + 1 finding** |
+| 8 | Static analysis (ruff, mypy) | **PASS** (finding resolved) |
 
 ## Method 3: negative control (2026-06-12)
 
@@ -114,3 +114,10 @@ The seven core scripts that produce the paper numbers are clean: ruff
 correctness rules (F, B, comparison pitfalls) report nothing, and mypy
 finds no type issues across the six importable core modules. Config in
 `ruff.toml`.
+
+**Update (resolved):** the import-chain finding is fixed (bursty_warmup
+re-points to emmet_momentum_dp; divergence_vs_congestion uses
+simulate_flows_util). The headline causal result was reproduced exactly
+(Spearman +0.77..+1.00, matching the stored data), confirming it never
+depended on the broken secondary script. All manifest scripts import
+and run.
