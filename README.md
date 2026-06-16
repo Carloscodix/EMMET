@@ -33,8 +33,12 @@ repository. Nothing is reported that was not stress-tested first.
 near-identical per-edge load distributions (cosine 0.979 between physics
 cores vs 0.867 for blind ECMP; Wilcoxon p = 1e-4 on two independent
 metrics). Topology and demand fix most of the outcome; any sensible rule
-descends into the same basin.
-`experiments/attractor_full.py` -> `data/attractor_full.json`
+descends into the same basin. The attractor now has a geometric lemma
+(the physics-vs-blind cosine equals the cut-pinned fraction f, verified
+to <0.01) and a structure-only derivation of f predicting the measured
+similarity (Spearman +0.86).
+`experiments/attractor_full.py`, `experiments/attractor_pinned.py`,
+`experiments/attractor_theorem.py` -> `data/attractor_full.json`
 
 **2. Congestion *causes* mechanism divergence (shown by intervention).**
 Scaling link capacities within fixed topologies — same graph, same demand,
@@ -52,9 +56,11 @@ dictates the *shape* of the divergence curve; structure dictates its
 *amplitude*. The two factors dissociate cleanly: a structural ratio
 (tube/sp) predicts the *gains* of congestion-aware rerouting (partial
 r = +0.59), congestion predicts how much the *mechanism's identity*
-matters (partial r = +0.92).
+matters (partial r = +0.92). The structural law holds out of sample on
+18 unseen SNDlib backbones (r = 0.85), survives shaking the traffic bench
+(7/7 variants), and beats five standard graph predictors.
 `experiments/abilene_relief_sweep.py`, `experiments/partial_perf.py`,
-`experiments/divergence_vs_congestion.py`
+`experiments/bench_a_v3.py`, `experiments/bench_b.py`, `experiments/bench_g.py`
 
 **4. The validated core: gradient + anticipatory threshold.** A force that
 engages *before* loss, above a density threshold, beats the bare substrate
@@ -158,6 +164,20 @@ python3 experiments/bursty_bench.py          # ~5 min  bursty arrivals
 python3 experiments/cpu_bench.py             # ~1 min  per-decision cost
 python3 experiments/jain_fairness.py         # ~8 min  fairness / attractor
 ```
+
+The validation battery (out-of-sample, robustness, attractor theory):
+
+```bash
+python3 experiments/bench_a_v3.py            # ~5 min  law holds on 18 SNDlib backbones (r=0.85)
+python3 experiments/bench_b.py               # ~15 min harness-sensitivity (7/7 variants hold)
+python3 experiments/bench_g.py               # ~1 min  tube/sp beats 5 standard predictors
+python3 experiments/bench_h.py               # ~6 min  electrical baseline (negative, congestion-specific)
+python3 experiments/attractor_pinned.py      # <1 min  pinned-fraction prediction (r=-0.94)
+python3 experiments/attractor_lemma_check.py # <1 min  geometric lemma cos=f
+python3 experiments/attractor_theorem.py     # <1 min  pinned component from structure alone
+python3 experiments/attractor_form.py        # <1 min  hyperbolic functional form of f
+```
+
 
 The code-audit suite (harness integrity):
 

@@ -5,6 +5,12 @@ Parses sndlib-instances-native topology files into a networkx graph plus
 the real demand matrix shipped with each instance. This lets us test the
 two-factor law on backbones never used to fit it, with their OWN demands
 (attacking the demand-approximate caveat), not a synthetic proxy.
+
+DATA: SNDlib instances are NOT redistributed here (SNDlib has its own
+terms of use). Download "sndlib-instances-native" from
+http://sndlib.zib.de and place it at data/real_traffic/sndlib.zip.
+Cite: Orlowski, Pioro, Tomaszewski, Wessaely, "SNDlib 1.0", Networks
+55(3), 2010.
 """
 import re
 import zipfile

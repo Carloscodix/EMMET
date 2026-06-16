@@ -24,7 +24,8 @@ Justin~A. Boyan and Michael~L. Littman.
 \newblock Packet routing in dynamically changing networks: A reinforcement
   learning approach.
 \newblock In {\em Advances in Neural Information Processing Systems (NIPS)},
-  pages 671--678, 1993.
+  volume~6, pages 671--678. Morgan Kaufmann, 1993.
+\newblock No DOI assigned (pre-DOI proceedings).
 
 \bibitem{briscoe2014conex}
 Bob Briscoe, Richard Woundy, and Alissa Cooper.
@@ -58,7 +59,7 @@ Christian~E. Hopps.
 \bibitem{ietfquicmultipath}
 Managing multiple paths for a {QUIC} connection.
 \newblock Internet-Draft draft-ietf-quic-multipath-21, IETF.
-\newblock Work in Progress.
+\newblock Work in Progress; Internet-Drafts are not assigned DOIs.
 
 \bibitem{ji2013delay}
 Bo~Ji, Changhee Joo, and Ness~B. Shroff.

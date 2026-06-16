@@ -31,3 +31,13 @@ notes/
 README.md.*
 logs/
 *.bak
+
+# Third-party datasets (download separately, see experiments/sndlib_parse.py)
+data/real_traffic/sndlib.zip
+# Superseded buggy bench attempts (v3 is canonical)
+data/bench_a_oos.json
+data/bench_a_v2.json
+experiments/bench_a_oos.py
+experiments/bench_a_v2.py
+# Intermediate checkpoints
+data/scalability_phaseB_checkpoint.json

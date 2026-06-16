@@ -1,0 +1,65 @@
+
+% ====================================================================
+% The pinned-component proposition: deriving the attractor size from
+% structure alone. Data check: experiments/attractor_theorem.py
+% ====================================================================
+\subsection{A derivation: the pinned component from structure alone}
+\label{sec:attractor-thm}
+
+The previous subsection measured the pinned component and showed it tracks
+tube/sp. We now derive its size from the graph alone, with no simulation, and
+check the derivation against the measurement.
+
+\paragraph{Setup.} Fix a graph $G$ and demand $D$. A router maps each demand
+pair $(i,j)$ to a unit flow along $i$--$j$ paths, placing load $\ell_r(e)$ on
+edge $e$. Two routers agree on $e$ to the extent that the flow there is forced
+rather than chosen. We make ``forced'' precise per pair.
+
+\paragraph{Per-pair pinning.} Take one pair $(i,j)$ with shortest-path length
+$d_{ij}$, and let $T_{ij}$ be the edges lying on some path of length at most
+$\alpha\,d_{ij}$---the $\alpha$-stretch tube the tube/sp ratio counts. Any
+reasonable router confines the $(i,j)$ flow to $T_{ij}$. If $|T_{ij}|=d_{ij}$
+the tube is a single path: the flow has nowhere to go but those $d_{ij}$ edges
+and every router, blind or not, loads them identically. If $|T_{ij}|>d_{ij}$
+the pair has $|T_{ij}|/d_{ij}$ alternatives over which routers may disagree.
+The forced fraction of the pair's flow is therefore
+$\pi_{ij}=d_{ij}/|T_{ij}|$: one for a bare path, shrinking as the tube widens.
+
+\paragraph{Aggregate.} The pinned component of the whole load distribution is
+the flow-weighted mean of the per-pair pinning, weighting each pair by the
+mass it moves (proportional to $d_{ij}$ under uniform demand):
+\begin{equation}
+\widehat{\pi}(G) \;=\;
+\frac{\sum_{i<j} d_{ij}\,\pi_{ij}}{\sum_{i<j} d_{ij}}
+\;=\;
+\frac{\sum_{i<j} d_{ij}^{\,2}/|T_{ij}|}{\sum_{i<j} d_{ij}}.
+\label{eq:pinned}
+\end{equation}
+This is a pure graph functional: no capacities, no traffic, no router. It is
+also, by construction, a decreasing function of tube/sp---wider tubes mean
+smaller $\pi_{ij}$---so the same structural axis that predicts routing gain
+predicts the attractor's strength.
+
+\paragraph{The derivation matches the measurement.} If the argument is right,
+$\widehat{\pi}(G)$---computed from the graph---should predict the
+physics-versus-blind similarity we actually measured by simulation. It does:
+across the fifteen topologies, $\widehat{\pi}$ correlates with the measured
+phys--ECMP cosine at Spearman $+0.86$ (Pearson $+0.80$, $p<10^{-3}$), a
+structure-only quantity recovering a simulated one. The relationship is
+concave, not linear: as $\widehat{\pi}\!\to\!1$ the cosine saturates against its
+ceiling of one, since a similarity bounded above cannot grow without limit. The
+fit leaves a floor near $0.77$ at $\widehat{\pi}=0$---the residual agreement two
+routers retain from shared graph geometry even when nothing is pinned.
+
+\paragraph{What this is, and is not.} Equation~\eqref{eq:pinned} turns the
+attractor from an observed coincidence into a quantity derivable from the graph:
+the load distribution has a forced part, fixed by the tube geometry of the
+demand pairs, and its size is $\widehat{\pi}(G)$. This is a derivation of the
+attractor's \emph{strength}, not yet a closed bound on the per-router error:
+$\pi_{ij}$ counts tube edges rather than solving the min-cut that would bound
+exactly how much two routers can differ, and the concave link from
+$\widehat{\pi}$ to cosine is fitted, not derived in closed form. What we claim is
+narrower and, we think, sufficient: the attractor's size is a graph functional,
+it is computable without simulating anything, and it predicts the measured
+convergence. The four-way coincidence of Section~\ref{sec:dissociation} has a
+single root we can now write down.
