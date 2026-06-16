@@ -227,3 +227,16 @@ the affected numbers:
   single-use command-line scripts, so this affects no paper number;
   importing one just runs it. Left as-is for now to avoid touching
   working code before submission; a future cleanup could add guards.
+
+## 2026-06-15 (cont.): in-sample +0.59 reproducibility confirmed post-fix
+
+After re-pointing bursty_runner.py off the archived momentum_clean (the
+None bug that would have crashed the ripple runner), the in-sample sweep
+was regenerated from scratch with the live code:
+- reduction% per topology matches the paper ROWS table exactly (all 15
+  bit-identical: Grid5 -6.4, Grid7 +40.4, Grid12 +70.7, ...).
+- raw tube/sp ~ reduction: Pearson +0.719, Spearman +0.776 (n=14,
+  Abilene excluded as in the paper) -- identical to reported values.
+- break-even tube/sp = 2.45, canonical. Regenerated JSON is byte-
+  identical to the committed one: the number was always correct; the bug
+  only threatened future reproducibility, now restored.
