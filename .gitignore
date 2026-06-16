@@ -41,3 +41,6 @@ experiments/bench_a_oos.py
 experiments/bench_a_v2.py
 # Intermediate checkpoints
 data/scalability_phaseB_checkpoint.json
+
+# Voided experiment result (instrument failed its positive control)
+data/bench_a_realdemand.json

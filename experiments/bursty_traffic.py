@@ -81,3 +81,20 @@ def stats(traf):
         burst_max=max(bursts) if bursts else 0,
         burst_min=min(bursts) if bursts else 0,
     )
+
+
+def gen_bursty_weighted(pairs, weights, target_steps, seed):
+    """Like gen_bursty, but each burst's (src,dst) is drawn PROPORTIONAL to a
+    real demand weight instead of uniformly over node pairs. The ONLY thing
+    that changes from gen_bursty is the spatial distribution of demand: the
+    temporal burst/gap structure, flow sizes, and inter-burst silence are
+    identical, so this isolates the effect of real demand vs uniform."""
+    rng = random.Random(seed)
+    out = []
+    while len(out) < target_steps:
+        src, dst = rng.choices(pairs, weights=weights, k=1)[0]
+        n_pkts = sample_flow_size(rng)
+        out.extend([(src, dst)] * n_pkts)
+        n_gap = sample_gap(rng)
+        out.extend([GAP_SENTINEL] * n_gap)
+    return out[:target_steps]
