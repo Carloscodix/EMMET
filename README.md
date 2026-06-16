@@ -195,10 +195,12 @@ Exact commands, runtimes and expected outputs for every claim:
 
 *When Does the Router Matter? A Two-Factor Law and a Structural Attractor
 in Graph Load Balancing, Found Through Classical-Physics Heuristics.*
-Twenty-three pages: six findings, a formal appendix on the tube/sp
-metric, and an operator decision diagram distilled from the law. LaTeX
-sources in [`paper/`](paper/) (master: `paper_v5.tex`, v6 draft).
-Preprint: arXiv link upcoming.
+Twenty-nine pages: six findings, a complexity analysis, the attractor
+theory (a geometric lemma plus a structure-only derivation of its
+strength), out-of-sample and harness-robustness validation, a formal
+appendix on the tube/sp metric, and an operator decision diagram
+distilled from the law. LaTeX sources in [`paper/`](paper/) (master:
+`paper_v5.tex`). Preprint: arXiv link upcoming.
 
 ## Cite
 
