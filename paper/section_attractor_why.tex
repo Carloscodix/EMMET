@@ -51,9 +51,50 @@ structural fact: \emph{the cut structure of the graph, under a fixed demand,
 pins most of the load distribution, and leaves a residual that any
 congestion-aware rule shapes identically}.
 
+\paragraph{The argument makes a measurable prediction, and it holds.} The
+structural claim is not merely interpretive: it predicts the \emph{size} of the
+pinned component as a function of structure. If the attractor is the cut-pinned
+floor, then the similarity between a physical core and a congestion-\emph{blind}
+router (ECMP)---which can share only that floor, having no rule to shape the
+residual---must shrink as tube/sp grows and the residual widens.
+It does, sharply: across the fifteen topologies, physics--ECMP similarity falls
+with tube/sp at Pearson $r=-0.94$ on cosine and $-0.96$ on the $L_1$ measure
+($p<10^{-4}$). The pinned floor ranges from $0.97$ on the most constrained
+backbone (Abilene, tube/sp $2.1$) down to $0.77$ on the richest scale-free
+graph (tube/sp $9.3$).
+The contrast with the physics--physics similarity, which instead \emph{rises}
+with tube/sp ($r=+0.54$), is the signature the mechanism predicts: blind
+similarity isolates the structural floor and decays as that floor shrinks,
+while two congestion-aware cores share the rule that shapes the residual and so
+agree \emph{more} precisely exactly where the residual is large. Two routers
+blind to congestion measure how much the graph decides; two cores that see it
+measure how much the rule decides---the same tube/sp axis governs both, with
+opposite sign.
+
+\paragraph{The argument makes a measurable prediction, and it holds.} The
+structural claim is not merely interpretive: it predicts the \emph{size} of the
+pinned component as a function of structure. If the attractor is the cut-pinned
+floor, then the similarity between a physical core and a congestion-\emph{blind}
+router (ECMP)---which can share only that floor, having no rule to shape the
+residual---must shrink as tube/sp grows and the residual widens.
+It does, sharply: across the fifteen topologies, physics--ECMP similarity falls
+with tube/sp at Pearson $r=-0.94$ on cosine and $-0.96$ on the $L_1$ measure
+($p<10^{-4}$). The pinned floor ranges from $0.97$ on the most constrained
+backbone (Abilene, tube/sp $2.1$) down to $0.77$ on the richest scale-free
+graph (tube/sp $9.3$).
+The contrast with the physics--physics similarity, which instead \emph{rises}
+with tube/sp ($r=+0.54$), is the signature the mechanism predicts: blind
+similarity isolates the structural floor and decays as that floor shrinks,
+while two congestion-aware cores share the rule that shapes the residual and so
+agree \emph{more} precisely exactly where the residual is large. Two routers
+blind to congestion measure how much the graph decides; two cores that see it
+measure how much the rule decides---the same tube/sp axis governs both, with
+opposite sign.
+
 \paragraph{Status of the argument.} This is a structural explanation, not a
-closed theorem: we have not derived the size of the pinned component as a
-function of tube/sp, nor proved convergence rates. We offer it as the mechanism
+closed theorem: we have \emph{measured} the pinned component as a function
+of tube/sp ($r=-0.94$) but not derived that dependence analytically, nor proved
+convergence rates. We offer it as the mechanism
 the evidence points to, and as the conjecture a formal treatment should target.
 What the data establish is the four-way coincidence; what this argument
 provides is a single, testable reason for it.
