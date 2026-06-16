@@ -91,10 +91,40 @@ blind to congestion measure how much the graph decides; two cores that see it
 measure how much the rule decides---the same tube/sp axis governs both, with
 opposite sign.
 
-\paragraph{Status of the argument.} This is a structural explanation, not a
-closed theorem: we have \emph{measured} the pinned component as a function
-of tube/sp ($r=-0.94$) but not derived that dependence analytically, nor proved
-convergence rates. We offer it as the mechanism
-the evidence points to, and as the conjecture a formal treatment should target.
-What the data establish is the four-way coincidence; what this argument
-provides is a single, testable reason for it.
+
+\paragraph{A geometric lemma makes the mechanism exact.} The decay has a
+clean analytic core. Write each router's normalized utilization as
+$u_R = u^\ast + r_R$, where $u^\ast$ is the cut-pinned component every
+feasible routing shares and $r_R$ is the residual the router places on the
+unpinned edges. Let $f := \lVert u^\ast \rVert^2$ be the pinned fraction of
+load energy.
+For two routers whose residuals are mutually orthogonal and orthogonal to
+$u^\ast$---the defining property of \emph{blind} routers, which place their
+residual load without reference to one another---a one-line computation gives
+$\cos(u_A, u_B) = \langle u^\ast + r_A,\, u^\ast + r_B\rangle = \lVert u^\ast
+\rVert^2 + \langle r_A, r_B\rangle = f$, since both totals are unit-norm and the
+residual cross term vanishes. The cosine between two blind routers is, exactly,
+the pinned fraction; finite-edge fluctuations are $O(1/\sqrt{E})$ and negligible
+on backbone-scale graphs. This is why physics--ECMP similarity tracks $f$: ECMP
+spreads load without congestion feedback, so against it the physical core's
+agreement is carried entirely by the shared pinned component.
+ The lemma also predicts its own boundary: a blind router that
+\emph{concentrates} rather than spreads (shortest path) has a residual aligned
+with the core's own short-path preference, breaking the orthogonality
+assumption---and indeed physics--shortest similarity does not track $f$
+(it stays near-flat in tube/sp, $r=+0.46$), while physics--ECMP does
+($r=-0.94$). The mechanism is thus not merely consistent with the data; it
+specifies which control should reveal it and which should not, and both
+predictions hold.
+
+\paragraph{Status of the argument.} Part of this is now proved and part
+remains conjectural, and it is worth being exact about which. The geometric
+lemma---that the physics--blind cosine equals the pinned fraction $f$---is
+established, and its boundary prediction (which control reveals $f$ and which
+does not) is confirmed. What is \emph{not} derived in closed form is the
+dependence $f(\text{tube/sp})$ itself: we measure it to be decreasing and
+near-linear ($r=-0.94$), and argue informally from cut structure why it must
+decrease, but we do not derive its functional form, nor prove convergence rates
+for the cores. The four-way coincidence is what the data establish; the lemma
+turns it into a mechanism with one proven joint; the closed-form
+$f(\text{tube/sp})$ is the conjecture a fuller theory should target.
