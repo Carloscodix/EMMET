@@ -62,6 +62,33 @@ motivated the ratio in the first place. We read the result as the predictor
 doing what a structural predictor should: ordering topologies by how much room
 they leave for routing to matter, on networks it was never fitted to.
 
+
+\subsection{Does the law survive real traffic demand?}
+\label{sec:real-demand}
+
+The out-of-sample test above varies topology while holding the traffic model
+fixed: every backbone is stressed with the same uniform bursty demand. A
+natural objection is that this proves only structural generalization, not that
+the law holds under the lumpy, concentrated demand of an operational network.
+We close that gap directly. Each SNDlib instance ships with its own measured
+demand matrix; we feed it to the same engine that produced the in-sample
+results, drawing each burst's source--destination pair in proportion to the
+real demand volume rather than uniformly. This changes exactly one thing
+relative to the structural test: the spatial distribution of traffic.
+
+The positive control comes first. Run with uniform demand, the engine
+reproduces the structural result on these eighteen backbones (Pearson
+$r=0.849$, Spearman $\rho=0.981$), confirming the instrument is faithful before
+real demand is introduced. With the real demand matrices the two-factor law is
+preserved: tube/sp and loss reduction correlate at Pearson $r=0.767$ and
+Spearman $\rho=0.785$ ($p<10^{-3}$). The coefficient attenuates from the
+uniform-demand value, which is expected---real demand concentrates traffic on
+fewer pairs and leaves the physical core less room to redistribute---but the
+direction and the rank structure hold: high-tube/sp backbones (newyork,
+di-yuan) still reward congestion-aware routing, low-tube/sp backbones still do
+not. The law is a property of the topology that persists when the traffic on it
+is the genuine article, not a uniform proxy.
+
 \subsection{Is the law an artifact of the traffic bench?}
 \label{sec:harness-robustness}
 
