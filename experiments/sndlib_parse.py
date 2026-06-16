@@ -51,15 +51,20 @@ def load(topo):
         if m and m.group(1) in G and m.group(2) in G:
             G.add_edge(m.group(1), m.group(2), latency=1.0, capacity=1, load=0, loss=0)
 
-    # DEMANDS: Demand_x ( A B ) routing vol UNLIMITED
+    # DEMANDS: <id> ( <src> <dst> ) <routing_unit> <volume> <max_path>
+    # Node names contain dots (e.g. ny1.ny); the demand id is not a fixed
+    # keyword, so we key off the parenthesised (src dst) pair followed by an
+    # integer routing unit and a float volume.
     demand = {}
     dem_re = re.compile(r"\(\s*(\S+)\s+(\S+)\s*\)\s+\d+\s+([\d.]+)")
     for line in _section(text, "DEMANDS").strip().splitlines():
-        if not line.strip().startswith("Demand"):
+        line = line.strip()
+        if not line or line.startswith(")"):
             continue
         m = dem_re.search(line)
         if m and m.group(1) in G and m.group(2) in G:
-            demand[(m.group(1), m.group(2))] = float(m.group(3))
+            key = (m.group(1), m.group(2))
+            demand[key] = demand.get(key, 0.0) + float(m.group(3))
     return G, demand
 
 def apply_bench_scheme(G, seed, cap=(2, 4)):
