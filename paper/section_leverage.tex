@@ -61,3 +61,26 @@ graph rather than genuine path richness---the same small-$n$ caveat that
 motivated the ratio in the first place. We read the result as the predictor
 doing what a structural predictor should: ordering topologies by how much room
 they leave for routing to matter, on networks it was never fitted to.
+
+\subsection{Is the law an artifact of the traffic bench?}
+\label{sec:harness-robustness}
+
+A predictor can survive point deletion and out-of-sample graphs yet still be an
+artifact of one traffic regime---the particular burst sizes, spreads, and idle
+gaps our generator happens to produce. Because the harness itself changed once
+during this work, we treat its influence as a hypothesis to test rather than
+assume away. We re-measured the tube/sp--reduction relationship under seven
+perturbations of the burst generator: burst size scaled down and up (lognormal
+$\mu$), its dispersion narrowed and widened (lognormal $\sigma$), and the
+inter-burst gaps made heavier and lighter (Pareto $\alpha$). A positive control
+confirmed the canonical setting reproduces the in-sample relationship
+($r=+0.63$) before any perturbation was trusted.
+
+The direction of the law held in all seven variants, with the correlation
+ranging only over $[+0.53, +0.79]$ and significant throughout. The variants
+that give a congestion-aware rule \emph{more} to do---larger bursts
+($r=+0.75$) and wider spread ($r=+0.79$)---strengthen the relationship rather
+than weaken it, exactly as the mechanism predicts: more contention means more
+of the outcome turns on routing rather than on the fixed structural floor. The
+law is a property of the topologies, not of the bench on which they were
+stressed.
