@@ -7,10 +7,24 @@
 \subsection{How far does the equivalence hold? A margin-sensitivity analysis}
 \label{sec:margin-sensitivity}
 
-An equivalence verdict means nothing without stating the margin, and a margin of
-$\delta = 2$ percentage points of drop rate is generous when many of the drop
-rates in Table~\ref{tab:equivalence} sit between $0$ and $2\%$. We therefore
-re-ran TOST at progressively stricter margins for all three cores. Table~%
+An equivalence verdict means nothing without stating the margin, and the choice
+of $\delta = 2$ percentage points of drop rate deserves justification rather
+than assertion. We anchor it operationally. A drop-rate difference is a
+sustained loss differential: on a $10$\,Gbit/s backbone link under typical load,
+$2$ pp of drop rate is on the order of a few hundred Mbit/s of sustained loss,
+the scale at which a capacity planner provisions additional headroom or treats
+two schemes as materially different. Below that scale the difference is real but
+operationally inert---it disappears into the over-provisioning margin that
+production backbones already carry.
+The $2$ pp margin therefore marks the boundary of \emph{operational}
+equivalence: differences a deployed network would act on, not the finest
+difference a statistical test can resolve. We are explicit that these are
+different claims. At a strict statistical margin the engineered and physical
+schemes are distinguishable; what we show is that across most topologies they
+are \emph{operationally} equivalent, and we now map exactly how far that holds
+as $\delta$ tightens.
+
+We therefore re-ran TOST at progressively stricter margins for all three cores. Table~%
 \ref{tab:margins} reports how many of the fifteen topologies remain equivalent
 to CONGA$_{K=16}$ and DRILL as $\delta$ tightens from $2.0$ to $0.2$ pp.
 
