@@ -1,0 +1,56 @@
+{
+  "results": [
+    {
+      "variant": "canonical",
+      "knob": null,
+      "val": null,
+      "pearson": 0.6329499407706317,
+      "p": 0.015116291488866548
+    },
+    {
+      "variant": "burst_small",
+      "knob": "LOGNORMAL_MU",
+      "val": 0.6931471805599453,
+      "pearson": 0.5931060515222026,
+      "p": 0.025377865995190027
+    },
+    {
+      "variant": "burst_large",
+      "knob": "LOGNORMAL_MU",
+      "val": 1.5040773967762742,
+      "pearson": 0.753685197083659,
+      "p": 0.0018512686880968379
+    },
+    {
+      "variant": "spread_tight",
+      "knob": "LOGNORMAL_SIGMA",
+      "val": 0.7,
+      "pearson": 0.5265271063286009,
+      "p": 0.05307575154957532
+    },
+    {
+      "variant": "spread_wide",
+      "knob": "LOGNORMAL_SIGMA",
+      "val": 1.4,
+      "pearson": 0.7934251096090158,
+      "p": 0.0007071842426749538
+    },
+    {
+      "variant": "gaps_heavy",
+      "knob": "PARETO_ALPHA",
+      "val": 1.2,
+      "pearson": 0.6183263734985563,
+      "p": 0.018422935115986246
+    },
+    {
+      "variant": "gaps_light",
+      "knob": "PARETO_ALPHA",
+      "val": 2.0,
+      "pearson": 0.6118129286569538,
+      "p": 0.020060576561240582
+    }
+  ],
+  "frac_positive": 1.0,
+  "r_min": 0.5265271063286009,
+  "r_max": 0.7934251096090158
+}
