@@ -29,6 +29,18 @@ two-term residue. Second, we frame the outcome as a statistical equivalence
 against strong engineered baselines, rather than as a demonstration that the
 physical method is novel or superior.
 
+\paragraph{Scope of comparison.} We benchmark against CONGA and DRILL because
+they are the state-of-the-art in adaptive, congestion-aware load balancing---the
+exact problem the physical core addresses. Schemes that do not solve that
+problem are out of scope, not because they are unimportant but because they
+answer a different question: shortest-path and ECMP appear only as blind
+references (they ignore congestion by construction), and legacy access or
+medium-arbitration protocols (token passing, spanning-tree-era schemes) are
+not load balancers at all. Equivalence with the best congestion-aware
+balancers is the claim that carries weight; equivalence with a non-adaptive
+scheme would not.
+
+
 \paragraph{Backpressure and queue-gradient methods.}
 Backpressure scheduling~\cite{tassiulas1992stability} and its delay-aware
 refinements~\cite{ji2013delay} route along gradients of per-queue backlog,
