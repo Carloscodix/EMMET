@@ -81,6 +81,21 @@ enough candidates; on a real backbone the two are simply equivalent. In no
 case does the physics need to be cleverer than the engineering---which is
 precisely the claim. Equivalence with parsimony, not dominance.
 
+
+\subsection{Is CONGA a strong enough baseline?}
+\label{sec:baseline-fairness}
+
+A fair comparison can fail in the other direction too: an equivalence verdict is
+only meaningful if the baseline is strong. To rule out the possibility that the
+core merely ties a \emph{weak} CONGA, we ran two congestion-blind routers---load-aware
+shortest path and ECMP---against CONGA on the same operating-point bench. Both lose
+to CONGA, often heavily. On a high-tube/sp backbone CONGA and the physical core tie
+at the best drop rate while load-aware shortest path and ECMP are several times
+worse; on the contested low-tube/sp backbones the blind routers trail CONGA by a
+wide margin. CONGA is a strong baseline in exactly the regime where we claim
+equivalence, so the core's parity with it is parity with the best of the class, not
+with a straw man.
+
 \subsection{A note on auditing one's own results}
 
 We report this audit in full, including the retracted numbers, because the

@@ -111,3 +111,35 @@ than weaken it, exactly as the mechanism predicts: more contention means more
 of the outcome turns on routing rather than on the fixed structural floor. The
 law is a property of the topologies, not of the bench on which they were
 stressed.
+
+\subsection{A second axis: where the core loses on loss, it holds flows steadier}
+\label{sec:stability}
+
+The equivalence verdict is stated in drop rate, and in the low-tube/sp regime the
+physical core loses to CONGA on that metric. Drop rate is not the only axis a
+network cares about: a router that holds each flow on one path imposes far less
+reordering on the transport layer than one that reshuffles packets across paths.
+We instrumented this directly. Within each burst---a maximal run of packets to one
+destination, i.e.\ one flow---we measure the path-change rate: the fraction of
+consecutive intra-flow packets the router sends along a different route.
+It is the simulator-level analogue of TCP packet reordering; a stable router scores
+low, a per-packet reshuffler high. A positive control on a two-route diamond
+confirms the metric separates a deliberately stable router ($0.00$) from a random
+one ($0.53$) before it is trusted.
+
+The result is a clean trade-off, pre-registered and confirmed on held-out seeds.
+In the low-tube/sp band---where the core loses to CONGA on drop---the core changes a
+flow's path far less often than CONGA: a path-change rate of $0.57$ against CONGA's
+$0.83$, with the core steadier on all seven of those topologies.
+Where the core pays in loss it is repaid in stability: CONGA buys its lower drop
+rate by reshuffling flows across candidate paths packet by packet, the behaviour
+that surfaces downstream as reordering. The two schemes are not better and worse on
+one axis; they occupy different points of a loss-versus-stability trade-off.
+
+This stability advantage is itself governed by structure, in the same direction as
+the attractor (Section~\ref{sec:attractor}). In the high-tube/sp band the gap
+shrinks from $0.26$ to $0.07$: where the topology offers slack, every router
+reshuffles to exploit it and the core's steadiness is no longer distinctive. Flow
+stability, like the rest of the law, is a property of the constrained regime---it is
+precisely where topology pins the routers' load distributions that the core also
+pins each flow to its path.
