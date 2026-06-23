@@ -132,8 +132,7 @@ The inversions are part of the result, not painted over:
 | The scar is dead | Mis-calibrated (half-life > simulation) and benched in the wrong regime; redeemed on the flaky bench |
 | Staleness would cost <0.5pp at T=20 (our pre-registered guess) | Missed badly: +7.7pp, reported as-is; the resonance a reviewer predicted did not appear either -- stale state blinds, it does not destabilize |
 
-Full trail in [`docs/AUDIT_LOG.md`](docs/AUDIT_LOG.md) and the commit
-history.
+Full trail in the commit history.
 
 ## Repository map
 
@@ -141,7 +140,6 @@ history.
 experiments/   every experiment as a standalone script (python3 experiments/X.py)
 data/          raw per-seed JSONs behind every number in the paper
 paper/         LaTeX sources (paper_v5.tex = current master, v6 draft)
-docs/          audit log
 ```
 
 ## Reproduce
@@ -184,7 +182,6 @@ The code-audit suite (harness integrity):
 python3 experiments/negative_control.py      # ~8 min  identical-routers control
 ```
 
-Method, scope and findings of the code audit: [`docs/CODE_AUDIT.md`](docs/CODE_AUDIT.md).
 
 Exact commands, runtimes and expected outputs for every claim:
 [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md). Claim-to-data mapping:
