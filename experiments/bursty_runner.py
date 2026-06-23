@@ -197,7 +197,7 @@ def run_bursty_emmet_live(G, traf, snap, kappa, n_buckets, blood_rate=1.0):
 
 def run_bursty_emmet_live_delayed(G, traf, snap, kappa, n_buckets, blood_rate=1.0):
     """EMMET-DP BLOOD LIVE DELAYED: blood is buffered during a burst and
-    flushed to snap_l only when GAP_SENTINEL arrives (Codex P1 fix)."""
+    flushed to snap_l only when GAP_SENTINEL arrives (P1 fix)."""
     from emmet_momentum_dp import emmet_momentum_dp_route
     from emmet_budget import DECAY
     snap_l = dict(snap)
@@ -284,7 +284,7 @@ def run_bursty_emmet_live_archimedes(G, traf, snap, kappa, n_buckets, blood_rate
 
 
 def run_bursty_emmet_live_delayed_archimedes(G, traf, snap, kappa, n_buckets, blood_rate=1.0):
-    """DELAYED with Archimedes-scaled blood (Codex P1 conservative)."""
+    """DELAYED with Archimedes-scaled blood (P1, conservative)."""
     from emmet_momentum_dp import emmet_momentum_dp_route
     from emmet_budget import DECAY
     snap_l = dict(snap)

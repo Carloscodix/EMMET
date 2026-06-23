@@ -141,8 +141,7 @@ history.
 experiments/   every experiment as a standalone script (python3 experiments/X.py)
 data/          raw per-seed JSONs behind every number in the paper
 paper/         LaTeX sources (paper_v5.tex = current master, v6 draft)
-docs/          audit log, development notes
-archive/       historical material
+docs/          audit log
 ```
 
 ## Reproduce

@@ -1,12 +1,12 @@
 """
 leverage_tubesp.py - Cook's distance on the tube/sp regression.
 
-Reviewer (Kimi) flagged: the BA points sit below the regression line; if the
+A reviewer flagged: the BA points sit below the regression line; if the
 correlation depends on a few high-leverage points, the predictor is weak.
 This computes Cook's distance for every topology and reports:
   - the regression with all 15 points
   - leave-one-out: r and slope with each point removed
-  - the regression with the 3 BA points removed (Kimi's specific challenge)
+  - the regression with the 3 BA points removed (the specific challenge)
 So we can state honestly how robust r=0.78 is.
 
 Data: the tube/sp vs reduction% table from the applicability sweep (section 7).

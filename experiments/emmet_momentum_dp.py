@@ -43,15 +43,14 @@ def m_to_bucket(m, m_max=M_MAX, n_buckets=M_BUCKETS):
 
     Uses round() to ensure idempotency: m_to_bucket(bucket_to_m(b)) == b.
     This guarantees that mass cannot decrease through discretization
-    artifacts when traversing zero-congestion edges (Codex finding #1).
+    artifacts when traversing zero-congestion edges.
     """
     if m <= 1.0:
         return 0
     if m >= m_max:
         return n_buckets - 1
     # Linear discretization. Idempotent via half-up rounding
-    # (avoids Python's banker's rounding bias on exact boundaries —
-    # Codex round 3 finding #3).
+    # (avoids Python's banker's rounding bias on exact boundaries).
     x = (m - 1.0) / (m_max - 1.0) * (n_buckets - 1)
     idx = int(math.floor(x + 0.5))
     return max(0, min(n_buckets - 1, idx))
@@ -91,7 +90,6 @@ def emmet_momentum_dp_route(G, src, dst, snap, kappa=KAPPA, m_max=M_MAX,
     # f[h] and parent[h] are dicts keyed by node, each value a list of B buckets.
     # Using dicts (not lists indexed by node value) makes the DP work with
     # arbitrary node labels: strings, non-compact integers, tuples, etc.
-    # Codex round 4 finding #3.
     f      = [{n: [INF]*n_buckets  for n in nodes} for _ in range(k+1)]
     parent = [{n: [None]*n_buckets for n in nodes} for _ in range(k+1)]
 
@@ -118,7 +116,7 @@ def emmet_momentum_dp_route(G, src, dst, snap, kappa=KAPPA, m_max=M_MAX,
                         parent[h][v][b_out] = (u, b_in)
 
     # Find best (h, b) reaching dst (only over finite terminal states).
-    # If no finite terminal state exists, return None (Codex round 4 finding #6).
+    # If no finite terminal state exists, return None.
     best_h, best_b, best_cost = None, None, INF
     for h in range(sp_hops, k+1):
         for b in range(n_buckets):
@@ -252,7 +250,7 @@ def run_one(args):
 
 def aggregate(results):
     """Aggregate prototype run_one results, reporting the same metrics as
-    momentum_clean.aggregate (Codex round 4 finding #4)."""
+    momentum_clean.aggregate."""
     by = {}
     for r in results:
         by.setdefault((r['scenario'], r['kappa']), []).append(r)

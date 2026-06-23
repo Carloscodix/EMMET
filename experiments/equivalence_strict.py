@@ -2,7 +2,7 @@
 equivalence_strict.py - re-run the equivalence bench saving RAW per-seed drop
 rates, then evaluate TOST at several margins (2.0, 1.0, 0.5, 0.2 pp).
 
-Why: reviewers (Gemini, Kimi) flagged that delta=2pp is lax when drop rates sit
+Why: reviewers flagged that delta=2pp is lax when drop rates sit
 between 0-2%. This shows how many equivalences SURVIVE as we tighten the margin.
 The ones that survive delta=0.5pp are the bulletproof ones.
 
